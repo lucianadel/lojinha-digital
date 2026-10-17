@@ -18,6 +18,7 @@ export function AdminProductForm() {
   const navigate = useNavigate();
   const editing = Boolean(id);
   const [product, setProduct] = useState<ProductInput>(emptyForm);
+  const [priceText, setPriceText] = useState("");
   const [categories, setCategories] = useState<Category[]>([]);
   const [file, setFile] = useState<File | null>(null);
   const [filePreview, setFilePreview] = useState("");
@@ -46,6 +47,7 @@ export function AdminProductForm() {
           if (!existing) { setError("Este produto não foi encontrado."); return; }
           const { category: _category, ...values } = existing;
           setProduct({ ...emptyForm, ...values, hotmart_url: values.hotmart_url ?? "" });
+          setPriceText(String(values.price).replace(".", ","));
         } else if (groups.length) {
           setProduct((current) => ({ ...current, category_id: groups[0].id }));
         }
@@ -62,13 +64,16 @@ export function AdminProductForm() {
 
   async function submit(event: FormEvent) {
     event.preventDefault(); setError(""); setSuccess("");
+    if (!/^\d+(?:[.,]\d{1,2})?$/.test(priceText)) { setError("Informe um preço válido com no máximo duas casas decimais."); return; }
+    const price = Number(priceText.replace(",", "."));
+    if (!Number.isFinite(price) || price > 999999.99) { setError("Informe um preço entre R$ 0,00 e R$ 999.999,99."); return; }
     if (!product.category_id) { setError("Cadastre uma categoria antes de salvar o produto."); return; }
     if (product.hotmart_url && !isValidHotmartUrl(product.hotmart_url)) { setError("Informe um link HTTPS válido da Hotmart ou deixe o campo vazio."); return; }
     if (!product.cover_alt.trim() && (file || product.cover_url)) { setError("Informe um texto alternativo para a capa."); return; }
     setSaving(true);
     try {
       const coverUrl = file ? await uploadCover(file) : product.cover_url;
-      const input: ProductInput = { ...product, cover_url: coverUrl, hotmart_url: product.hotmart_url?.trim() || null, title: product.title.trim(), slug: slugify(product.slug || product.title), cover_alt: product.cover_alt.trim() };
+      const input: ProductInput = { ...product, price, cover_url: coverUrl, hotmart_url: product.hotmart_url?.trim() || null, title: product.title.trim(), slug: slugify(product.slug || product.title), cover_alt: product.cover_alt.trim() };
       const saved = await saveProduct(input, id);
       setSuccess("Produto salvo com sucesso.");
       navigate("/admin/produtos", { replace: true, state: { notice: saved.status === "published" ? "Produto publicado com sucesso." : "Rascunho salvo com sucesso." } });
@@ -96,12 +101,12 @@ export function AdminProductForm() {
         </div>
         <div className="form-section"><h2>Checkout e preço</h2><p>As compras acontecem somente no checkout individual da Hotmart.</p>
           <label>Link de checkout Hotmart<input type="url" value={product.hotmart_url ?? ""} onChange={(e) => update("hotmart_url", e.target.value)} placeholder="https://pay.hotmart.com/..." /><small>Sem link válido, o botão de compra ficará indisponível na loja.</small></label>
-          <label>Preço (R$)<input type="number" min="0" max="999999.99" step="0.01" required value={product.price} onChange={(e) => update("price", Number(e.target.value))} /></label>
+          <label>Preço (R$)<input type="text" inputMode="decimal" required value={priceText} onChange={(e) => setPriceText(e.target.value)} /></label>
         </div>
       </div>
       <aside className="editor-aside">
         <div className="admin-panel-card form-section"><h2>Publicação</h2><label>Status<select value={product.status} onChange={(e) => update("status", e.target.value as ProductStatus)}><option value="draft">Rascunho</option><option value="published">Publicado</option></select></label><label>Categoria<select required value={product.category_id} onChange={(e) => update("category_id", e.target.value)}><option value="">Escolha uma categoria</option>{categories.map((item) => <option key={item.id} value={item.id}>{item.name}</option>)}</select></label><label className="checkbox-field"><input type="checkbox" checked={product.featured} onChange={(e) => update("featured", e.target.checked)} /><span>Destacar na página inicial</span></label><Link to="/admin/categorias" className="inline-link">Gerenciar categorias <ArrowLeft size={15} /></Link></div>
-        <div className="admin-panel-card preview-card"><span className="eyebrow">PRÉ-VISUALIZAÇÃO</span><div className="preview-product-image">{file ? <img src={filePreview} alt="" /> : product.cover_url ? <img src={product.cover_url} alt="" /> : <div className="cover-fallback"><ImagePlus size={24} /></div>}</div><h3>{product.title || "Nome do produto"}</h3><p>{product.short_description || "A descrição curta aparece aqui."}</p><strong>R$ {Number(product.price || 0).toFixed(2).replace(".", ",")}</strong><button type="button" className="button button-disabled full-width" disabled>{isValidHotmartUrl(product.hotmart_url) ? "Comprar agora pela Hotmart" : "Compra indisponível"}</button></div>
+        <div className="admin-panel-card preview-card"><span className="eyebrow">PRÉ-VISUALIZAÇÃO</span><div className="preview-product-image">{file ? <img src={filePreview} alt="" /> : product.cover_url ? <img src={product.cover_url} alt="" /> : <div className="cover-fallback"><ImagePlus size={24} /></div>}</div><h3>{product.title || "Nome do produto"}</h3><p>{product.short_description || "A descrição curta aparece aqui."}</p><strong>R$ {/^(\d+)(?:[.,]\d{0,2})?$/.test(priceText) ? `${priceText.split(/[.,]/)[0]},${(priceText.split(/[.,]/)[1] ?? "").padEnd(2, "0")}` : "0,00"}</strong><button type="button" className="button button-disabled full-width" disabled>{isValidHotmartUrl(product.hotmart_url) ? "Comprar agora pela Hotmart" : "Compra indisponível"}</button></div>
         <button className="button button-dark full-width save-button" disabled={saving} type="submit"><Save size={17} />{saving ? "Salvando..." : "Salvar produto"}</button>
         {success && <p className="form-success" role="status">{success}</p>}
       </aside>
