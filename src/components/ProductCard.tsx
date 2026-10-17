@@ -1,6 +1,6 @@
 import { ArrowUpRight } from "lucide-react";
 import { Link } from "react-router-dom";
-import { formatPrice } from "../lib/format";
+import { descriptionToText, formatPrice } from "../lib/format";
 import type { Product } from "../types";
 
 export function ProductCard({ product }: { product: Product }) {
@@ -13,7 +13,7 @@ export function ProductCard({ product }: { product: Product }) {
       <div className="product-info">
         {product.category && <span className="eyebrow">{product.category.name}</span>}
         <h3><Link to={`/produto/${product.slug}`}>{product.title}</Link></h3>
-        <p>{product.short_description}</p>
+        <p>{descriptionToText(product.short_description)}</p>
         <div className="product-card-bottom"><strong>{formatPrice(product.price)}</strong><Link to={`/produto/${product.slug}`} aria-label={`Conhecer ${product.title}`} className="round-link"><ArrowUpRight size={18} /></Link></div>
       </div>
     </article>
