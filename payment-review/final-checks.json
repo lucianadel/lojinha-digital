@@ -1,0 +1,20 @@
+{
+  "automatedTests": 236,
+  "testFiles": 28,
+  "databaseChecksInMemory": 33,
+  "build": "passed",
+  "browser": "simulated APIs; synthetic PDF only; desktop and mobile passed",
+  "dependencyVulnerabilities": 0,
+  "paidPdfFilesUploaded": 0,
+  "realCharges": 0,
+  "realEmailsSent": 0,
+  "productionMigrationsExecuted": 0,
+  "sourcePdfFiles": 65,
+  "logicalKits": 63,
+  "validatedSourceMappings": 63,
+  "verifiedProductIdsFromPublicRead": 10,
+  "productIdsPendingAdminRead": 53,
+  "ambiguousVersionChoices": 2,
+  "realMercadoPagoTests": "not run; account and sandbox setup required",
+  "productionReadiness": "not activated; pending approvals"
+}

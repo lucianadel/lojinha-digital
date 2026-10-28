@@ -1,0 +1,19 @@
+﻿# Server-only payment configuration — examples contain no credentials.
+# Configure privately in Vercel Preview first. Never use a VITE_ prefix for secrets.
+SITE_URL=
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+SUPABASE_SECRET_KEY=
+# Alternative for a legacy project: SUPABASE_SERVICE_ROLE_KEY (backend only).
+MP_ACCESS_TOKEN=
+MP_WEBHOOK_SECRET=
+MP_SELLER_ID=
+MP_APPLICATION_ID=
+PURCHASE_PROOF_SECRET=
+RESEND_API_KEY=
+PURCHASE_EMAIL_FROM=
+MP_ENVIRONMENT=test
+MP_PILOT_SLUG=kids-animais-para-colorir
+PAYMENTS_ENABLED=false
+PRIVATE_PDF_UPLOADS_ENABLED=false
+ALLOW_LIVE_PAYMENTS=false

@@ -109,15 +109,15 @@ export function AdminProductForm() {
         </div>
         <div className="form-section"><h2>Compra e preço</h2><p>Escolha como este produto será comprado.</p>
           <label>Forma de compra<select value={product.purchase_method} onChange={(e) => {
-            const method = e.target.value as "hotmart" | "whatsapp";
+            const method = e.target.value as "hotmart" | "whatsapp" | "mercado_pago";
             setProduct((current) => ({
               ...current,
               purchase_method: method,
               whatsapp_number: method === "whatsapp" && !current.whatsapp_number?.trim()
                 ? DEFAULT_SALES_WHATSAPP_NUMBER : current.whatsapp_number,
             }));
-          }}><option value="hotmart">Hotmart</option><option value="whatsapp">WhatsApp</option></select></label>
-          {product.purchase_method === "whatsapp" ? <label>Número do WhatsApp<input type="tel" required value={product.whatsapp_number ?? ""} onChange={(e) => update("whatsapp_number", e.target.value)} placeholder="Código do país, DDD e número" /><small>O número inicial da loja pode ser alterado para este produto. Inclua código do país e DDD.</small></label> : <label>Link de checkout Hotmart<input type="url" value={product.hotmart_url ?? ""} onChange={(e) => update("hotmart_url", e.target.value)} placeholder="https://pay.hotmart.com/..." /><small>Sem link válido, o botão de compra ficará indisponível na loja.</small></label>}
+          }}><option value="hotmart">Hotmart</option><option value="whatsapp">WhatsApp</option><option value="mercado_pago">Mercado Pago — PDF automático</option></select></label>
+          {product.purchase_method === "mercado_pago" ? <p>Associe e verifique o PDF privado em Materiais e pagamentos antes de ativar a venda. A primeira etapa permite somente o Kit Animais para Colorir, 72 atividades, R$ 9,90, em ambiente de teste. A forma de compra atual dos outros produtos permanece inalterada. Antes de publicar, revise eventuais instruções antigas de entrega pelo WhatsApp na descrição; nenhum texto será alterado automaticamente.</p> : product.purchase_method === "whatsapp" ? <label>Número do WhatsApp<input type="tel" required value={product.whatsapp_number ?? ""} onChange={(e) => update("whatsapp_number", e.target.value)} placeholder="Código do país, DDD e número" /><small>O número inicial da loja pode ser alterado para este produto. Inclua código do país e DDD.</small></label> : <label>Link de checkout Hotmart<input type="url" value={product.hotmart_url ?? ""} onChange={(e) => update("hotmart_url", e.target.value)} placeholder="https://pay.hotmart.com/..." /><small>Sem link válido, o botão de compra ficará indisponível na loja.</small></label>}
           <label>Preço (R$)<input type="text" inputMode="decimal" required value={priceText} onChange={(e) => setPriceText(e.target.value)} /></label>
         </div>
       </div>

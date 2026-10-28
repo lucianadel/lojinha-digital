@@ -1,0 +1,1599 @@
+{
+  "kits": [
+    {
+      "title": "Kit Alfabeto Ilustrado e Fichas — 100 atividades",
+      "sourceTitle": "Kit Alfabeto Ilustrado e Fichas",
+      "slug": "kids-alfabeto-ilustrado-e-fichas",
+      "matchKeys": [
+        "kidsalfabetoilustradoefichas",
+        "kitalfabetoilustradoefichas",
+        "kitalfabetoilustradoefichas100atividades"
+      ],
+      "reviewKeys": [
+        "alfabetoilustradoefichas"
+      ],
+      "activities": 100,
+      "pages": 101,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "4104cc12f3f406621d3e60d776e923c797e6ed8bd4f857f26bc30ed53b840725",
+          "bytes": 5041158,
+          "name": "Kit Alfabeto Ilustrado e Fichas.pdf",
+          "pages": 101
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Alfabeto e Letras — 426 atividades",
+      "sourceTitle": "Kit Alfabeto e Letras",
+      "slug": "kids-alfabeto-e-letras",
+      "matchKeys": [
+        "kidsalfabetoeletras",
+        "kitalfabetoeletras",
+        "kitalfabetoeletras426atividades"
+      ],
+      "reviewKeys": [
+        "alfabetoeletras"
+      ],
+      "activities": 426,
+      "pages": 427,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "4d663cd9591ac9d9de6f13b16d13819ea001aad010e5780577f59040274478ee",
+          "bytes": 6222108,
+          "name": "Kit Alfabeto e Letras.pdf",
+          "pages": 427
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Caça-Letras — 416 atividades",
+      "sourceTitle": "Kit Caça-Letras",
+      "slug": "kids-caca-letras",
+      "matchKeys": [
+        "kidscacaletras",
+        "kitcacaletras",
+        "kitcacaletras416atividades"
+      ],
+      "reviewKeys": [
+        "cacaletras"
+      ],
+      "activities": 416,
+      "pages": 417,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "bc5d655278ab2e152ad239b37d1ea558298835ec82de9b1a05b3df6a819aa186",
+          "bytes": 1211092,
+          "name": "Kit Caça-Letras.pdf",
+          "pages": 417
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Caça-Palavras Ilustrados — 1080 atividades",
+      "sourceTitle": "Kit Caça-Palavras Ilustrados",
+      "slug": "kids-caca-palavras-ilustrados",
+      "matchKeys": [
+        "kidscacapalavrasilustrados",
+        "kitcacapalavrasilustrados",
+        "kitcacapalavrasilustrados1080atividades"
+      ],
+      "reviewKeys": [
+        "cacapalavrasilustrados"
+      ],
+      "activities": 1080,
+      "pages": 1081,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "a26256d23b70cc9b8e853e8849babdd7c9d6284dd9b21afefe691f3a96b38dac",
+          "bytes": 8814670,
+          "name": "Kit Caça-Palavras Ilustrados.pdf",
+          "pages": 1081
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Cruzadinhas Ilustradas — 1000 atividades",
+      "sourceTitle": "Kit Cruzadinhas Ilustradas",
+      "slug": "kids-cruzadinhas-ilustradas",
+      "matchKeys": [
+        "kidscruzadinhasilustradas",
+        "kitcruzadinhasilustradas",
+        "kitcruzadinhasilustradas1000atividades"
+      ],
+      "reviewKeys": [
+        "cruzadinhasilustradas"
+      ],
+      "activities": 1000,
+      "pages": 1001,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "2bc93989ac2177fa2e3f86bd7b14e105b3488c7b91cd8736ae461f5deed64e33",
+          "bytes": 7379645,
+          "name": "Kit Cruzadinhas Ilustradas.pdf",
+          "pages": 1001
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Escreva o Nome e Ordem Alfabética — 1000 atividades",
+      "sourceTitle": "Kit Escreva o Nome e Ordem Alfabética",
+      "slug": "kids-escreva-o-nome-e-ordem-alfabetica",
+      "matchKeys": [
+        "kidsescrevaonomeeordemalfabetica",
+        "kitescrevaonomeeordemalfabetica",
+        "kitescrevaonomeeordemalfabetica1000atividades"
+      ],
+      "reviewKeys": [
+        "escrevaonomeeordemalfabetica"
+      ],
+      "activities": 1000,
+      "pages": 1001,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "59df6b47c15b7b5be005379c513cc4fd17395fa4e68342eaa4a929f59662d75f",
+          "bytes": 7448019,
+          "name": "Kit Escreva o Nome e Ordem Alfabética.pdf",
+          "pages": 1001
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Famílias Silábicas — 460 atividades",
+      "sourceTitle": "Kit Famílias Silábicas",
+      "slug": "kids-familias-silabicas",
+      "matchKeys": [
+        "kidsfamiliassilabicas",
+        "kitfamiliassilabicas",
+        "kitfamiliassilabicas460atividades"
+      ],
+      "reviewKeys": [
+        "familiassilabicas"
+      ],
+      "activities": 460,
+      "pages": 461,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "67fed037422aac003e0360ff748179ab82c4524bce2f8bdf7850bad46cf05800",
+          "bytes": 6397812,
+          "name": "Kit Famílias Silábicas.pdf",
+          "pages": 461
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Letra Cursiva — 684 atividades",
+      "sourceTitle": "Kit Letra Cursiva",
+      "slug": "kids-letra-cursiva",
+      "matchKeys": [
+        "kidsletracursiva",
+        "kitletracursiva",
+        "kitletracursiva684atividades"
+      ],
+      "reviewKeys": [
+        "letracursiva"
+      ],
+      "activities": 684,
+      "pages": 685,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "938c93babac9c5aeb86a1112f34cc653a69e938d1dc6d5d442a0d40f8337b3a6",
+          "bytes": 5990162,
+          "name": "Kit Letra Cursiva.pdf",
+          "pages": 685
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Letras e Vogais — 900 atividades",
+      "sourceTitle": "Kit Letras e Vogais",
+      "slug": "kids-letras-e-vogais",
+      "matchKeys": [
+        "kidsletrasevogais",
+        "kitletrasevogais",
+        "kitletrasevogais900atividades"
+      ],
+      "reviewKeys": [
+        "letrasevogais"
+      ],
+      "activities": 900,
+      "pages": 901,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "138bc93979e340b452a4c80d92edd83aa1cef4d73dd67bfd81f6f97adb56a4c6",
+          "bytes": 8636554,
+          "name": "Kit Letras e Vogais.pdf",
+          "pages": 901
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Ligue a Figura ao Nome — 600 atividades",
+      "sourceTitle": "Kit Ligue a Figura ao Nome",
+      "slug": "kids-ligue-a-figura-ao-nome",
+      "matchKeys": [
+        "kidsligueafiguraaonome",
+        "kitligueafiguraaonome",
+        "kitligueafiguraaonome600atividades"
+      ],
+      "reviewKeys": [
+        "ligueafiguraaonome"
+      ],
+      "activities": 600,
+      "pages": 601,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "f7091079ba41f4b530dfb7f23a78824de36262ab1e7146ab15a0393b44ee01b6",
+          "bytes": 7057052,
+          "name": "Kit Ligue a Figura ao Nome.pdf",
+          "pages": 601
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Sílabas 1: Complete e Forme Palavras — 700 atividades",
+      "sourceTitle": "Kit Sílabas 1: Complete e Forme Palavras",
+      "slug": "kids-silabas-1-complete-e-forme-palavras",
+      "matchKeys": [
+        "kidssilabas1completeeformepalavras",
+        "kitsilabas1completeeformepalavras",
+        "kitsilabas1completeeformepalavras700atividades"
+      ],
+      "reviewKeys": [
+        "silabas1completeeformepalavras"
+      ],
+      "activities": 700,
+      "pages": 701,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "fa2ada3166d5995cf57f164183c4f1d7e639098acf0472aab6071386b3905175",
+          "bytes": 7066303,
+          "name": "Kit Sílabas 1 - Complete e Forme Palavras.pdf",
+          "pages": 701
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Sílabas 2: Separe e Conte — 650 atividades",
+      "sourceTitle": "Kit Sílabas 2: Separe e Conte",
+      "slug": "kids-silabas-2-separe-e-conte",
+      "matchKeys": [
+        "kidssilabas2separeeconte",
+        "kitsilabas2separeeconte",
+        "kitsilabas2separeeconte650atividades"
+      ],
+      "reviewKeys": [
+        "silabas2separeeconte"
+      ],
+      "activities": 650,
+      "pages": 651,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "a8d633c5325fad6dfd754b5b53a2bdb672f4d260f85a63a591c343100b2f18a7",
+          "bytes": 7740519,
+          "name": "Kit Sílabas 2 - Separe e Conte.pdf",
+          "pages": 651
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Treino de Escrita: 258 Palavras — 258 atividades",
+      "sourceTitle": "Kit Treino de Escrita: 258 Palavras",
+      "slug": "kids-treino-de-escrita-258-palavras",
+      "matchKeys": [
+        "kidstreinodeescrita258palavras",
+        "kittreinodeescrita258palavras",
+        "kittreinodeescrita258palavras258atividades"
+      ],
+      "reviewKeys": [
+        "treinodeescrita258palavras"
+      ],
+      "activities": 258,
+      "pages": 259,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "037d9075878bbe4858d99cb007bd59a53c948880175c67d231355f52b3696f92",
+          "bytes": 5347889,
+          "name": "Kit Treino de Escrita - 258 Palavras.pdf",
+          "pages": 259
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Carnaval — 196 atividades",
+      "sourceTitle": "Kit Carnaval",
+      "slug": "kids-carnaval",
+      "matchKeys": [
+        "kidscarnaval",
+        "kitcarnaval",
+        "kitcarnaval196atividades"
+      ],
+      "reviewKeys": [
+        "carnaval"
+      ],
+      "activities": 196,
+      "pages": 197,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "407cc606abca3264008f2206b407a7e5c60e6b34260444afdc750096ed009c05",
+          "bytes": 801586,
+          "name": "Kit Carnaval.pdf",
+          "pages": 197
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Dia das Crianças — 196 atividades",
+      "sourceTitle": "Kit Dia das Crianças",
+      "slug": "kids-dia-das-criancas",
+      "matchKeys": [
+        "kidsdiadascriancas",
+        "kitdiadascriancas",
+        "kitdiadascriancas196atividades"
+      ],
+      "reviewKeys": [
+        "diadascriancas"
+      ],
+      "activities": 196,
+      "pages": 197,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "e0c3adb8a008f78118afecae9d6bb402e9d12a69abacc8b02f2b54e116a63da7",
+          "bytes": 822227,
+          "name": "Kit Dia das Crianças.pdf",
+          "pages": 197
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Dia das Mães — 196 atividades",
+      "sourceTitle": "Kit Dia das Mães",
+      "slug": "kids-dia-das-maes",
+      "matchKeys": [
+        "kidsdiadasmaes",
+        "kitdiadasmaes",
+        "kitdiadasmaes196atividades"
+      ],
+      "reviewKeys": [
+        "diadasmaes"
+      ],
+      "activities": 196,
+      "pages": 197,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "3da5984427f9bf04efa5265ff4b8cd4ec94081701d44f31737c7d920caa63a1f",
+          "bytes": 788678,
+          "name": "Kit Dia das Mães.pdf",
+          "pages": 197
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Festa Junina — 196 atividades",
+      "sourceTitle": "Kit Festa Junina",
+      "slug": "kids-festa-junina",
+      "matchKeys": [
+        "kidsfestajunina",
+        "kitfestajunina",
+        "kitfestajunina196atividades"
+      ],
+      "reviewKeys": [
+        "festajunina"
+      ],
+      "activities": 196,
+      "pages": 197,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "dddb48081befedaf56d8aed75111854dcefa4f882d44cef41037ff089c554b6f",
+          "bytes": 840418,
+          "name": "Kit Festa Junina.pdf",
+          "pages": 197
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Folclore — 196 atividades",
+      "sourceTitle": "Kit Folclore",
+      "slug": "kids-folclore",
+      "matchKeys": [
+        "kidsfolclore",
+        "kitfolclore",
+        "kitfolclore196atividades"
+      ],
+      "reviewKeys": [
+        "folclore"
+      ],
+      "activities": 196,
+      "pages": 197,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "ab9f0b4a50e6b4d4e659df15cbff3b886e30cf45e6b04ea4ec4e48bbd8d3dcc1",
+          "bytes": 757482,
+          "name": "Kit Folclore.pdf",
+          "pages": 197
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Meio Ambiente — 196 atividades",
+      "sourceTitle": "Kit Meio Ambiente",
+      "slug": "kids-meio-ambiente",
+      "matchKeys": [
+        "kidsmeioambiente",
+        "kitmeioambiente",
+        "kitmeioambiente196atividades"
+      ],
+      "reviewKeys": [
+        "meioambiente"
+      ],
+      "activities": 196,
+      "pages": 197,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "ba047e650bd7ab6f08fb25ba9f5fd28b496f9b85beffefc993b64a426bc587ea",
+          "bytes": 759314,
+          "name": "Kit Meio Ambiente.pdf",
+          "pages": 197
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Natal — 198 atividades",
+      "sourceTitle": "Kit Natal",
+      "slug": "kids-natal",
+      "matchKeys": [
+        "kidsnatal",
+        "kitnatal",
+        "kitnatal198atividades"
+      ],
+      "reviewKeys": [],
+      "activities": 198,
+      "pages": 199,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "ff6163263705cfe0f0a2542c38ffa035f17ddb5493c56f087895188962380d64",
+          "bytes": 837700,
+          "name": "Kit Natal.pdf",
+          "pages": 199
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Primavera — 196 atividades",
+      "sourceTitle": "Kit Primavera",
+      "slug": "kids-primavera",
+      "matchKeys": [
+        "kidsprimavera",
+        "kitprimavera",
+        "kitprimavera196atividades"
+      ],
+      "reviewKeys": [
+        "primavera"
+      ],
+      "activities": 196,
+      "pages": 197,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "4c22d871f5370619db4fdf3f1f87487a27fbb0286cb76508633d1ca3e9d7932f",
+          "bytes": 845217,
+          "name": "Kit Primavera.pdf",
+          "pages": 197
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Páscoa — 196 atividades",
+      "sourceTitle": "Kit Páscoa",
+      "slug": "kids-pascoa",
+      "matchKeys": [
+        "kidspascoa",
+        "kitpascoa",
+        "kitpascoa196atividades"
+      ],
+      "reviewKeys": [
+        "pascoa"
+      ],
+      "activities": 196,
+      "pages": 197,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "b2a7f257a95ac985f075a150de80c1264a7f2a1c7618b5bf8730d4306fb98faa",
+          "bytes": 763930,
+          "name": "Kit Páscoa.pdf",
+          "pages": 197
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Volta às Aulas — 198 atividades",
+      "sourceTitle": "Kit Volta às Aulas",
+      "slug": "kids-volta-as-aulas",
+      "matchKeys": [
+        "kidsvoltaasaulas",
+        "kitvoltaasaulas",
+        "kitvoltaasaulas198atividades"
+      ],
+      "reviewKeys": [
+        "voltaasaulas"
+      ],
+      "activities": 198,
+      "pages": 199,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "ee1db5bd066cd0befbdc87852574be6102c66c300d077841c86dd70430ed413f",
+          "bytes": 847905,
+          "name": "Kit Volta às Aulas.pdf",
+          "pages": 199
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Alimentos para Colorir — 51 atividades",
+      "sourceTitle": "Kit Colorir: Alimentos",
+      "slug": "kids-alimentos-para-colorir",
+      "matchKeys": [
+        "kidsalimentosparacolorir",
+        "kitalimentosparacolorir",
+        "kitalimentosparacolorir51atividades",
+        "kitcoloriralimentos"
+      ],
+      "reviewKeys": [
+        "alimentos"
+      ],
+      "activities": 51,
+      "pages": 52,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "39fb35c005cdbcf7d101217eb83174c31a4e47ec16cb117ed69234610a21f1ed",
+          "bytes": 1138281,
+          "name": "Kit Colorir - Alimentos.pdf",
+          "pages": 52
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Animais para Colorir — 72 atividades",
+      "sourceTitle": "Kit Colorir: Animais",
+      "slug": "kids-animais-para-colorir",
+      "matchKeys": [
+        "kidsanimaisparacolorir",
+        "kitanimaisparacolorir",
+        "kitanimaisparacolorir72atividades",
+        "kitcoloriranimais"
+      ],
+      "reviewKeys": [
+        "animais"
+      ],
+      "activities": 72,
+      "pages": 73,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "69f127c2731629893fbdaae391fc308a6422b36935f1e8536e8d1771f9a3a4c6",
+          "bytes": 1589537,
+          "name": "Kit Colorir - Animais.pdf",
+          "pages": 73
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Brinquedos e Música para Colorir — 20 atividades",
+      "sourceTitle": "Kit Colorir: Brinquedos e Música",
+      "slug": "kids-brinquedos-e-musica-para-colorir",
+      "matchKeys": [
+        "kidsbrinquedosemusicaparacolorir",
+        "kitbrinquedosemusicaparacolorir",
+        "kitbrinquedosemusicaparacolorir20atividades",
+        "kitcolorirbrinquedosemusica"
+      ],
+      "reviewKeys": [
+        "brinquedosemusica"
+      ],
+      "activities": 20,
+      "pages": 21,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "68f028b52cd037a4251402383ed9ca0cff97e4261ff1ded3f79b854412c03f2b",
+          "bytes": 453156,
+          "name": "Kit Colorir - Brinquedos e Música.pdf",
+          "pages": 21
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Casa para Colorir — 30 atividades",
+      "sourceTitle": "Kit Colorir: Casa",
+      "slug": "kids-casa-para-colorir",
+      "matchKeys": [
+        "kidscasaparacolorir",
+        "kitcasaparacolorir",
+        "kitcasaparacolorir30atividades",
+        "kitcolorircasa"
+      ],
+      "reviewKeys": [],
+      "activities": 30,
+      "pages": 31,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "9645a36a5200e4e30e435499be39b25d279c75af83867f863604971b7c3be6e3",
+          "bytes": 530811,
+          "name": "Kit Colorir - Casa.pdf",
+          "pages": 31
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Corpo Humano para Colorir — 8 atividades",
+      "sourceTitle": "Kit Colorir: Corpo Humano",
+      "slug": "kids-corpo-humano-para-colorir",
+      "matchKeys": [
+        "kidscorpohumanoparacolorir",
+        "kitcolorircorpohumano",
+        "kitcorpohumanoparacolorir",
+        "kitcorpohumanoparacolorir8atividades",
+        "kitparacolorircorpohumano"
+      ],
+      "reviewKeys": [
+        "corpohumano"
+      ],
+      "activities": 8,
+      "pages": 9,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "8fb03dda9ac13672cf0fcc035f3774ec33d418f6c25719a6363dac63df68d8ef",
+          "bytes": 197763,
+          "name": "Kit Colorir - Corpo Humano.pdf",
+          "pages": 9
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Escola para Colorir — 16 atividades",
+      "sourceTitle": "Kit Colorir: Escola",
+      "slug": "kids-escola-para-colorir",
+      "matchKeys": [
+        "kidsescolaparacolorir",
+        "kitcolorirescola",
+        "kitescolaparacolorir",
+        "kitescolaparacolorir16atividades"
+      ],
+      "reviewKeys": [
+        "escola"
+      ],
+      "activities": 16,
+      "pages": 17,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "5b09874f40b84a9ec69e6eb6cc545c83e4bdf1f03c1199cd1d46a356b3084415",
+          "bytes": 395537,
+          "name": "Kit Colorir - Escola.pdf",
+          "pages": 17
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Natureza para Colorir — 31 atividades",
+      "sourceTitle": "Kit Colorir: Natureza",
+      "slug": "kids-natureza-para-colorir",
+      "matchKeys": [
+        "kidsnaturezaparacolorir",
+        "kitcolorirnatureza",
+        "kitnaturezaparacolorir",
+        "kitnaturezaparacolorir31atividades"
+      ],
+      "reviewKeys": [
+        "natureza"
+      ],
+      "activities": 31,
+      "pages": 32,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "6440dc63866eeaa26a8ace975e526e661ba04eca4b6b35a9ae3fa1bc16f8dce0",
+          "bytes": 654437,
+          "name": "Kit Colorir - Natureza.pdf",
+          "pages": 32
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Roupas e Acessórios para Colorir — 14 atividades",
+      "sourceTitle": "Kit Colorir: Roupas e Acessórios",
+      "slug": "kids-roupas-e-acessorios-para-colorir",
+      "matchKeys": [
+        "kidsroupaseacessoriosparacolorir",
+        "kitcolorirroupaseacessorios",
+        "kitroupaseacessoriosparacolorir",
+        "kitroupaseacessoriosparacolorir14atividades"
+      ],
+      "reviewKeys": [
+        "roupaseacessorios"
+      ],
+      "activities": 14,
+      "pages": 15,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "d39c48c089d629040de6cb0c6a6fe7cba9149894e367f33b9dfce88206855dce",
+          "bytes": 306330,
+          "name": "Kit Colorir - Roupas e Acessórios.pdf",
+          "pages": 15
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Transportes para Colorir — 16 atividades",
+      "sourceTitle": "Kit Colorir: Transportes",
+      "slug": "kids-transportes-para-colorir",
+      "matchKeys": [
+        "kidstransportesparacolorir",
+        "kitcolorirtransportes",
+        "kittransportesparacolorir",
+        "kittransportesparacolorir16atividades"
+      ],
+      "reviewKeys": [
+        "transportes"
+      ],
+      "activities": 16,
+      "pages": 17,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "ecc6182ba5506c8407a33a078f9145257fa8c0b3efd704c0ad6f5a778aa1ed86",
+          "bytes": 385107,
+          "name": "Kit Colorir - Transportes.pdf",
+          "pages": 17
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Bingo de Figuras — 300 atividades",
+      "sourceTitle": "Kit Bingo de Figuras",
+      "slug": "kids-bingo-de-figuras",
+      "matchKeys": [
+        "kidsbingodefiguras",
+        "kitbingodefiguras",
+        "kitbingodefiguras300atividades"
+      ],
+      "reviewKeys": [
+        "bingodefiguras"
+      ],
+      "activities": 300,
+      "pages": 301,
+      "versions": [
+        {
+          "label": "Versão extraída do ZIP",
+          "sha256": "10ab8286941a69b1ba0ddd2d3792c8d6c4786ef141e31ae46d91926f881ce6d2",
+          "bytes": 6458137,
+          "name": "Kit Bingo de Figuras.pdf",
+          "pages": 301
+        },
+        {
+          "label": "Versão avulsa alternativa",
+          "sha256": "d945fdc900fc6c8e39b0127c1a74a8c115d88182e1187e7a54df90dc67135321",
+          "bytes": 2937538,
+          "name": "Kit Bingo de Figuras.pdf",
+          "pages": 301
+        }
+      ],
+      "requiresVersionChoice": true
+    },
+    {
+      "title": "Kit Bingo de Letras — 300 atividades",
+      "sourceTitle": "Kit Bingo de Letras",
+      "slug": "kids-bingo-de-letras",
+      "matchKeys": [
+        "kidsbingodeletras",
+        "kitbingodeletras",
+        "kitbingodeletras300atividades"
+      ],
+      "reviewKeys": [
+        "bingodeletras"
+      ],
+      "activities": 300,
+      "pages": 301,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "687948a13b8adda0c757446f26ec0a71f841ed2205e61bad70ba637eded93ab0",
+          "bytes": 688435,
+          "name": "Kit Bingo de Letras.pdf",
+          "pages": 301
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Bingo de Números — 300 atividades",
+      "sourceTitle": "Kit Bingo de Números",
+      "slug": "kids-bingo-de-numeros",
+      "matchKeys": [
+        "kidsbingodenumeros",
+        "kitbingodenumeros",
+        "kitbingodenumeros300atividades"
+      ],
+      "reviewKeys": [
+        "bingodenumeros"
+      ],
+      "activities": 300,
+      "pages": 301,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "b7b794ae5a2e1f6c7e8d4d9f021bd74900f62e99a33599aefa32ba87b133253c",
+          "bytes": 650441,
+          "name": "Kit Bingo de Números.pdf",
+          "pages": 301
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Bingo de Sílabas — 300 atividades",
+      "sourceTitle": "Kit Bingo de Sílabas",
+      "slug": "kids-bingo-de-silabas",
+      "matchKeys": [
+        "kidsbingodesilabas",
+        "kitbingodesilabas",
+        "kitbingodesilabas300atividades"
+      ],
+      "reviewKeys": [
+        "bingodesilabas"
+      ],
+      "activities": 300,
+      "pages": 301,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "71b8dd6dffde9b97278ded4ac650f8c35fcbf67a170ab662ac7275dc083efd2f",
+          "bytes": 752813,
+          "name": "Kit Bingo de Sílabas.pdf",
+          "pages": 301
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Jogo da Memória — 186 atividades",
+      "sourceTitle": "Kit Jogo da Memória",
+      "slug": "kids-jogo-da-memoria",
+      "matchKeys": [
+        "kidsjogodamemoria",
+        "kitjogodamemoria",
+        "kitjogodamemoria186atividades"
+      ],
+      "reviewKeys": [
+        "jogodamemoria"
+      ],
+      "activities": 186,
+      "pages": 187,
+      "versions": [
+        {
+          "label": "Versão extraída do ZIP",
+          "sha256": "f9cf32c9c95e636277db3777486841152cfbe5b3878f9aa3b54d57a04767e8de",
+          "bytes": 5175927,
+          "name": "Kit Jogo da Memória.pdf",
+          "pages": 187
+        },
+        {
+          "label": "Versão avulsa alternativa",
+          "sha256": "9871e36bff93909a73b4e851f3e26ddcf33c7e9df2d05fcc35705c7ab1ea0191",
+          "bytes": 1646319,
+          "name": "Kit Jogo da Memória.pdf",
+          "pages": 187
+        }
+      ],
+      "requiresVersionChoice": true
+    },
+    {
+      "title": "Kit Adição Armada — 1050 atividades",
+      "sourceTitle": "Kit Adição Armada",
+      "slug": "kids-adicao-armada",
+      "matchKeys": [
+        "kidsadicaoarmada",
+        "kitadicaoarmada",
+        "kitadicaoarmada1050atividades"
+      ],
+      "reviewKeys": [
+        "adicaoarmada"
+      ],
+      "activities": 1050,
+      "pages": 1051,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "19f209b093d7bce8ff89cfd7ba576d39a74295724f0034986f350303720717e3",
+          "bytes": 3440293,
+          "name": "Kit Adição Armada.pdf",
+          "pages": 1051
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Adição com Figuras — 500 atividades",
+      "sourceTitle": "Kit Adição com Figuras",
+      "slug": "kids-adicao-com-figuras",
+      "matchKeys": [
+        "kidsadicaocomfiguras",
+        "kitadicaocomfiguras",
+        "kitadicaocomfiguras500atividades"
+      ],
+      "reviewKeys": [
+        "adicaocomfiguras"
+      ],
+      "activities": 500,
+      "pages": 501,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "ae532463863985f1b99d083c7310baee39ba91beab657f15658882cd928cf615",
+          "bytes": 1794767,
+          "name": "Kit Adição com Figuras.pdf",
+          "pages": 501
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Contas com Reserva e 3 Algarismos — 1200 atividades",
+      "sourceTitle": "Kit Contas com Reserva e 3 Algarismos",
+      "slug": "kids-contas-com-reserva-e-3-algarismos",
+      "matchKeys": [
+        "kidscontascomreservae3algarismos",
+        "kitcontascomreservae3algarismos",
+        "kitcontascomreservae3algarismos1200atividades"
+      ],
+      "reviewKeys": [
+        "contascomreservae3algarismos"
+      ],
+      "activities": 1200,
+      "pages": 1201,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "ddae7518e6a81a54caa8a9aa4496b9daaaf682b8ce55ddcd7e3feb2279439c44",
+          "bytes": 3529877,
+          "name": "Kit Contas com Reserva e 3 Algarismos.pdf",
+          "pages": 1201
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Conte e Escreva — 900 atividades",
+      "sourceTitle": "Kit Conte e Escreva",
+      "slug": "kids-conte-e-escreva",
+      "matchKeys": [
+        "kidsconteeescreva",
+        "kitconteeescreva",
+        "kitconteeescreva900atividades"
+      ],
+      "reviewKeys": [
+        "conteeescreva"
+      ],
+      "activities": 900,
+      "pages": 901,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "3136f6eeecce864bd67278a9e3ba5b6602d53fa7b92c0980edb13b8d0c2f04b2",
+          "bytes": 3148100,
+          "name": "Kit Conte e Escreva.pdf",
+          "pages": 901
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Divisão — 800 atividades",
+      "sourceTitle": "Kit Divisão",
+      "slug": "kids-divisao",
+      "matchKeys": [
+        "kidsdivisao",
+        "kitdivisao",
+        "kitdivisao800atividades"
+      ],
+      "reviewKeys": [
+        "divisao"
+      ],
+      "activities": 800,
+      "pages": 801,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "7e63583baa1d2889d8cc05dfb8eb98179da58449f17f3fb3b8302391a71f5bd4",
+          "bytes": 2640893,
+          "name": "Kit Divisão.pdf",
+          "pages": 801
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Frações — 400 atividades",
+      "sourceTitle": "Kit Frações",
+      "slug": "kids-fracoes",
+      "matchKeys": [
+        "kidsfracoes",
+        "kitfracoes",
+        "kitfracoes400atividades"
+      ],
+      "reviewKeys": [
+        "fracoes"
+      ],
+      "activities": 400,
+      "pages": 401,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "adb90c859de39bebe85e3999f77a9b100bae92b4f5b102c3756096b36b24d5c8",
+          "bytes": 1327306,
+          "name": "Kit Frações.pdf",
+          "pages": 401
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Hora Certa: Relógio — 500 atividades",
+      "sourceTitle": "Kit Hora Certa: Relógio",
+      "slug": "kids-hora-certa-relogio",
+      "matchKeys": [
+        "kidshoracertarelogio",
+        "kithoracertarelogio",
+        "kithoracertarelogio500atividades"
+      ],
+      "reviewKeys": [
+        "horacertarelogio"
+      ],
+      "activities": 500,
+      "pages": 501,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "545ff27390a6e5f568eb4ac69a0e5fcdcbb7fd5a901c3d817fd61daf44d6eaee",
+          "bytes": 4409314,
+          "name": "Kit Hora Certa - Relógio.pdf",
+          "pages": 501
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Números de 0 a 20 — 461 atividades",
+      "sourceTitle": "Kit Números de 0 a 20",
+      "slug": "kids-numeros-de-0-a-20",
+      "matchKeys": [
+        "kidsnumerosde0a20",
+        "kitnumerosde0a20",
+        "kitnumerosde0a20461atividades"
+      ],
+      "reviewKeys": [
+        "numerosde0a20"
+      ],
+      "activities": 461,
+      "pages": 462,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "f96859a118fb0ba4a918956c88a8799978167f9b573a85af28ef279e08a4d7be",
+          "bytes": 1639472,
+          "name": "Kit Números de 0 a 20.pdf",
+          "pages": 462
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Números por Extenso — 400 atividades",
+      "sourceTitle": "Kit Números por Extenso",
+      "slug": "kids-numeros-por-extenso",
+      "matchKeys": [
+        "kidsnumerosporextenso",
+        "kitnumerosporextenso",
+        "kitnumerosporextenso400atividades"
+      ],
+      "reviewKeys": [
+        "numerosporextenso"
+      ],
+      "activities": 400,
+      "pages": 401,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "71895bf1ef8bae95e7721bb97a2c3e1be6a61e57d0349084cb25aaa44531ed28",
+          "bytes": 995019,
+          "name": "Kit Números por Extenso.pdf",
+          "pages": 401
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Probleminhas de Matemática — 700 atividades",
+      "sourceTitle": "Kit Probleminhas de Matemática",
+      "slug": "kids-probleminhas-de-matematica",
+      "matchKeys": [
+        "kidsprobleminhasdematematica",
+        "kitprobleminhasdematematica",
+        "kitprobleminhasdematematica700atividades"
+      ],
+      "reviewKeys": [
+        "probleminhasdematematica"
+      ],
+      "activities": 700,
+      "pages": 701,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "d4fdd6966ec37c7785245c2abb70f1a58f6b44cb7659b74cc0022fe6ad9286c2",
+          "bytes": 2086259,
+          "name": "Kit Probleminhas de Matemática.pdf",
+          "pages": 701
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Sequências e Quadro até 100 — 800 atividades",
+      "sourceTitle": "Kit Sequências e Quadro até 100",
+      "slug": "kids-sequencias-e-quadro-ate-100",
+      "matchKeys": [
+        "kidssequenciasequadroate100",
+        "kitsequenciasequadroate100",
+        "kitsequenciasequadroate100800atividades"
+      ],
+      "reviewKeys": [
+        "sequenciasequadroate100"
+      ],
+      "activities": 800,
+      "pages": 801,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "730acafd71e4f06f88a10331f37f9770b5843cb1eb008d5aba68e776343d8b89",
+          "bytes": 3648131,
+          "name": "Kit Sequências e Quadro até 100.pdf",
+          "pages": 801
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Sistema de Numeração — 1000 atividades",
+      "sourceTitle": "Kit Sistema de Numeração",
+      "slug": "kids-sistema-de-numeracao",
+      "matchKeys": [
+        "kidssistemadenumeracao",
+        "kitsistemadenumeracao",
+        "kitsistemadenumeracao1000atividades"
+      ],
+      "reviewKeys": [
+        "sistemadenumeracao"
+      ],
+      "activities": 1000,
+      "pages": 1001,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "9ff44f1ed164ade4d9782a939d26be84fb192914c87303324391064c374eebb5",
+          "bytes": 2775649,
+          "name": "Kit Sistema de Numeração.pdf",
+          "pages": 1001
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Subtração Armada — 1050 atividades",
+      "sourceTitle": "Kit Subtração Armada",
+      "slug": "kids-subtracao-armada",
+      "matchKeys": [
+        "kidssubtracaoarmada",
+        "kitsubtracaoarmada",
+        "kitsubtracaoarmada1050atividades"
+      ],
+      "reviewKeys": [
+        "subtracaoarmada"
+      ],
+      "activities": 1050,
+      "pages": 1051,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "c4c6a6034832350b25300f9cc41c04041303c718fcf4285df770e1cb32b7f6ca",
+          "bytes": 3453977,
+          "name": "Kit Subtração Armada.pdf",
+          "pages": 1051
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Subtração com Figuras — 500 atividades",
+      "sourceTitle": "Kit Subtração com Figuras",
+      "slug": "kids-subtracao-com-figuras",
+      "matchKeys": [
+        "kidssubtracaocomfiguras",
+        "kitsubtracaocomfiguras",
+        "kitsubtracaocomfiguras500atividades"
+      ],
+      "reviewKeys": [
+        "subtracaocomfiguras"
+      ],
+      "activities": 500,
+      "pages": 501,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "14e428916c38e8c8b07da5383301d281af2049270cbffcad3fdaedb810f5157c",
+          "bytes": 1863493,
+          "name": "Kit Subtração com Figuras.pdf",
+          "pages": 501
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Tabuada e Multiplicação — 960 atividades",
+      "sourceTitle": "Kit Tabuada e Multiplicação",
+      "slug": "kids-tabuada-e-multiplicacao",
+      "matchKeys": [
+        "kidstabuadaemultiplicacao",
+        "kittabuadaemultiplicacao",
+        "kittabuadaemultiplicacao960atividades"
+      ],
+      "reviewKeys": [
+        "tabuadaemultiplicacao"
+      ],
+      "activities": 960,
+      "pages": 961,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "e005c706f00010a2c017cb5ee8d8420909ceac990f2a459698c20e81495e1734",
+          "bytes": 3142113,
+          "name": "Kit Tabuada e Multiplicação.pdf",
+          "pages": 961
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Vizinhos, Maior e Menor — 800 atividades",
+      "sourceTitle": "Kit Vizinhos, Maior e Menor",
+      "slug": "kids-vizinhos-maior-e-menor",
+      "matchKeys": [
+        "kidsvizinhosmaioremenor",
+        "kitvizinhosmaioremenor",
+        "kitvizinhosmaioremenor800atividades"
+      ],
+      "reviewKeys": [
+        "vizinhosmaioremenor"
+      ],
+      "activities": 800,
+      "pages": 801,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "88f24bb821f7fc40cc5539db20f93b9d691b052919834ef8656e8029ded4c37d",
+          "bytes": 2989137,
+          "name": "Kit Vizinhos, Maior e Menor.pdf",
+          "pages": 801
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Atenção e Percepção — 800 atividades",
+      "sourceTitle": "Kit Atenção e Percepção",
+      "slug": "kids-atencao-e-percepcao",
+      "matchKeys": [
+        "kidsatencaoepercepcao",
+        "kitatencaoepercepcao",
+        "kitatencaoepercepcao800atividades"
+      ],
+      "reviewKeys": [
+        "atencaoepercepcao"
+      ],
+      "activities": 800,
+      "pages": 801,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "d575e4c4b33d72ef97a83bf297d5f7a2fd424246ccfc2cdb5017ba7db20f4524",
+          "bytes": 3594608,
+          "name": "Kit Atenção e Percepção.pdf",
+          "pages": 801
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Coordenação Motora — 600 atividades",
+      "sourceTitle": "Kit Coordenação Motora",
+      "slug": "kids-coordenacao-motora",
+      "matchKeys": [
+        "kidscoordenacaomotora",
+        "kitcoordenacaomotora",
+        "kitcoordenacaomotora600atividades"
+      ],
+      "reviewKeys": [
+        "coordenacaomotora"
+      ],
+      "activities": 600,
+      "pages": 601,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "409eecfcb6f64fac4295c82507b02fbc4d46f20e2ce582f42215a6c2a59088cd",
+          "bytes": 4644019,
+          "name": "Kit Coordenação Motora.pdf",
+          "pages": 601
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Copie o Desenho (Quadriculado) — 900 atividades",
+      "sourceTitle": "Kit Copie o Desenho (Quadriculado)",
+      "slug": "kids-copie-o-desenho-quadriculado",
+      "matchKeys": [
+        "kidscopieodesenhoquadriculado",
+        "kitcopieodesenhoquadriculado",
+        "kitcopieodesenhoquadriculado900atividades"
+      ],
+      "reviewKeys": [
+        "copieodesenhoquadriculado"
+      ],
+      "activities": 900,
+      "pages": 901,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "ff2fca0cc6b8bc7377e7c89e3f242096466075b880a2294fd3b7aacaf51dcded",
+          "bytes": 2256534,
+          "name": "Kit Copie o Desenho (Quadriculado).pdf",
+          "pages": 901
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Labirintos: Nível Difícil — 900 atividades",
+      "sourceTitle": "Kit Labirintos: Nível Difícil",
+      "slug": "kids-labirintos-nivel-dificil",
+      "matchKeys": [
+        "kidslabirintosniveldificil",
+        "kitlabirintosniveldificil",
+        "kitlabirintosniveldificil900atividades"
+      ],
+      "reviewKeys": [
+        "labirintosniveldificil"
+      ],
+      "activities": 900,
+      "pages": 901,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "4b15783f44bf61cf3124b404111b08c86807228f073cbd56a03f6d5a5bfa6379",
+          "bytes": 3074675,
+          "name": "Kit Labirintos - Nível Difícil.pdf",
+          "pages": 901
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Labirintos: Nível Fácil — 900 atividades",
+      "sourceTitle": "Kit Labirintos: Nível Fácil",
+      "slug": "kids-labirintos-nivel-facil",
+      "matchKeys": [
+        "kidslabirintosnivelfacil",
+        "kitlabirintosnivelfacil",
+        "kitlabirintosnivelfacil900atividades"
+      ],
+      "reviewKeys": [
+        "labirintosnivelfacil"
+      ],
+      "activities": 900,
+      "pages": 901,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "9267d90fca94d07c0767fada6dbe5529cf1c8016e6614299fa50e51e172aff8b",
+          "bytes": 1948010,
+          "name": "Kit Labirintos - Nível Fácil.pdf",
+          "pages": 901
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Labirintos: Nível Médio — 900 atividades",
+      "sourceTitle": "Kit Labirintos: Nível Médio",
+      "slug": "kids-labirintos-nivel-medio",
+      "matchKeys": [
+        "kidslabirintosnivelmedio",
+        "kitlabirintosnivelmedio",
+        "kitlabirintosnivelmedio900atividades"
+      ],
+      "reviewKeys": [
+        "labirintosnivelmedio"
+      ],
+      "activities": 900,
+      "pages": 901,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "c84fd128a5b01639cf993a7eabc9ac147508c5fda5bb73192a9a4038c62877fe",
+          "bytes": 2433437,
+          "name": "Kit Labirintos - Nível Médio.pdf",
+          "pages": 901
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Ligue os Pontos — 774 atividades",
+      "sourceTitle": "Kit Ligue os Pontos",
+      "slug": "kids-ligue-os-pontos",
+      "matchKeys": [
+        "kidsligueospontos",
+        "kitligueospontos",
+        "kitligueospontos774atividades"
+      ],
+      "reviewKeys": [
+        "ligueospontos"
+      ],
+      "activities": 774,
+      "pages": 775,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "0126be8d0ef72f64c53a170d4495f72334d492b671c7d74bc72674fd899dcf81",
+          "bytes": 7506424,
+          "name": "Kit Ligue os Pontos.pdf",
+          "pages": 775
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Pinte pelo Código — 516 atividades",
+      "sourceTitle": "Kit Pinte pelo Código",
+      "slug": "kids-pinte-pelo-codigo",
+      "matchKeys": [
+        "kidspintepelocodigo",
+        "kitpintepelocodigo",
+        "kitpintepelocodigo516atividades"
+      ],
+      "reviewKeys": [
+        "pintepelocodigo"
+      ],
+      "activities": 516,
+      "pages": 517,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "965c68b59e6426110c8e56ac24857044abd3999f368e9bb8c8da271602e8e253",
+          "bytes": 2178540,
+          "name": "Kit Pinte pelo Código.pdf",
+          "pages": 517
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Sequência Lógica — 700 atividades",
+      "sourceTitle": "Kit Sequência Lógica",
+      "slug": "kids-sequencia-logica",
+      "matchKeys": [
+        "kidssequencialogica",
+        "kitsequencialogica",
+        "kitsequencialogica700atividades"
+      ],
+      "reviewKeys": [
+        "sequencialogica"
+      ],
+      "activities": 700,
+      "pages": 701,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "5cdd2ba370092897d92716241a17f2fa521c5005a01b4834652a87548d474e3c",
+          "bytes": 2818852,
+          "name": "Kit Sequência Lógica.pdf",
+          "pages": 701
+        }
+      ],
+      "requiresVersionChoice": false
+    },
+    {
+      "title": "Kit Sudoku Infantil — 800 atividades",
+      "sourceTitle": "Kit Sudoku Infantil",
+      "slug": "kids-sudoku-infantil",
+      "matchKeys": [
+        "kidssudokuinfantil",
+        "kitsudokuinfantil",
+        "kitsudokuinfantil800atividades"
+      ],
+      "reviewKeys": [
+        "sudokuinfantil"
+      ],
+      "activities": 800,
+      "pages": 801,
+      "versions": [
+        {
+          "label": "Arquivo original verificado",
+          "sha256": "b2f58be49b1848b081150f37f7faac81b02efaaf933f532714c35aaf5dd8d2af",
+          "bytes": 1830436,
+          "name": "Kit Sudoku Infantil.pdf",
+          "pages": 801
+        }
+      ],
+      "requiresVersionChoice": false
+    }
+  ]
+}

@@ -1,4 +1,4 @@
-export type PurchaseMethod = "hotmart" | "whatsapp";
+export type PurchaseMethod = "hotmart" | "whatsapp" | "mercado_pago";
 
 export type ProductStatus = "draft" | "published";
 

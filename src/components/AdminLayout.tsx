@@ -16,7 +16,7 @@ export function AdminLayout() {
     <aside className="admin-sidebar">
       <a className="brand admin-brand" href="/admin"><span className="brand-mark">ld.</span><span>lojinha<span className="brand-light">digital</span></span></a>
       <p className="admin-sidebar-label">PAINEL</p>
-      <nav><NavLink to="/admin" end><LayoutDashboard size={18} /> Visão geral</NavLink><NavLink to="/admin/produtos"><Package size={18} /> Produtos</NavLink><NavLink to="/admin/importar-kids"><UploadCloud size={18} /> Importar Kids</NavLink><NavLink to="/admin/categorias"><Plus size={18} /> Categorias</NavLink></nav>
+      <nav><NavLink to="/admin" end><LayoutDashboard size={18} /> Visão geral</NavLink><NavLink to="/admin/produtos"><Package size={18} /> Produtos</NavLink><NavLink to="/admin/materiais-digitais"><Package size={18} /> Materiais e pagamentos</NavLink><NavLink to="/admin/importar-kids"><UploadCloud size={18} /> Importar Kids</NavLink><NavLink to="/admin/categorias"><Plus size={18} /> Categorias</NavLink></nav>
       <nav aria-label="Configurações da conta"><NavLink to="/admin/configuracoes"><Settings size={18} /> Configurações</NavLink></nav>
       <div className="admin-sidebar-bottom"><a href="/" target="_blank" rel="noreferrer"><Store size={17} /> Ver loja</a><button type="button" onClick={() => void handleSignOut()}><LogOut size={17} /> Sair</button></div>
     </aside>

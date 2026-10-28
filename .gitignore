@@ -4,3 +4,10 @@ dist
 .env.local
 .vercel
 coverage
+
+# Paid source documents and private working data must never enter Git
+*.pdf
+*.zip
+.payment-private/
+__pycache__/
+*.pyc

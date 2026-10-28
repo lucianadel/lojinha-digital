@@ -1,0 +1,22 @@
+{
+  "selected_pdfs_validated": 63,
+  "physical_pdfs": 65,
+  "activities": 31693,
+  "selected_bytes": 186963487,
+  "max_bytes": 8814670,
+  "variants": [
+    {
+      "kit": "Kit Bingo de Figuras",
+      "selected_pages": 301,
+      "alternative_pages": 301,
+      "different_sha256": true
+    },
+    {
+      "kit": "Kit Jogo da Memória",
+      "selected_pages": 187,
+      "alternative_pages": 187,
+      "different_sha256": true
+    }
+  ],
+  "uploaded": 0
+}

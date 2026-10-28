@@ -30,3 +30,8 @@ describe("purchase destinations", () => {
     expect(getPurchase({ title: "Produto", price, purchase_method: "whatsapp", hotmart_url: null, whatsapp_number: "5521992530081" }).href).toBeNull();
   });
 });
+
+it("adds Mercado Pago without exposing a customer selector or changing other methods",()=>{
+ const p=getPurchase({title:"Kit Animais",price:9.9,purchase_method:"mercado_pago",slug:"kids-animais-para-colorir",hotmart_url:"https://pay.hotmart.com/ORIGINAL",whatsapp_number:"5521992530081"});
+ expect(p).toEqual({method:"mercado_pago",label:"Comprar e baixar PDF",href:"/compra/kids-animais-para-colorir"});
+});

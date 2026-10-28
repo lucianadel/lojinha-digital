@@ -1,0 +1,26 @@
+{
+  "simulationOnly": true,
+  "realCharges": 0,
+  "realPdfUploads": 0,
+  "syntheticPdfOnly": true,
+  "pendingRedirectBlocked": true,
+  "refundBlocked": true,
+  "downloadAndPrint": true,
+  "recovery": true,
+  "checkoutSimulated": true,
+  "noBrowserPrice": true,
+  "adminMappedFixtureKits": 63,
+  "uploadsAndPaymentsDisabled": true,
+  "widths": [
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "overflow": false
+    }
+  ],
+  "axeViolations": [],
+  "errors": []
+}

@@ -1,0 +1,11 @@
+﻿import {describe,it,expect} from 'vitest';
+import {pdfManifest,pdfProductPlan} from './privatePdfs';
+import type {Product} from '../types';
+const row=(title:string,slug:string,id='existing'):Product=>({id,title,slug,price:5.9,status:'draft',category_id:'category',short_description:'Resumo',description:'Original',cover_url:null,cover_alt:'',hotmart_url:null,purchase_method:'whatsapp',whatsapp_number:'5521992530081',featured:false,created_at:'2026-01-01'});
+describe('private PDF mapping',()=>{
+ it('contains 63 unique source mappings, 31,693 activities and two explicit version choices',()=>{expect(pdfManifest).toHaveLength(63);expect(pdfManifest.reduce((sum,k)=>sum+k.activities,0)).toBe(31693);expect(pdfManifest.filter(k=>k.requiresVersionChoice)).toHaveLength(2);expect(new Set(pdfManifest.map(k=>k.slug)).size).toBe(63);for(const kit of pdfManifest){for(const version of kit.versions){expect(version.sha256).toMatch(/^[a-f0-9]{64}$/);expect(version.bytes).toBeGreaterThan(5);expect(version.pages).toBe(kit.activities+1);}}});
+ it('associates existing products by stable slug without creating or modifying them',()=>{const products=pdfManifest.map((kit,i)=>row('Nome editado',kit.slug,String(i)));const before=JSON.stringify(products),plan=pdfProductPlan(products);expect(plan.every(p=>p.product&&!p.conflict)).toBe(true);expect(JSON.stringify(products)).toBe(before);});
+ it('recognizes the existing Kit para Colorir – Corpo Humano and preserves 5,90',()=>{const p=row('Kit para Colorir – Corpo Humano','kit-para-colorir-corpo-humano');const mapped=pdfProductPlan([p]).find(x=>x.kit.slug==='kids-corpo-humano-para-colorir');expect(mapped?.product?.id).toBe(p.id);expect(mapped?.product?.price).toBe(5.9);});
+ it('blocks ambiguous names and never assigns invented IDs',()=>{const k=pdfManifest[0],plan=pdfProductPlan([row(k.title,k.slug,'one'),row(k.title,k.slug,'two')]);expect(plan[0].conflict).toBe(true);expect(plan[0].product).toBeNull();expect(plan.filter(p=>p.product)).toHaveLength(0);});
+ it('defines the 72-activity pilot independently of published state',()=>{const k=pdfManifest.find(k=>k.slug==='kids-animais-para-colorir');expect(k?.activities).toBe(72);expect(k?.pages).toBe(73);});
+});

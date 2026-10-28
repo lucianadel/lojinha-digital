@@ -1,0 +1,9 @@
+﻿.public-store .digital-page { padding-block: 45px 65px; max-width: 850px; }
+.public-store .digital-page h1 { font: 600 clamp(29px,5vw,43px)/1.2 var(--heading); color: #fff; }
+.public-store .digital-page h2 { color: #b7d3ff; }
+.public-store .digital-page p { color: #d3dcec; line-height: 1.8; }
+.public-store .digital-page form, .public-store .digital-page label { display: grid; gap: 14px; margin-block: 20px; }
+.public-store .digital-page input { min-height: 46px; padding: 12px; border: 1px solid #7898c8; border-radius: 8px; color: white; background: #172b48; font: inherit; }
+.public-store .digital-page a { display: inline-block; margin-top: 20px; color: #b7d3ff; }
+.public-store .digital-actions { display: flex; flex-wrap: wrap; gap: 15px; margin-block: 20px; }
+.public-store .digital-receipt-cover { display: block; width: 180px; height: 240px; object-fit: contain; }
