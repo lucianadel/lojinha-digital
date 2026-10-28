@@ -1,8 +1,11 @@
-﻿import assert from 'node:assert/strict';
+import assert from 'node:assert/strict';
 import {readFile,readdir} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 const root=resolve(process.argv[2]||'.');
+// Reject BOM/invalid deployment JSON before publishing the branch.
+JSON.parse(await readFile(resolve(root,'vercel.json'),'utf8'));
+
 const catalog=JSON.parse(await readFile(resolve(root,'src/data/kidsImport.json'),'utf8'));
 assert.equal(catalog.products.length,63);assert.equal(catalog.categories.length,6);
 assert.equal(new Set(catalog.products.map(p=>p.slug)).size,63,'Slugs duplicados');

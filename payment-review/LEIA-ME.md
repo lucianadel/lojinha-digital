@@ -265,3 +265,9 @@ A opção **Conferir somente cadastros e IDs** usa a autenticação administrati
 existente e a leitura paginada já validada do importador. Permite exportar os 63
 IDs antes de aplicar a migração ou configurar chaves de pagamento. Esse modo não
 consulta tabelas de pedidos nem afirma que PDFs privados estejam associados.
+
+## Correção de compatibilidade do Preview
+
+O primeiro Preview foi interrompido por uma configuração JSON com marca UTF-8 BOM.
+A codificação de vercel.json foi corrigida, e o build agora valida seu JSON antes
+de permitir publicação. Não houve alteração de regras de negócio, produção ou banco.

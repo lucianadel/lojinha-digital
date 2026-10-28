@@ -1,4 +1,4 @@
-﻿{
+{
   "functions": { "api/payments.js": { "maxDuration": 60 } },
   "routes": [
     { "handle": "filesystem" },
