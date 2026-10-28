@@ -1,0 +1,27 @@
+{
+  "environment": "PostgreSQL in memory only; repository policies",
+  "checksPassed": 20,
+  "checks": [
+    "anonymous sees only published products",
+    "anonymous is not admin",
+    "anonymous cannot insert products",
+    "anonymous cannot upload covers",
+    "non-admin cannot read hidden drafts",
+    "non-admin cannot read admin membership",
+    "non-admin is rejected by is_admin",
+    "non-admin cannot insert products",
+    "non-admin cannot create categories",
+    "non-admin cannot upload covers",
+    "admin sees published and draft products",
+    "admin membership is readable",
+    "admin is confirmed by server function",
+    "admin can create missing categories",
+    "admin can upload covers to existing bucket",
+    "admin cannot upload to a different bucket",
+    "admin can insert a WhatsApp draft",
+    "new draft stays invisible to public",
+    "approved cover bucket is publicly readable",
+    "existing RLS policies unchanged"
+  ],
+  "remoteConnections": 0
+}

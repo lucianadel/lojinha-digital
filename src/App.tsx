@@ -3,6 +3,8 @@ import { AuthProvider } from "./auth/AuthContext";
 import { AdminLayout } from "./components/AdminLayout";
 import { ProtectedAdmin } from "./components/ProtectedAdmin";
 import { StoreLayout } from "./components/StoreLayout";
+import { lazy, Suspense } from "react";
+import { LoadingState } from "./components/StoreState";
 import { AdminCategories } from "./pages/AdminCategories";
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { AdminLogin } from "./pages/AdminLogin";
@@ -14,6 +16,8 @@ import { Home } from "./pages/Home";
 import { ProductDetail } from "./pages/ProductDetail";
 import { Store } from "./pages/Store";
 import { Personalized } from "./pages/Personalized";
+
+const AdminKidsImport = lazy(() => import("./pages/AdminKidsImport").then(module => ({ default: module.AdminKidsImport })));
 
 export default function App() {
   return <AuthProvider><Routes>
@@ -35,6 +39,7 @@ export default function App() {
       <Route path="produtos/novo" element={<AdminProductForm />} />
       <Route path="produtos/:id" element={<AdminProductForm />} />
       <Route path="categorias" element={<AdminCategories />} />
+      <Route path="importar-kids" element={<Suspense fallback={<LoadingState label="Carregando importador..." />}><AdminKidsImport /></Suspense>} />
       <Route path="configuracoes" element={<AdminSettings />} />
     </Route></Route>
     <Route path="*" element={<Navigate to="/" replace />} />

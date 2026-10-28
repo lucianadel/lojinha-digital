@@ -1,0 +1,4 @@
+﻿@media (max-width: 640px) {
+  .admin-sidebar { flex-wrap: wrap; row-gap: 8px; }
+  .admin-sidebar nav, .admin-sidebar .admin-brand { flex-shrink: 0; }
+}

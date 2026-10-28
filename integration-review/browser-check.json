@@ -1,0 +1,25 @@
+{
+  "productionBuild": true,
+  "adminGuard": true,
+  "simulatedAuthenticatedAdmin": true,
+  "covers": 63,
+  "newInSimulation": 62,
+  "existingBodyPrice": 5.9,
+  "confirmationRequired": true,
+  "widths": [
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "overflow": false
+    }
+  ],
+  "importerAxeViolations": [],
+  "draftFilter": true,
+  "sessionPreserved": true,
+  "authChanges": 0,
+  "remoteWrites": 0,
+  "errors": []
+}
