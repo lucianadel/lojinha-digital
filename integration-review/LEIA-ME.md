@@ -104,3 +104,16 @@ Não foi tentada nenhuma inserção remota para testar permissões.
 
 A rota ainda NÃO está publicada na Vercel. Sem autorização nova, não faremos merge,
 push para development, deploy de produção nem importação real.
+
+## Conferência adicional durante a publicação autorizada
+
+Na conferência após o primeiro deploy, o produto preexistente **Kit para Colorir –
+Corpo Humano** tornou-se visível na consulta pública, a R$ 5,90. Sua descrição confirma
+as mesmas oito atividades. O importador foi ajustado somente para reconhecer esse
+nome/slug como correspondência exata e preservar integralmente o registro.
+Ajuste coberto por teste: 62 faltantes, um existente, sem conflito e sem alterações.
+Nenhum produto foi criado, atualizado, publicado ou excluído pelo agente.
+Os dois produtos Hotmart permanecem idênticos. A loja agora mostra também esse kit
+preexistente; a publicação da ferramenta não executou nenhuma importação.
+
+Verifica??o final do ajuste: 154 testes aprovados em 19 arquivos, build e validador do cat?logo aprovados.

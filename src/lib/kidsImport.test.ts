@@ -14,3 +14,9 @@ describe("plano de importação Kids",()=>{
  it("rejeita capa inválida, categoria ausente e preço alterado",()=>{const k=kidsImportCatalog.products[0];expect(()=>kidsDraftInput(k,"","https://example.com/a.png")).toThrow();expect(()=>kidsDraftInput(k,"1","http://example.com/a.png")).toThrow();expect(()=>kidsDraftInput({...k,price:100},"1","https://example.com/a.png")).toThrow();});
  it("confere contagem e ausência de slugs ou imagens repetidos",()=>{expect(kidsImportCatalog.products.reduce((s,k)=>s+k.activities,0)).toBe(31693);expect(new Set(kidsImportCatalog.products.map(k=>k.slug)).size).toBe(63);expect(new Set(kidsImportCatalog.products.map(k=>k.cover_sha256)).size).toBe(63);});
 });
+
+it("reconhece o título publicado Kit para Colorir – Corpo Humano sem duplicar nem alterar R$ 5,90",()=>{
+ const row=existing("Kit para Colorir – Corpo Humano","kit-para-colorir-corpo-humano",5.9);
+ row.status="published";const before=JSON.stringify(row);const plan=createKidsPlan([row],[]);
+ expect(plan.newCount).toBe(62);expect(plan.existingCount).toBe(1);expect(plan.conflicts).toEqual([]);expect(JSON.stringify(row)).toBe(before);
+});
