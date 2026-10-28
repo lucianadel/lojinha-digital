@@ -1,21 +1,19 @@
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import { descriptionToText, formatPrice } from "../lib/format";
 import type { Product } from "../types";
 
 export function ProductCard({ product }: { product: Product }) {
-  return (
-    <article className="product-card">
-      <Link className="product-image-wrap" to={`/produto/${product.slug}`} aria-label={`Ver ${product.title}`}>
-        {product.cover_url ? <img src={product.cover_url} alt={product.cover_alt || product.title} loading="lazy" /> : <div className="cover-fallback" aria-label="Capa não disponível"><span>ld.</span></div>}
-        {product.featured && <span className="product-badge">queridinho</span>}
-      </Link>
-      <div className="product-info">
-        {product.category && <span className="eyebrow">{product.category.name}</span>}
-        <h3><Link to={`/produto/${product.slug}`}>{product.title}</Link></h3>
-        <p>{descriptionToText(product.short_description)}</p>
-        <div className="product-card-bottom"><strong>{formatPrice(product.price)}</strong><Link to={`/produto/${product.slug}`} aria-label={`Conhecer ${product.title}`} className="round-link"><ArrowUpRight size={18} /></Link></div>
-      </div>
-    </article>
-  );
+  const title = descriptionToText(product.title);
+  return <article className="catalog-card">
+    <Link className="catalog-cover" to={`/produto/${product.slug}`} aria-label={`Ver ${title}`}>
+      {product.cover_url ? <img src={product.cover_url} alt={product.cover_alt || title} loading="lazy" decoding="async" /> : <div className="catalog-cover-empty"><BookOpen size={36} aria-hidden="true" /><span>Capa não disponível</span></div>}
+    </Link>
+    <div className="catalog-card-copy">
+      <span className="catalog-category">{descriptionToText(product.category?.name ?? "Produto digital")}</span>
+      <h3><Link to={`/produto/${product.slug}`}>{title}</Link></h3>
+      <p>{descriptionToText(product.short_description)}</p>
+      <div className="catalog-card-action"><strong>{formatPrice(product.price)}</strong><Link to={`/produto/${product.slug}`} className="store-button store-button-outline" aria-label={`Ver produto: ${title}`}>Ver produto <ArrowRight size={16} aria-hidden="true" /></Link></div>
+    </div>
+  </article>;
 }

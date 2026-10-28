@@ -13,12 +13,14 @@ import { About, Contact, FAQ, Privacy, Terms } from "./pages/InfoPages";
 import { Home } from "./pages/Home";
 import { ProductDetail } from "./pages/ProductDetail";
 import { Store } from "./pages/Store";
+import { Personalized } from "./pages/Personalized";
 
 export default function App() {
   return <AuthProvider><Routes>
     <Route element={<StoreLayout />}>
       <Route index element={<Home />} />
       <Route path="loja" element={<Store />} />
+      <Route path="personalizados" element={<Personalized />} />
       <Route path="produto/:slug" element={<ProductDetail />} />
       <Route path="sobre" element={<About />} />
       <Route path="contato" element={<Contact />} />

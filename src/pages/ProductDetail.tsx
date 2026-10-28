@@ -5,7 +5,7 @@ import { ErrorState, LoadingState } from "../components/StoreState";
 import { ProductMarkdown } from "../components/ProductMarkdown";
 import { usePageMeta } from "../hooks/usePageMeta";
 import { descriptionToText, formatPrice, isValidHotmartUrl } from "../lib/format";
-import { getCategories, getProductBySlug } from "../services/products";
+import { getCategories, getProductBySlug, isDemoMode } from "../services/products";
 import type { Category, Product } from "../types";
 
 export function ProductDetail() {
@@ -17,6 +17,7 @@ export function ProductDetail() {
   usePageMeta(product?.title ?? "Produto", product ? descriptionToText(product.short_description) : "Conheça nossos produtos digitais.");
   async function load() {
     setLoading(true); setError("");
+    if (isDemoMode) { setError("Este produto está temporariamente indisponível. Tente novamente mais tarde."); setLoading(false); return; }
     try {
       const [item, groups] = await Promise.all([getProductBySlug(slug), getCategories()]);
       setProduct(item); setCategories(groups);
@@ -34,11 +35,11 @@ export function ProductDetail() {
   return <div className="section detail-wrap">
     <Link to="/loja" className="back-link"><ArrowLeft size={16} /> Voltar para a loja</Link>
     <article className="product-detail">
-      <div className="detail-cover">{product.cover_url ? <img src={product.cover_url} alt={product.cover_alt || product.title} /> : <div className="cover-fallback"><span>ld.</span></div>}<span className="detail-cover-label">LD. / DIGITAL GOOD</span></div>
-      <div className="detail-copy"><span className="eyebrow">{category?.name ?? "Material digital"}</span><h1>{product.title}</h1><div className="detail-lead"><ProductMarkdown>{product.short_description}</ProductMarkdown></div><div className="detail-rule" /><div className="detail-price"><span>Investimento</span><strong>{formatPrice(product.price)}</strong></div>
+      <div className="detail-cover">{product.cover_url ? <img src={product.cover_url} alt={product.cover_alt || product.title} /> : <div className="cover-fallback"><span>Capa não disponível</span></div>}</div>
+      <div className="detail-copy"><span className="eyebrow">{category?.name ?? "Material digital"}</span><h1>{descriptionToText(product.title)}</h1><div className="detail-lead"><ProductMarkdown>{product.short_description}</ProductMarkdown></div><div className="detail-rule" /><div className="detail-price"><span>Investimento</span><strong>{formatPrice(product.price)}</strong></div>
         {validCheckout ? <a className="button button-pink detail-buy" href={product.hotmart_url!} target="_blank" rel="noopener noreferrer">Comprar agora pela Hotmart <ArrowUpRight size={18} /></a> : <button className="button button-disabled detail-buy" type="button" disabled aria-disabled="true">Compra indisponível no momento</button>}
         <div className="secure-note"><ShieldCheck size={17} /><span>Checkout e pagamento processados com segurança pela Hotmart.</span></div>
-        <ul className="detail-promises"><li><Check size={16} /> Acesso e entrega pela Hotmart</li><li><Check size={16} /> Suporte: <a href={`mailto:${import.meta.env.VITE_CONTACT_EMAIL || "oi@lojinhadigital.com.br"}`}>{import.meta.env.VITE_CONTACT_EMAIL || "oi@lojinhadigital.com.br"}</a></li></ul>
+        <ul className="detail-promises"><li><Check size={16} /> Consulte as condições de acesso no canal de compra.</li><li><Check size={16} /> <Link to="/contato">Contato e suporte</Link></li></ul>
       </div>
       <section className="detail-description" aria-label="Descrição completa">
         <ProductMarkdown>{product.description}</ProductMarkdown>
