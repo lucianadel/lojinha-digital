@@ -8,6 +8,7 @@ import { AdminDashboard } from "./pages/AdminDashboard";
 import { AdminLogin } from "./pages/AdminLogin";
 import { AdminProductForm } from "./pages/AdminProductForm";
 import { AdminProducts } from "./pages/AdminProducts";
+import { AdminSettings } from "./pages/AdminSettings";
 import { About, Contact, FAQ, Privacy, Terms } from "./pages/InfoPages";
 import { Home } from "./pages/Home";
 import { ProductDetail } from "./pages/ProductDetail";
@@ -32,6 +33,7 @@ export default function App() {
       <Route path="produtos/novo" element={<AdminProductForm />} />
       <Route path="produtos/:id" element={<AdminProductForm />} />
       <Route path="categorias" element={<AdminCategories />} />
+      <Route path="configuracoes" element={<AdminSettings />} />
     </Route></Route>
     <Route path="*" element={<Navigate to="/" replace />} />
   </Routes></AuthProvider>;

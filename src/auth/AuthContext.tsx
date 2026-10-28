@@ -43,6 +43,12 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       return checkAdmin(data.session);
     });
     const { data: listener } = client.auth.onAuthStateChange((_event, nextSession) => {
+      // Updating the current user's password does not change admin membership.
+      // Keep the settings screen mounted so it can display the result.
+      if (_event === "USER_UPDATED") {
+        if (active) setSession(nextSession);
+        return;
+      }
       setLoading(true);
       window.setTimeout(() => { void checkAdmin(nextSession); }, 0);
     });
