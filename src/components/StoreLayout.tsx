@@ -36,7 +36,7 @@ export function StoreLayout() {
           <div><h3>Informações</h3><Link to="/privacidade">Privacidade</Link><Link to="/termos">Termos de uso</Link><Link to="/contato">Contato</Link></div>
           <div className="footer-note"><span className="sparkle">✳</span><p>Feito com carinho,<br />para fazer acontecer.</p></div>
         </div>
-        <div className="footer-bottom"><span>© {new Date().getFullYear()} Lojinha Digital. Todos os direitos reservados.</span><span>Produtos digitais vendidos pela Hotmart.</span></div>
+        <div className="footer-bottom"><span>© {new Date().getFullYear()} Lojinha Digital. Todos os direitos reservados.</span><span>Produtos digitais: compra pela Hotmart ou WhatsApp.</span></div>
       </footer>
     </>
   );

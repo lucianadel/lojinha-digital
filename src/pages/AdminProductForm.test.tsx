@@ -15,9 +15,10 @@ const existing = {
   status: "draft" as const, created_at: "2026-01-01",
 };
 
-async function openForm() {
-  render(<MemoryRouter initialEntries={["/admin/produtos/product-1"]}>
+async function openForm(creating = false) {
+  render(<MemoryRouter initialEntries={[creating ? "/admin/novo" : "/admin/produtos/product-1"]}>
     <Routes>
+      <Route path="/admin/novo" element={<AdminProductForm />} />
       <Route path="/admin/produtos/:id" element={<AdminProductForm />} />
       <Route path="/admin/produtos" element={<p>Produtos</p>} />
     </Routes>
@@ -73,5 +74,88 @@ describe("product price input", () => {
     fireEvent.click(screen.getByRole("button", { name: "Salvar produto" }));
     expect(saveProduct).not.toHaveBeenCalled();
     expect(screen.getByText(/Informe um preço/)).toBeInTheDocument();
+  });
+});
+
+describe("purchase method editor", () => {
+  afterEach(cleanup);
+  beforeEach(() => {
+    vi.clearAllMocks();
+    vi.mocked(getCategories).mockResolvedValue([{ id: "category-1", name: "Categoria", slug: "categoria" }]);
+    vi.mocked(getAdminProducts).mockResolvedValue([existing]);
+    vi.mocked(saveProduct).mockResolvedValue(existing);
+  });
+
+  it.each([false, true])("saves WhatsApp normalized, creation=%s", async (creating) => {
+    await openForm(creating);
+    if (creating) {
+      fireEvent.change(screen.getByLabelText("Título do produto"), { target: { value: "Novo" } });
+      fireEvent.change(screen.getByLabelText("Descrição curta"), { target: { value: "Resumo" } });
+      fireEvent.change(screen.getByLabelText("Descrição completa"), { target: { value: "Descrição" } });
+      fireEvent.change(screen.getByLabelText("Preço (R$)"), { target: { value: "19,90" } });
+    }
+    fireEvent.change(screen.getByLabelText("Forma de compra"), { target: { value: "whatsapp" } });
+    expect(screen.queryByLabelText(/Link de checkout/)).not.toBeInTheDocument();
+    expect(screen.getByLabelText(/Número do WhatsApp/)).toHaveValue("5521992530081");
+    fireEvent.change(screen.getByLabelText(/Número do WhatsApp/), { target: { value: "+55 (11) 99999-9999" } });
+    expect(screen.getByRole("button", { name: "Comprar pelo WhatsApp" })).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: "Salvar produto" }));
+    await waitFor(() => expect(saveProduct).toHaveBeenCalledWith(expect.objectContaining({
+      purchase_method: "whatsapp", whatsapp_number: "5511999999999",
+    }), creating ? undefined : "product-1"));
+  });
+
+  it.each([false, true])("saves Hotmart, creation=%s", async (creating) => {
+    await openForm(creating);
+    if (creating) {
+      for (const [label, value] of [["Título do produto", "Novo"], ["Descrição curta", "Resumo"], ["Descrição completa", "Descrição"], ["Preço (R$)", "19,90"]]) {
+        fireEvent.change(screen.getByLabelText(label), { target: { value } });
+      }
+    }
+    expect(screen.getByLabelText("Forma de compra")).toHaveValue("hotmart");
+    fireEvent.change(screen.getByLabelText(/Link de checkout/), { target: { value: "https://pay.hotmart.com/ABC" } });
+    expect(screen.getByRole("button", { name: "Comprar agora pela Hotmart" })).toBeDisabled();
+    fireEvent.click(screen.getByRole("button", { name: "Salvar produto" }));
+    await waitFor(() => expect(saveProduct).toHaveBeenCalledWith(expect.objectContaining({
+      purchase_method: "hotmart", hotmart_url: "https://pay.hotmart.com/ABC",
+    }), creating ? undefined : "product-1"));
+  });
+
+
+  it("saves the default sales number", async () => {
+    await openForm();
+    const method = screen.getByLabelText("Forma de compra");
+    fireEvent.change(method, { target: { value: "whatsapp" } });
+    expect(screen.getByLabelText(/Número do WhatsApp/)).toHaveValue("5521992530081");
+    fireEvent.click(screen.getByRole("button", { name: "Salvar produto" }));
+    await waitFor(() => expect(saveProduct).toHaveBeenCalledWith(expect.objectContaining({
+      purchase_method: "whatsapp", whatsapp_number: "5521992530081",
+    }), "product-1"));
+  });
+
+  it("preserves an edited number when switching methods", async () => {
+    await openForm();
+    const method = screen.getByLabelText("Forma de compra");
+    fireEvent.change(method, { target: { value: "whatsapp" } });
+    fireEvent.change(screen.getByLabelText(/Número do WhatsApp/), { target: { value: "+55 (11) 99999-9999" } });
+    fireEvent.change(method, { target: { value: "hotmart" } });
+    fireEvent.change(method, { target: { value: "whatsapp" } });
+    expect(screen.getByLabelText(/Número do WhatsApp/)).toHaveValue("+55 (11) 99999-9999");
+  });
+
+  it("restores the saved WhatsApp method and number", async () => {
+    vi.mocked(getAdminProducts).mockResolvedValue([{ ...existing, purchase_method: "whatsapp", whatsapp_number: "5511999999999" }]);
+    await openForm();
+    expect(screen.getByLabelText("Forma de compra")).toHaveValue("whatsapp");
+    expect(screen.getByLabelText(/Número do WhatsApp/)).toHaveValue("5511999999999");
+  });
+
+  it.each([["hotmart", "https://hotmart.com.evil.test/x"], ["whatsapp", "55abc11999999999"]])("rejects invalid %s destination", async (method, value) => {
+    await openForm();
+    fireEvent.change(screen.getByLabelText("Forma de compra"), { target: { value: method } });
+    fireEvent.change(screen.getByLabelText(method === "hotmart" ? /Link de checkout/ : /Número do WhatsApp/), { target: { value } });
+    fireEvent.click(screen.getByRole("button", { name: "Salvar produto" }));
+    expect(saveProduct).not.toHaveBeenCalled();
+    expect(screen.getByText(/Informe um/)).toBeInTheDocument();
   });
 });

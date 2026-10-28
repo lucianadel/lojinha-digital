@@ -25,8 +25,8 @@ export function slugify(value: string): string {
 export function isValidHotmartUrl(value: string | null | undefined): boolean {
   if (!value) return false;
   try {
-    const url = new URL(value);
-    return url.protocol === "https:" && (url.hostname === "hotmart.com" || url.hostname.endsWith(".hotmart.com"));
+    const trimmed = value.trim();
+    return trimmed.length <= 2048 && /^https:\/\/([a-zA-Z0-9-]+\.)*hotmart\.com(\/|$)/.test(trimmed) && !/[\s\\]/.test(trimmed);
   } catch {
     return false;
   }
