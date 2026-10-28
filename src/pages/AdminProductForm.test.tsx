@@ -96,6 +96,7 @@ describe("purchase method editor", () => {
     }
     fireEvent.change(screen.getByLabelText("Forma de compra"), { target: { value: "whatsapp" } });
     expect(screen.queryByLabelText(/Link de checkout/)).not.toBeInTheDocument();
+    expect(screen.getByLabelText(/Número do WhatsApp/)).toHaveValue("5521992530081");
     fireEvent.change(screen.getByLabelText(/Número do WhatsApp/), { target: { value: "+55 (11) 99999-9999" } });
     expect(screen.getByRole("button", { name: "Comprar pelo WhatsApp" })).toBeDisabled();
     fireEvent.click(screen.getByRole("button", { name: "Salvar produto" }));
@@ -118,6 +119,28 @@ describe("purchase method editor", () => {
     await waitFor(() => expect(saveProduct).toHaveBeenCalledWith(expect.objectContaining({
       purchase_method: "hotmart", hotmart_url: "https://pay.hotmart.com/ABC",
     }), creating ? undefined : "product-1"));
+  });
+
+
+  it("saves the default sales number", async () => {
+    await openForm();
+    const method = screen.getByLabelText("Forma de compra");
+    fireEvent.change(method, { target: { value: "whatsapp" } });
+    expect(screen.getByLabelText(/Número do WhatsApp/)).toHaveValue("5521992530081");
+    fireEvent.click(screen.getByRole("button", { name: "Salvar produto" }));
+    await waitFor(() => expect(saveProduct).toHaveBeenCalledWith(expect.objectContaining({
+      purchase_method: "whatsapp", whatsapp_number: "5521992530081",
+    }), "product-1"));
+  });
+
+  it("preserves an edited number when switching methods", async () => {
+    await openForm();
+    const method = screen.getByLabelText("Forma de compra");
+    fireEvent.change(method, { target: { value: "whatsapp" } });
+    fireEvent.change(screen.getByLabelText(/Número do WhatsApp/), { target: { value: "+55 (11) 99999-9999" } });
+    fireEvent.change(method, { target: { value: "hotmart" } });
+    fireEvent.change(method, { target: { value: "whatsapp" } });
+    expect(screen.getByLabelText(/Número do WhatsApp/)).toHaveValue("+55 (11) 99999-9999");
   });
 
   it("restores the saved WhatsApp method and number", async () => {

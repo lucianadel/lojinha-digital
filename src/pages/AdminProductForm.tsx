@@ -4,7 +4,7 @@ import type { FormEvent } from "react";
 import { Link, useNavigate, useParams } from "react-router-dom";
 import { ErrorState, LoadingState } from "../components/StoreState";
 import { usePageMeta } from "../hooks/usePageMeta";
-import { getPurchase, isValidWhatsAppNumber, normalizeWhatsAppNumber } from "../lib/purchase";
+import { DEFAULT_SALES_WHATSAPP_NUMBER, getPurchase, isValidWhatsAppNumber, normalizeWhatsAppNumber } from "../lib/purchase";
 import { isValidHotmartUrl, slugify } from "../lib/format";
 import { getAdminProducts, getCategories, saveProduct, uploadCover } from "../services/products";
 import type { Category, Product, ProductInput, ProductStatus } from "../types";
@@ -103,7 +103,15 @@ export function AdminProductForm() {
           <label>Texto alternativo da capa<input maxLength={180} value={product.cover_alt} onChange={(e) => update("cover_alt", e.target.value)} placeholder="Descreva a imagem para pessoas que usam leitor de tela." /></label>
         </div>
         <div className="form-section"><h2>Compra e preço</h2><p>Escolha como este produto será comprado.</p>
-          <label>Forma de compra<select value={product.purchase_method} onChange={(e) => update("purchase_method", e.target.value as "hotmart" | "whatsapp")}><option value="hotmart">Hotmart</option><option value="whatsapp">WhatsApp</option></select></label>
+          <label>Forma de compra<select value={product.purchase_method} onChange={(e) => {
+            const method = e.target.value as "hotmart" | "whatsapp";
+            setProduct((current) => ({
+              ...current,
+              purchase_method: method,
+              whatsapp_number: method === "whatsapp" && !current.whatsapp_number?.trim()
+                ? DEFAULT_SALES_WHATSAPP_NUMBER : current.whatsapp_number,
+            }));
+          }}><option value="hotmart">Hotmart</option><option value="whatsapp">WhatsApp</option></select></label>
           {product.purchase_method === "whatsapp" ? <label>Número do WhatsApp<input type="tel" value={product.whatsapp_number ?? ""} onChange={(e) => update("whatsapp_number", e.target.value)} placeholder="5511999999999" /><small>Inclua código do país, DDD e número. Exemplo: 5511999999999.</small></label> : <label>Link de checkout Hotmart<input type="url" value={product.hotmart_url ?? ""} onChange={(e) => update("hotmart_url", e.target.value)} placeholder="https://pay.hotmart.com/..." /><small>Sem link válido, o botão de compra ficará indisponível na loja.</small></label>}
           <label>Preço (R$)<input type="text" inputMode="decimal" required value={priceText} onChange={(e) => setPriceText(e.target.value)} /></label>
         </div>

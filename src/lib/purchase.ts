@@ -1,6 +1,8 @@
 import type { ProductInput } from "../types";
 import { isValidHotmartUrl } from "./format";
 
+export const DEFAULT_SALES_WHATSAPP_NUMBER = "5521992530081";
+
 export function normalizeWhatsAppNumber(value: string | null | undefined): string {
   return (value ?? "").replace(/[\s()+-]/g, "");
 }

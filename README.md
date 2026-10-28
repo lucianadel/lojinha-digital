@@ -109,6 +109,6 @@ Para um banco existente, execute somente `supabase/migrations/20261028000000_pro
 
 A nova migração adiciona `purchase_method` (Hotmart por padrão, inclusive para produtos antigos) e `whatsapp_number` (opcional, apenas dígitos, 8 a 15 dígitos, sem zero inicial). Preserva os dados existentes, a restrição de URL Hotmart e as políticas RLS que permitem escrita apenas a administradores.
 
-No painel, em **Compra e preço**, escolha **Forma de compra** para cada produto. Hotmart usa o checkout HTTPS; WhatsApp aceita espaços, parênteses, traços e +, removidos antes de salvar. Inclua código do país, DDD e número. Exemplo: 5511999999999. Campo vazio mantém a compra indisponível. O cliente vê apenas o botão do canal escolhido.
+No painel, em **Compra e preço**, escolha **Forma de compra** para cada produto. Ao selecionar WhatsApp com o campo vazio, o painel preenche o número padrão de vendas **5521992530081** (+55 21 99253-0081), que pode ser editado por produto. Números já informados são preservados. Hotmart usa o checkout HTTPS; WhatsApp aceita espaços, parênteses, traços e +, removidos antes de salvar. Inclua código do país, DDD e número. Exemplo: 5511999999999. Campo vazio mantém a compra indisponível. O cliente vê apenas o botão do canal escolhido.
 
 Ordem de implantação: aplicar a nova migração, validar o painel e os botões em Preview e só depois publicar o frontend em produção. Esta alteração não aplica SQL, não faz merge e não publica produção automaticamente.
