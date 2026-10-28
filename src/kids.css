@@ -1,0 +1,42 @@
+.public-store .kids-promotion { display: flex; align-items: center; gap: 22px; margin-block: 0 55px; padding: 28px; border: 1px solid #3c527a; border-radius: 15px; background: linear-gradient(115deg,#162f57,#201e3c); }
+.public-store .kids-mark { display: grid; flex-shrink: 0; place-items: center; width: 66px; height: 66px; border-radius: 19px; background: #24487b; color: #b9d1ff; }
+.public-store .kids-promotion h2 { margin: 7px 0; font: 600 29px/1.2 var(--heading); letter-spacing: -.8px; }
+.public-store .kids-promotion h2 span { color: #ffb1d4; }
+.public-store .kids-promotion p { max-width: 65ch; margin: 0; color: var(--store-muted); font-size: 14px; }
+.public-store .kids-promotion .store-button { margin-left: auto; flex-shrink: 0; }
+.public-store .kids-intro { padding-block: 46px 28px; }
+.public-store .kids-intro h1 { margin: 15px 0; font: 600 clamp(36px,5vw,60px)/1.08 var(--heading); letter-spacing: -1.8px; }
+.public-store .kids-intro h1 span { color: #a8c4ff; }
+.public-store .kids-intro > p { max-width: 65ch; margin: 0; color: var(--store-muted); font-size: 16px; line-height: 1.8; }
+.public-store .kids-format { display: flex; align-items: center; gap: 9px; margin-top: 22px; color: #c9d8ee; font-size: 13px; }
+.public-store .kids-format svg { flex-shrink: 0; color: #91dfce; }
+.public-store .kids-categories { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 12px; margin-bottom: 12px; }
+.public-store .kids-category { display: flex; align-items: center; gap: 13px; min-height: 62px; padding: 13px 16px; border: 1px solid #365277; border-radius: 10px; background: #152b4c; color: #dce8ff; font-size: 14px; font-weight: 600; }
+.public-store .kids-category > span { display: grid; flex-shrink: 0; place-items: center; width: 30px; height: 30px; border-radius: 9px; background: #32517e; color: white; font: 600 11px var(--heading); }
+.public-store .kids-category:hover { border-color: #9cbcff; }
+.public-store .kids-tone-1 { border-color: #69603e; }.public-store .kids-tone-1 > span { background: #665326; }
+.public-store .kids-tone-2 { border-color: #35655d; }.public-store .kids-tone-2 > span { background: #22574d; }
+.public-store .kids-tone-3 { border-color: #6a3f5b; }.public-store .kids-tone-3 > span { background: #6c3657; }
+.public-store .kids-tone-4 { border-color: #625080; }.public-store .kids-tone-4 > span { background: #594278; }
+.public-store .kids-tone-5 { border-color: #725640; }.public-store .kids-tone-5 > span { background: #6b492e; }
+.public-store .kids-information { padding: 25px 0 55px; border-top: 1px solid var(--store-line); color: var(--store-muted); font-size: 14px; }
+.public-store .kids-information p { max-width: 85ch; }
+@media (max-width: 850px) { .public-store .kids-promotion { flex-wrap: wrap; }.public-store .kids-promotion .store-button { margin-left: 88px; }.public-store .kids-categories { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media (max-width: 520px) { .public-store .kids-promotion { padding: 22px; gap: 15px; }.public-store .kids-mark { width: 48px; height: 48px; border-radius: 13px; }.public-store .kids-promotion h2 { font-size: 26px; }.public-store .kids-promotion .store-button { margin-left: 0; width: 100%; }.public-store .kids-intro { padding-top: 32px; }.public-store .kids-intro > p { font-size: 14px; }.public-store .kids-categories { grid-template-columns: 1fr; }.public-store .kids-category { min-height: 54px; font-size: 14px; } }
+.public-store .kids-preview-notice { margin-block: 22px; padding: 20px; border: 1px solid #a48245; border-radius: 12px; background: #302b28; color: #ffdfaa; line-height: 1.7; }
+.public-store .kids-preview-notice strong { display: block; }
+.public-store .kids-preview-catalog { padding-bottom: 40px; }
+.public-store .kids-preview-filters { display: flex; gap: 18px; flex-wrap: wrap; margin-block: 22px; }
+.public-store .kids-preview-filters label { display: grid; gap: 8px; flex: 1 1 260px; color: #dce8ff; }
+.public-store .kids-preview-filters input, .public-store .kids-preview-filters select { width: 100%; min-height: 46px; padding: 10px 14px; border-radius: 9px; border: 1px solid #526b91; background: #122640; color: white; font: inherit; }
+.public-store .kids-preview-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 24px; }
+.public-store .kids-preview-card { min-width: 0; }
+.public-store .kids-preview-cover { padding: 16px; background: #101d32; }
+.public-store .kids-preview-cover img { display: block; width: 100%; height: auto; aspect-ratio: 3/4; object-fit: contain; }
+.public-store .kids-preview-price { display: grid; gap: 5px; color: #ffb7d5; }
+.public-store .kids-preview-price strong { font-size: 25px; }
+.public-store .kids-preview-price span { font-size: 12px; color: #c4d2e9; }
+.public-store .kids-preview-card summary { cursor: pointer; color: #b9d1ff; line-height: 1.6; padding-block: 10px; }
+.public-store .kids-preview-card details p { margin-block: 12px; }
+@media(max-width: 900px) { .public-store .kids-preview-grid { grid-template-columns: repeat(2,minmax(0,1fr)); } }
+@media(max-width: 550px) { .public-store .kids-preview-grid { grid-template-columns: 1fr; }.public-store .kids-preview-filters { flex-direction: column; }.public-store .kids-preview-filters label { flex-basis: auto; } }

@@ -1,0 +1,25 @@
+{
+  "environment": "PostgreSQL in memory only",
+  "checksPassed": 18,
+  "checks": [
+    "preflight lists all kits and categories",
+    "hidden draft Corpo Humano is recognized",
+    "reports only 62 new products when one already exists",
+    "equivalent category without accent is reused",
+    "approval gate blocks accidental execution",
+    "similar names are flagged for human review",
+    "unresolved possible duplicates block import",
+    "changed count aborts before inserting",
+    "missing approved cover URLs block import",
+    "failed attempts preserve original records",
+    "only 62 new products are created",
+    "all existing records including R$5.90 are unchanged",
+    "all new kits remain WhatsApp drafts",
+    "no duplicate equivalent category",
+    "repeat import creates no duplicates and changes no prices",
+    "policies were not modified",
+    "public cannot see imported drafts",
+    "non-admin cannot run the privileged preflight"
+  ],
+  "remoteConnections": 0
+}

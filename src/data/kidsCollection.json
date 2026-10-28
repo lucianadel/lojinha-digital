@@ -1,0 +1,675 @@
+{
+  "categories": [
+    {
+      "id": "alfabetizacao",
+      "name": "Alfabetização",
+      "slug": "alfabetizacao"
+    },
+    {
+      "id": "matematica",
+      "name": "Matemática",
+      "slug": "matematica"
+    },
+    {
+      "id": "raciocinio-e-coordenacao",
+      "name": "Raciocínio e Coordenação",
+      "slug": "raciocinio-e-coordenacao"
+    },
+    {
+      "id": "datas-comemorativas",
+      "name": "Datas Comemorativas",
+      "slug": "datas-comemorativas"
+    },
+    {
+      "id": "desenhos-para-colorir",
+      "name": "Desenhos para Colorir",
+      "slug": "desenhos-para-colorir"
+    },
+    {
+      "id": "jogos-e-recortes",
+      "name": "Jogos e Recortes",
+      "slug": "jogos-e-recortes"
+    }
+  ],
+  "kits": [
+    {
+      "slug": "kids-alfabeto-ilustrado-e-fichas",
+      "sourceTitle": "Kit Alfabeto Ilustrado e Fichas",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidsalfabetoilustradoefichas",
+        "kitalfabetoilustradoefichas",
+        "kitalfabetoilustradoefichas100atividades"
+      ]
+    },
+    {
+      "slug": "kids-alfabeto-e-letras",
+      "sourceTitle": "Kit Alfabeto e Letras",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidsalfabetoeletras",
+        "kitalfabetoeletras",
+        "kitalfabetoeletras426atividades"
+      ]
+    },
+    {
+      "slug": "kids-caca-letras",
+      "sourceTitle": "Kit Caça-Letras",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidscacaletras",
+        "kitcacaletras",
+        "kitcacaletras416atividades"
+      ]
+    },
+    {
+      "slug": "kids-caca-palavras-ilustrados",
+      "sourceTitle": "Kit Caça-Palavras Ilustrados",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidscacapalavrasilustrados",
+        "kitcacapalavrasilustrados",
+        "kitcacapalavrasilustrados1080atividades"
+      ]
+    },
+    {
+      "slug": "kids-cruzadinhas-ilustradas",
+      "sourceTitle": "Kit Cruzadinhas Ilustradas",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidscruzadinhasilustradas",
+        "kitcruzadinhasilustradas",
+        "kitcruzadinhasilustradas1000atividades"
+      ]
+    },
+    {
+      "slug": "kids-escreva-o-nome-e-ordem-alfabetica",
+      "sourceTitle": "Kit Escreva o Nome e Ordem Alfabética",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidsescrevaonomeeordemalfabetica",
+        "kitescrevaonomeeordemalfabetica",
+        "kitescrevaonomeeordemalfabetica1000atividades"
+      ]
+    },
+    {
+      "slug": "kids-familias-silabicas",
+      "sourceTitle": "Kit Famílias Silábicas",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidsfamiliassilabicas",
+        "kitfamiliassilabicas",
+        "kitfamiliassilabicas460atividades"
+      ]
+    },
+    {
+      "slug": "kids-letra-cursiva",
+      "sourceTitle": "Kit Letra Cursiva",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidsletracursiva",
+        "kitletracursiva",
+        "kitletracursiva684atividades"
+      ]
+    },
+    {
+      "slug": "kids-letras-e-vogais",
+      "sourceTitle": "Kit Letras e Vogais",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidsletrasevogais",
+        "kitletrasevogais",
+        "kitletrasevogais900atividades"
+      ]
+    },
+    {
+      "slug": "kids-ligue-a-figura-ao-nome",
+      "sourceTitle": "Kit Ligue a Figura ao Nome",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidsligueafiguraaonome",
+        "kitligueafiguraaonome",
+        "kitligueafiguraaonome600atividades"
+      ]
+    },
+    {
+      "slug": "kids-silabas-1-complete-e-forme-palavras",
+      "sourceTitle": "Kit Sílabas 1: Complete e Forme Palavras",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidssilabas1completeeformepalavras",
+        "kitsilabas1completeeformepalavras",
+        "kitsilabas1completeeformepalavras700atividades"
+      ]
+    },
+    {
+      "slug": "kids-silabas-2-separe-e-conte",
+      "sourceTitle": "Kit Sílabas 2: Separe e Conte",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidssilabas2separeeconte",
+        "kitsilabas2separeeconte",
+        "kitsilabas2separeeconte650atividades"
+      ]
+    },
+    {
+      "slug": "kids-treino-de-escrita-258-palavras",
+      "sourceTitle": "Kit Treino de Escrita: 258 Palavras",
+      "categorySlug": "alfabetizacao",
+      "matchKeys": [
+        "kidstreinodeescrita258palavras",
+        "kittreinodeescrita258palavras",
+        "kittreinodeescrita258palavras258atividades"
+      ]
+    },
+    {
+      "slug": "kids-adicao-armada",
+      "sourceTitle": "Kit Adição Armada",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsadicaoarmada",
+        "kitadicaoarmada",
+        "kitadicaoarmada1050atividades"
+      ]
+    },
+    {
+      "slug": "kids-adicao-com-figuras",
+      "sourceTitle": "Kit Adição com Figuras",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsadicaocomfiguras",
+        "kitadicaocomfiguras",
+        "kitadicaocomfiguras500atividades"
+      ]
+    },
+    {
+      "slug": "kids-contas-com-reserva-e-3-algarismos",
+      "sourceTitle": "Kit Contas com Reserva e 3 Algarismos",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidscontascomreservae3algarismos",
+        "kitcontascomreservae3algarismos",
+        "kitcontascomreservae3algarismos1200atividades"
+      ]
+    },
+    {
+      "slug": "kids-conte-e-escreva",
+      "sourceTitle": "Kit Conte e Escreva",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsconteeescreva",
+        "kitconteeescreva",
+        "kitconteeescreva900atividades"
+      ]
+    },
+    {
+      "slug": "kids-divisao",
+      "sourceTitle": "Kit Divisão",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsdivisao",
+        "kitdivisao",
+        "kitdivisao800atividades"
+      ]
+    },
+    {
+      "slug": "kids-fracoes",
+      "sourceTitle": "Kit Frações",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsfracoes",
+        "kitfracoes",
+        "kitfracoes400atividades"
+      ]
+    },
+    {
+      "slug": "kids-hora-certa-relogio",
+      "sourceTitle": "Kit Hora Certa: Relógio",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidshoracertarelogio",
+        "kithoracertarelogio",
+        "kithoracertarelogio500atividades"
+      ]
+    },
+    {
+      "slug": "kids-numeros-de-0-a-20",
+      "sourceTitle": "Kit Números de 0 a 20",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsnumerosde0a20",
+        "kitnumerosde0a20",
+        "kitnumerosde0a20461atividades"
+      ]
+    },
+    {
+      "slug": "kids-numeros-por-extenso",
+      "sourceTitle": "Kit Números por Extenso",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsnumerosporextenso",
+        "kitnumerosporextenso",
+        "kitnumerosporextenso400atividades"
+      ]
+    },
+    {
+      "slug": "kids-probleminhas-de-matematica",
+      "sourceTitle": "Kit Probleminhas de Matemática",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsprobleminhasdematematica",
+        "kitprobleminhasdematematica",
+        "kitprobleminhasdematematica700atividades"
+      ]
+    },
+    {
+      "slug": "kids-sequencias-e-quadro-ate-100",
+      "sourceTitle": "Kit Sequências e Quadro até 100",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidssequenciasequadroate100",
+        "kitsequenciasequadroate100",
+        "kitsequenciasequadroate100800atividades"
+      ]
+    },
+    {
+      "slug": "kids-sistema-de-numeracao",
+      "sourceTitle": "Kit Sistema de Numeração",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidssistemadenumeracao",
+        "kitsistemadenumeracao",
+        "kitsistemadenumeracao1000atividades"
+      ]
+    },
+    {
+      "slug": "kids-subtracao-armada",
+      "sourceTitle": "Kit Subtração Armada",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidssubtracaoarmada",
+        "kitsubtracaoarmada",
+        "kitsubtracaoarmada1050atividades"
+      ]
+    },
+    {
+      "slug": "kids-subtracao-com-figuras",
+      "sourceTitle": "Kit Subtração com Figuras",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidssubtracaocomfiguras",
+        "kitsubtracaocomfiguras",
+        "kitsubtracaocomfiguras500atividades"
+      ]
+    },
+    {
+      "slug": "kids-tabuada-e-multiplicacao",
+      "sourceTitle": "Kit Tabuada e Multiplicação",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidstabuadaemultiplicacao",
+        "kittabuadaemultiplicacao",
+        "kittabuadaemultiplicacao960atividades"
+      ]
+    },
+    {
+      "slug": "kids-vizinhos-maior-e-menor",
+      "sourceTitle": "Kit Vizinhos, Maior e Menor",
+      "categorySlug": "matematica",
+      "matchKeys": [
+        "kidsvizinhosmaioremenor",
+        "kitvizinhosmaioremenor",
+        "kitvizinhosmaioremenor800atividades"
+      ]
+    },
+    {
+      "slug": "kids-atencao-e-percepcao",
+      "sourceTitle": "Kit Atenção e Percepção",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidsatencaoepercepcao",
+        "kitatencaoepercepcao",
+        "kitatencaoepercepcao800atividades"
+      ]
+    },
+    {
+      "slug": "kids-coordenacao-motora",
+      "sourceTitle": "Kit Coordenação Motora",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidscoordenacaomotora",
+        "kitcoordenacaomotora",
+        "kitcoordenacaomotora600atividades"
+      ]
+    },
+    {
+      "slug": "kids-copie-o-desenho-quadriculado",
+      "sourceTitle": "Kit Copie o Desenho (Quadriculado)",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidscopieodesenhoquadriculado",
+        "kitcopieodesenhoquadriculado",
+        "kitcopieodesenhoquadriculado900atividades"
+      ]
+    },
+    {
+      "slug": "kids-labirintos-nivel-dificil",
+      "sourceTitle": "Kit Labirintos: Nível Difícil",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidslabirintosniveldificil",
+        "kitlabirintosniveldificil",
+        "kitlabirintosniveldificil900atividades"
+      ]
+    },
+    {
+      "slug": "kids-labirintos-nivel-facil",
+      "sourceTitle": "Kit Labirintos: Nível Fácil",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidslabirintosnivelfacil",
+        "kitlabirintosnivelfacil",
+        "kitlabirintosnivelfacil900atividades"
+      ]
+    },
+    {
+      "slug": "kids-labirintos-nivel-medio",
+      "sourceTitle": "Kit Labirintos: Nível Médio",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidslabirintosnivelmedio",
+        "kitlabirintosnivelmedio",
+        "kitlabirintosnivelmedio900atividades"
+      ]
+    },
+    {
+      "slug": "kids-ligue-os-pontos",
+      "sourceTitle": "Kit Ligue os Pontos",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidsligueospontos",
+        "kitligueospontos",
+        "kitligueospontos774atividades"
+      ]
+    },
+    {
+      "slug": "kids-pinte-pelo-codigo",
+      "sourceTitle": "Kit Pinte pelo Código",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidspintepelocodigo",
+        "kitpintepelocodigo",
+        "kitpintepelocodigo516atividades"
+      ]
+    },
+    {
+      "slug": "kids-sequencia-logica",
+      "sourceTitle": "Kit Sequência Lógica",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidssequencialogica",
+        "kitsequencialogica",
+        "kitsequencialogica700atividades"
+      ]
+    },
+    {
+      "slug": "kids-sudoku-infantil",
+      "sourceTitle": "Kit Sudoku Infantil",
+      "categorySlug": "raciocinio-e-coordenacao",
+      "matchKeys": [
+        "kidssudokuinfantil",
+        "kitsudokuinfantil",
+        "kitsudokuinfantil800atividades"
+      ]
+    },
+    {
+      "slug": "kids-carnaval",
+      "sourceTitle": "Kit Carnaval",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidscarnaval",
+        "kitcarnaval",
+        "kitcarnaval196atividades"
+      ]
+    },
+    {
+      "slug": "kids-dia-das-criancas",
+      "sourceTitle": "Kit Dia das Crianças",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidsdiadascriancas",
+        "kitdiadascriancas",
+        "kitdiadascriancas196atividades"
+      ]
+    },
+    {
+      "slug": "kids-dia-das-maes",
+      "sourceTitle": "Kit Dia das Mães",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidsdiadasmaes",
+        "kitdiadasmaes",
+        "kitdiadasmaes196atividades"
+      ]
+    },
+    {
+      "slug": "kids-festa-junina",
+      "sourceTitle": "Kit Festa Junina",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidsfestajunina",
+        "kitfestajunina",
+        "kitfestajunina196atividades"
+      ]
+    },
+    {
+      "slug": "kids-folclore",
+      "sourceTitle": "Kit Folclore",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidsfolclore",
+        "kitfolclore",
+        "kitfolclore196atividades"
+      ]
+    },
+    {
+      "slug": "kids-meio-ambiente",
+      "sourceTitle": "Kit Meio Ambiente",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidsmeioambiente",
+        "kitmeioambiente",
+        "kitmeioambiente196atividades"
+      ]
+    },
+    {
+      "slug": "kids-natal",
+      "sourceTitle": "Kit Natal",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidsnatal",
+        "kitnatal",
+        "kitnatal198atividades"
+      ]
+    },
+    {
+      "slug": "kids-primavera",
+      "sourceTitle": "Kit Primavera",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidsprimavera",
+        "kitprimavera",
+        "kitprimavera196atividades"
+      ]
+    },
+    {
+      "slug": "kids-pascoa",
+      "sourceTitle": "Kit Páscoa",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidspascoa",
+        "kitpascoa",
+        "kitpascoa196atividades"
+      ]
+    },
+    {
+      "slug": "kids-volta-as-aulas",
+      "sourceTitle": "Kit Volta às Aulas",
+      "categorySlug": "datas-comemorativas",
+      "matchKeys": [
+        "kidsvoltaasaulas",
+        "kitvoltaasaulas",
+        "kitvoltaasaulas198atividades"
+      ]
+    },
+    {
+      "slug": "kids-alimentos-para-colorir",
+      "sourceTitle": "Kit Colorir: Alimentos",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidsalimentosparacolorir",
+        "kitalimentosparacolorir",
+        "kitalimentosparacolorir51atividades",
+        "kitcoloriralimentos"
+      ]
+    },
+    {
+      "slug": "kids-animais-para-colorir",
+      "sourceTitle": "Kit Colorir: Animais",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidsanimaisparacolorir",
+        "kitanimaisparacolorir",
+        "kitanimaisparacolorir72atividades",
+        "kitcoloriranimais"
+      ]
+    },
+    {
+      "slug": "kids-brinquedos-e-musica-para-colorir",
+      "sourceTitle": "Kit Colorir: Brinquedos e Música",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidsbrinquedosemusicaparacolorir",
+        "kitbrinquedosemusicaparacolorir",
+        "kitbrinquedosemusicaparacolorir20atividades",
+        "kitcolorirbrinquedosemusica"
+      ]
+    },
+    {
+      "slug": "kids-casa-para-colorir",
+      "sourceTitle": "Kit Colorir: Casa",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidscasaparacolorir",
+        "kitcasaparacolorir",
+        "kitcasaparacolorir30atividades",
+        "kitcolorircasa"
+      ]
+    },
+    {
+      "slug": "kids-corpo-humano-para-colorir",
+      "sourceTitle": "Kit Colorir: Corpo Humano",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidscorpohumanoparacolorir",
+        "kitcolorircorpohumano",
+        "kitcorpohumanoparacolorir",
+        "kitcorpohumanoparacolorir8atividades"
+      ]
+    },
+    {
+      "slug": "kids-escola-para-colorir",
+      "sourceTitle": "Kit Colorir: Escola",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidsescolaparacolorir",
+        "kitcolorirescola",
+        "kitescolaparacolorir",
+        "kitescolaparacolorir16atividades"
+      ]
+    },
+    {
+      "slug": "kids-natureza-para-colorir",
+      "sourceTitle": "Kit Colorir: Natureza",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidsnaturezaparacolorir",
+        "kitcolorirnatureza",
+        "kitnaturezaparacolorir",
+        "kitnaturezaparacolorir31atividades"
+      ]
+    },
+    {
+      "slug": "kids-roupas-e-acessorios-para-colorir",
+      "sourceTitle": "Kit Colorir: Roupas e Acessórios",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidsroupaseacessoriosparacolorir",
+        "kitcolorirroupaseacessorios",
+        "kitroupaseacessoriosparacolorir",
+        "kitroupaseacessoriosparacolorir14atividades"
+      ]
+    },
+    {
+      "slug": "kids-transportes-para-colorir",
+      "sourceTitle": "Kit Colorir: Transportes",
+      "categorySlug": "desenhos-para-colorir",
+      "matchKeys": [
+        "kidstransportesparacolorir",
+        "kitcolorirtransportes",
+        "kittransportesparacolorir",
+        "kittransportesparacolorir16atividades"
+      ]
+    },
+    {
+      "slug": "kids-bingo-de-figuras",
+      "sourceTitle": "Kit Bingo de Figuras",
+      "categorySlug": "jogos-e-recortes",
+      "matchKeys": [
+        "kidsbingodefiguras",
+        "kitbingodefiguras",
+        "kitbingodefiguras300atividades"
+      ]
+    },
+    {
+      "slug": "kids-bingo-de-letras",
+      "sourceTitle": "Kit Bingo de Letras",
+      "categorySlug": "jogos-e-recortes",
+      "matchKeys": [
+        "kidsbingodeletras",
+        "kitbingodeletras",
+        "kitbingodeletras300atividades"
+      ]
+    },
+    {
+      "slug": "kids-bingo-de-numeros",
+      "sourceTitle": "Kit Bingo de Números",
+      "categorySlug": "jogos-e-recortes",
+      "matchKeys": [
+        "kidsbingodenumeros",
+        "kitbingodenumeros",
+        "kitbingodenumeros300atividades"
+      ]
+    },
+    {
+      "slug": "kids-bingo-de-silabas",
+      "sourceTitle": "Kit Bingo de Sílabas",
+      "categorySlug": "jogos-e-recortes",
+      "matchKeys": [
+        "kidsbingodesilabas",
+        "kitbingodesilabas",
+        "kitbingodesilabas300atividades"
+      ]
+    },
+    {
+      "slug": "kids-jogo-da-memoria",
+      "sourceTitle": "Kit Jogo da Memória",
+      "categorySlug": "jogos-e-recortes",
+      "matchKeys": [
+        "kidsjogodamemoria",
+        "kitjogodamemoria",
+        "kitjogodamemoria186atividades"
+      ]
+    }
+  ]
+}

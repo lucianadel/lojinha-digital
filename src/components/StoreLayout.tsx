@@ -26,7 +26,7 @@ export function StoreLayout() {
     <main id="conteudo" tabIndex={-1}><Outlet /></main>
     <footer className="store-footer"><div className="public-container"><div className="store-footer-main">
       <div><Link to="/" className="store-brand"><span className="store-brand-icon"><BookOpen size={25} aria-hidden="true" /></span><span>Lojinha<span className="store-brand-light"> Digital<span className="brand-period">.</span></span></span></Link><p>Conhecimento para descobrir.<br />Histórias para levar com você.</p></div>
-      <nav aria-label="Explore a loja"><h2>Explore</h2><Link to="/loja">Todos os produtos</Link><Link to="/personalizados">Personalizados</Link><Link to="/sobre">Sobre a Lojinha</Link></nav>
+      <nav aria-label="Explore a loja"><h2>Explore</h2><Link to="/loja">Todos os produtos</Link><Link to="/kids">Lojinha Digital Kids</Link><Link to="/personalizados">Personalizados</Link><Link to="/sobre">Sobre a Lojinha</Link></nav>
       <nav aria-label="Ajuda e informações"><h2>Como podemos ajudar?</h2><Link to="/faq">Dúvidas frequentes</Link><Link to="/contato">Entre em contato <ArrowUpRight size={14} aria-hidden="true" /></Link><Link to="/privacidade">Privacidade</Link><Link to="/termos">Termos de uso</Link></nav>
       <div className="footer-signature"><span aria-hidden="true">✳</span><p>Um pouco de inspiração.<br />Muitas possibilidades.</p></div>
     </div><div className="store-footer-bottom"><span>© {new Date().getFullYear()} Lojinha Digital</span><span>Informações de compra na página de cada produto.</span></div></div></footer>

@@ -1,0 +1,79 @@
+{
+    "categories":  [
+                       {
+                           "id":  "4b7ed9fc-e6d8-45c9-8f31-27bab2c62d01",
+                           "name":  "Apostilas",
+                           "slug":  "apostilas",
+                           "description":  "Conteúdo organizado para estudar com clareza.",
+                           "created_at":  "2026-10-15T14:05:03.056167+00:00"
+                       },
+                       {
+                           "id":  "001606b7-eec8-4a3f-9724-5c185f6b3968",
+                           "name":  "Cursos",
+                           "slug":  "cursos",
+                           "description":  "Conhecimento aplicável, do começo ao próximo passo.",
+                           "created_at":  "2026-10-15T14:05:03.056167+00:00"
+                       },
+                       {
+                           "id":  "c052e696-3d7e-46e3-b87f-6322d7f9082b",
+                           "name":  "E-books",
+                           "slug":  "e-books",
+                           "description":  "Leitura prática para aprender no seu ritmo.",
+                           "created_at":  "2026-10-15T14:05:03.056167+00:00"
+                       },
+                       {
+                           "id":  "6c3c5426-6f57-42b3-8c28-99a3fdaa4f85",
+                           "name":  "Kits Digitais",
+                           "slug":  "kits-digitais",
+                           "description":  "Recursos completos para colocar seus planos em ação.",
+                           "created_at":  "2026-10-15T14:05:03.056167+00:00"
+                       },
+                       {
+                           "id":  "e29b2182-c487-44b9-8623-3a1969678ccf",
+                           "name":  "Planners",
+                           "slug":  "planners",
+                           "description":  "Planejamento bonito que funciona na vida real.",
+                           "created_at":  "2026-10-15T14:05:03.056167+00:00"
+                       }
+                   ],
+    "products":  [
+                     {
+                         "id":  "394a1976-1bd3-4b0d-bf06-cd4305ebba08",
+                         "title":  "Cão Educado, Lar Feliz — Guia de Adestramento Positivo",
+                         "slug":  "cao-educado-lar-feliz",
+                         "short_description":  "Transforme a convivência com seu cachorro! Aprenda técnicas de adestramento positivo, comandos essenciais, passeios mais tranquilos e hábitos saudáveis. Um guia ilustrado com exercícios práticos, checklists e um plano de",
+                         "description":  "# Cão Educado, Lar Feliz\n\n**Um guia prático de adestramento positivo para uma convivência mais harmoniosa com seu melhor amigo!**\n\nVocê ama seu cachorro, mas enfrenta dificuldades com pulos, mordidas, latidos excessivos ou passeios agitados?\n\nCom o e-book **Cão Educado, Lar Feliz**, você vai descobrir maneiras respeitosas de ensinar bons hábitos, melhorar a comunicação e fortalecer a confiança entre você e seu pet.\n\n## O que você vai aprender?\n\n- **Adestramento positivo:** como ensinar utilizando recompensas e respeito.\n- **Comandos essenciais:** atividades para desenvolver atenção e cooperação.\n- **Passeios mais tranquilos:** orientações para melhorar a experiência com a guia.\n- **Latidos, pulos e mordidas:** como compreender e lidar com comportamentos desafiadores.\n- **Rotina e bem-estar:** hábitos para uma convivência mais equilibrada.\n- **Enriquecimento ambiental:** brincadeiras e atividades que estimulam o corpo e a mente.\n\n## O que está incluído?\n\n✅ E-book digital ilustrado em PDF.\n\n✅ Explicações claras e acessíveis para iniciantes.\n\n✅ Exercícios para praticar com seu cachorro.\n\n✅ Plano prático de 21 dias.\n\n✅ Checklists e atividades para acompanhar a evolução.\n\n✅ Material para consultar sempre que precisar.\n\n## Para quem é este guia?\n\nIdeal para tutores de cães que desejam aprender técnicas de educação positiva, criar uma rotina mais organizada e melhorar a convivência em casa.\n\nNão é necessário ter experiência com adestramento!\n\n## Comece uma nova fase com seu cachorro\n\nEducar é muito mais do que ensinar comandos. É compreender necessidades, respeitar limites e construir uma relação baseada na confiança.\n\n**Seu cachorro aprende no próprio ritmo. Cada pequena conquista merece ser valorizada!**\n\n---\n\n**Formato:** Produto digital em PDF.\n\n**Entrega:** Conforme as instruções de acesso disponibilizadas após a compra.\n\n**Importante:** Este material é educativo e não substitui o acompanhamento de um médico-veterinário ou profissional qualificado em comportamento animal quando necessário.",
+                         "category_id":  "c052e696-3d7e-46e3-b87f-6322d7f9082b",
+                         "price":  19.90,
+                         "cover_url":  "https://xcnvhllavhcmitzprkde.supabase.co/storage/v1/object/public/product-covers/10f52259-2a17-4e4c-8a25-d5f73faa7272.png",
+                         "cover_alt":  "Cão Educado, Lar Feliz, com cachorro preto e branco sorridente no gramado e título colorido em destaque.",
+                         "hotmart_url":  "https://pay.hotmart.com/V108076435M",
+                         "featured":  true,
+                         "status":  "published",
+                         "created_at":  "2026-10-15T14:49:50.76956+00:00",
+                         "updated_at":  "2026-10-17T20:15:48.344083+00:00",
+                         "purchase_method":  "hotmart",
+                         "whatsapp_number":  null
+                     },
+                     {
+                         "id":  "5f038a5a-f31c-46dc-80c5-0cbc9c6eaa7a",
+                         "title":  "Ainda Há Lugar Para Mim?",
+                         "slug":  "ainda-ha-lugar-para-mim",
+                         "short_description":  "**Ainda Há Lugar Para Mim?**, de **Luciana dos Santos Delfino**, é um livro inspirador sobre autoestima, autoconhecimento e reinvenção profissional para mulheres acima dos 40 anos. Uma leitura acolhedora que mostra que a",
+                         "description":  "# Ainda Há Lugar Para Mim?\n### Mulheres, trabalho e a coragem de recomeçar depois dos 40\n\n**Autora: Luciana dos Santos Delfino**\n\n**Você já sentiu que o mercado de trabalho deixou de enxergar seu valor? Que sua idade se tornou uma barreira para novas oportunidades? Ou que, depois de tantos anos dedicados à família, ao trabalho e às responsabilidades, chegou a hora de olhar novamente para seus próprios sonhos?**\n\nO livro **“Ainda Há Lugar Para Mim?”**, de Luciana dos Santos Delfino, é um convite emocionante à reflexão, ao autoconhecimento e à redescoberta das possibilidades que a vida ainda oferece.\n\nEscrito especialmente para mulheres que enfrentam os desafios da maturidade, da recolocação profissional e da busca por independência, este livro mostra que a experiência acumulada ao longo dos anos tem valor e merece reconhecimento.\n\nCom uma linguagem sensível, acolhedora e realista, a autora aborda sentimentos como insegurança, medo de recomeçar, falta de oportunidades e dúvidas sobre o futuro, sem apresentar soluções mágicas ou promessas de sucesso imediato.\n\nAo longo de **12 capítulos**, você encontrará reflexões profundas, situações inspiradas nos desafios da vida adulta e orientações práticas para começar a construir novos caminhos.\n\n### O que você encontrará neste livro?\n\n- **Autoestima e valorização pessoal:** reconheça suas capacidades, sua trajetória e suas conquistas.\n- **Mercado de trabalho depois dos 40:** compreenda os desafios da recolocação profissional e explore novas possibilidades.\n- **Coragem para aprender novamente:** enfrente o medo das mudanças e descubra que adquirir novas habilidades é possível em diferentes fases da vida.\n- **Reinvenção profissional:** conheça alternativas de trabalho, estudos e empreendedorismo de maneira consciente.\n- **Independência e novos projetos:** reflita sobre como transformar seus conhecimentos e experiências em novas oportunidades.\n- **Exercícios práticos:** organize suas ideias, reconheça prioridades e desenvolva um plano de ação compatível com sua realidade.\n\n### Para quem é este livro?\n\nPara mulheres acima dos 40 anos que desejam recomeçar profissionalmente, recuperar a confiança, buscar novas oportunidades ou simplesmente redescobrir seu lugar no mundo.\n\nTambém é uma leitura valiosa para quem deseja compreender melhor os desafios enfrentados por mulheres maduras em uma sociedade que tantas vezes deixa de reconhecer sua experiência.\n\n### Uma mensagem para levar no coração\n\nVocê não precisa apagar sua história para começar um novo capítulo.\n\nOs anos vividos não diminuem seu valor. Suas experiências, aprendizados, dificuldades e conquistas fazem parte de quem você é.\n\n**Ainda há sonhos para realizar, possibilidades para descobrir e caminhos que podem ser construídos.**\n\nTalvez o próximo capítulo da sua vida comece com uma pergunta:\n\n**Ainda há lugar para mim?**\n\nE com a coragem de descobrir que novos lugares podem ser construídos.\n\n---\n\n### Informações do produto\n\n- **Título:** Ainda Há Lugar Para Mim?\n- **Subtítulo:** Mulheres, trabalho e a coragem de recomeçar depois dos 40\n- **Autora:** Luciana dos Santos Delfino\n- **Categoria:** Desenvolvimento pessoal, autoestima e reinvenção profissional\n- **Formato:** Livro digital (e-book em PDF)\n- **Extensão:** 83 páginas\n- **Idioma:** Português\n- **Edição:** 2026\n\n**Adquira seu exemplar e comece uma jornada de reflexão, valorização pessoal e descoberta de novas possibilidades.**\n\n*Produto digital. Nenhum livro físico será enviado.*",
+                         "category_id":  "4b7ed9fc-e6d8-45c9-8f31-27bab2c62d01",
+                         "price":  19.90,
+                         "cover_url":  "https://xcnvhllavhcmitzprkde.supabase.co/storage/v1/object/public/product-covers/352e73b1-ab34-4f07-8286-df6c01099bc1.png",
+                         "cover_alt":  "Capa do livro “Ainda Há Lugar Para Mim?”, de Luciana dos Santos Delfino. Em um ambiente azul-escuro, uma porta entreaberta revela uma paisagem iluminada pela luz dourada do sol, qu",
+                         "hotmart_url":  "https://pay.hotmart.com/W108169424U",
+                         "featured":  false,
+                         "status":  "published",
+                         "created_at":  "2026-10-23T23:25:52.83828+00:00",
+                         "updated_at":  "2026-10-24T17:03:21.935519+00:00",
+                         "purchase_method":  "hotmart",
+                         "whatsapp_number":  null
+                     }
+                 ],
+    "visibility":  "anonymous_public_read_only",
+    "captured_at":  "2026-10-28T18:56:23.8272949Z"
+}

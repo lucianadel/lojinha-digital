@@ -1,0 +1,72 @@
+{
+  "offlineReview": {
+    "kits": 63,
+    "coversLoaded": 63,
+    "resolution": "1200x1600",
+    "categoryCounts": [
+      {
+        "category": "Alfabetização",
+        "count": 13
+      },
+      {
+        "category": "Matemática",
+        "count": 16
+      },
+      {
+        "category": "Raciocínio e Coordenação",
+        "count": 10
+      },
+      {
+        "category": "Datas Comemorativas",
+        "count": 10
+      },
+      {
+        "category": "Desenhos para Colorir",
+        "count": 9
+      },
+      {
+        "category": "Jogos e Recortes",
+        "count": 5
+      }
+    ],
+    "searchAndDetails": true,
+    "axeViolations": []
+  },
+  "realCatalog": {
+    "publishedProducts": 2,
+    "kidsPublished": 0,
+    "adminProtected": true,
+    "paidSourceBlocked": true,
+    "axeViolations": []
+  },
+  "simulatedKids": {
+    "published": 2,
+    "draftHidden": true,
+    "existingBodyPricePreserved": 5.9,
+    "widths": [
+      {
+        "width": 320,
+        "overflow": false
+      },
+      {
+        "width": 390,
+        "overflow": false
+      },
+      {
+        "width": 768,
+        "overflow": false
+      },
+      {
+        "width": 1440,
+        "overflow": false
+      }
+    ],
+    "whatsappMessage": true,
+    "onlyOneButton": true,
+    "existingHotmartLinksPreserved": true,
+    "axeViolations": []
+  },
+  "runtimeErrors": [],
+  "remoteWrites": 0,
+  "blockedWriteAttempts": 0
+}

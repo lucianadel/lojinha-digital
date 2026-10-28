@@ -1,6 +1,7 @@
 import { BookOpen, Sparkles } from "lucide-react";
 import { ProductCatalog } from "../components/ProductCatalog";
 import { PersonalizedServices } from "../components/PersonalizedServices";
+import { KidsPromotion } from "../components/KidsPromotion";
 import { usePageMeta } from "../hooks/usePageMeta";
 
 export function Home() {
@@ -13,7 +14,8 @@ export function Home() {
       </div>
       <span className="welcome-note"><Sparkles size={20} aria-hidden="true" /> Para aprender,<br />imaginar e criar.</span>
     </section>
-    <ProductCatalog />
+    <ProductCatalog collection="general" />
+    <KidsPromotion />
     <PersonalizedServices compact />
   </>;
 }

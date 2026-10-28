@@ -14,6 +14,8 @@ import { Home } from "./pages/Home";
 import { ProductDetail } from "./pages/ProductDetail";
 import { Store } from "./pages/Store";
 import { Personalized } from "./pages/Personalized";
+import { KidsPreview } from "./pages/KidsPreview";
+import { Kids } from "./pages/Kids";
 
 export default function App() {
   return <AuthProvider><Routes>
@@ -21,6 +23,8 @@ export default function App() {
       <Route index element={<Home />} />
       <Route path="loja" element={<Store />} />
       <Route path="personalizados" element={<Personalized />} />
+      <Route path="kids" element={<Kids />} />
+      <Route path="kids/previa" element={<KidsPreview />} />
       <Route path="produto/:slug" element={<ProductDetail />} />
       <Route path="sobre" element={<About />} />
       <Route path="contato" element={<Contact />} />
