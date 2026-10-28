@@ -3,6 +3,7 @@ import { AuthProvider } from "./auth/AuthContext";
 import { AdminLayout } from "./components/AdminLayout";
 import { ProtectedAdmin } from "./components/ProtectedAdmin";
 import { StoreLayout } from "./components/StoreLayout";
+import { AdminKidsImport } from "./pages/AdminKidsImport";
 import { AdminCategories } from "./pages/AdminCategories";
 import { AdminDashboard } from "./pages/AdminDashboard";
 import { AdminLogin } from "./pages/AdminLogin";
@@ -35,6 +36,7 @@ export default function App() {
       <Route path="produtos/novo" element={<AdminProductForm />} />
       <Route path="produtos/:id" element={<AdminProductForm />} />
       <Route path="categorias" element={<AdminCategories />} />
+      {import.meta.env.DEV && <Route path="importar-kids" element={<AdminKidsImport />} />}
       <Route path="configuracoes" element={<AdminSettings />} />
     </Route></Route>
     <Route path="*" element={<Navigate to="/" replace />} />

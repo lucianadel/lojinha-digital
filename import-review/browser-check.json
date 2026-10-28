@@ -1,0 +1,35 @@
+{
+  "simulation": true,
+  "adminGuard": true,
+  "kits": 63,
+  "newInSimulation": 62,
+  "existingBodyPrice": 5.9,
+  "confirmationRequired": true,
+  "widths": [
+    {
+      "width": 390,
+      "overflow": false
+    },
+    {
+      "width": 1440,
+      "overflow": false
+    }
+  ],
+  "axeViolations": [
+    {
+      "id": "color-contrast",
+      "impact": "serious",
+      "help": "Elements must meet minimum color contrast ratio thresholds",
+      "nodes": [
+        {
+          "target": [
+            ".brand-mark"
+          ],
+          "summary": "Fix any of the following:\n  Element has insufficient color contrast of 3.46 (foreground color: #ffffff, background color: #ff2e93, font size: 13.5pt (18px), font weight: bold). Expected contrast ratio of 4.5:1"
+        }
+      ]
+    }
+  ],
+  "remoteWrites": 0,
+  "errors": []
+}
