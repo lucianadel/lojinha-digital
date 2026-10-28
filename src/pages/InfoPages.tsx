@@ -13,11 +13,11 @@ export function About() {
 }
 
 const faqs = [
-  ["Como comprar um e-book ou livro digital?", "Escolha um produto e clique em “Ver produto”. Leia a descrição e, quando houver um botão de compra ativo, siga para o checkout da Hotmart. Este site não possui carrinho nem processa pagamentos."],
-  ["Como recebo meu produto?", "Para produtos comprados pela Hotmart, siga as orientações de acesso e entrega enviadas pela plataforma após a confirmação da compra. Confira também a descrição do produto. Nos serviços personalizados, a forma de entrega é combinada no atendimento antes da contratação."],
-  ["Quais formas de pagamento estão disponíveis?", "Para os produtos da loja, confira as opções disponíveis no checkout da Hotmart. Para livros e músicas personalizados, as condições de pagamento são confirmadas no atendimento antes da contratação."],
-  ["Como solicitar a criação de um livro?", "Acesse “Personalizados” e escolha “Solicitar orçamento” em criação de livros e e-books. Conte sua ideia e o tipo de projeto que deseja. Escopo, preço e prazo devem ser confirmados durante o atendimento."],
-  ["Como encomendar uma música personalizada?", "Em “Personalizados”, encontre a Vozyx Studio e escolha “Quero minha música”. Conte a ocasião e a história que deseja transformar em música. As condições serão confirmadas no atendimento."],
+  ["Como comprar um e-book ou livro digital?", "Escolha um produto e clique em “Ver produto”. A página mostra somente o canal definido pela loja: “Comprar agora” abre o checkout Hotmart; “Comprar pelo WhatsApp” abre o atendimento com nome e preço do produto. Este site não possui carrinho nem processa pagamentos."],
+  ["Como recebo meu produto?", "Na Hotmart, siga as instruções de acesso e entrega da plataforma. Nas compras de PDF pelo WhatsApp, a loja confirma o pagamento e envia o arquivo manualmente na conversa. Nos serviços personalizados, a entrega e o prazo são combinados antes de iniciar a produção."],
+  ["Quais formas de pagamento estão disponíveis?", "Para compras pela Hotmart, confira as opções no checkout. Nas compras pelo WhatsApp e nos serviços personalizados, confirme valor e condições de pagamento diretamente com a loja antes de pagar."],
+  ["Como solicitar a criação de um livro?", "Acesse “Personalizados” e escolha “Solicitar orçamento” em criação de livros e e-books. O WhatsApp abrirá com uma mensagem para você completar com sua ideia e o tipo de projeto. Escopo, preço, pagamento e prazo serão confirmados antes da produção."],
+  ["Como encomendar uma música personalizada?", "Em “Personalizados”, encontre a Vozyx Studio e escolha “Quero minha música”. Complete no WhatsApp a ocasião e a história que deseja transformar em música. Orçamento, pagamento, prazo e entrega serão confirmados no atendimento."],
   ["Como entrar em contato?", "Acesse “Contato” no rodapé para encontrar o canal disponível. Se os botões de solicitação estiverem indisponíveis, o canal de atendimento ainda não está disponível. Para pedidos existentes, consulte também o contato informado no seu comprovante de compra."],
 ];
 

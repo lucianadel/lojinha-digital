@@ -100,6 +100,7 @@
 .public-store .service-card > p { color: var(--store-muted); font-size: 14px; line-height: 1.9; margin: 0 0 25px; max-width: 48ch; }
 .public-store .service-card .contact-action { margin-top: auto; }
 .public-store .contact-unavailable { color: var(--store-muted); margin: 12px 0 0; font-size: 12px; max-width: 40ch; }
+.public-store .service-order-note { margin: 28px 0 0; padding-top: 24px; border-top: 1px solid var(--store-line); color: var(--store-muted); font-size: 14px; line-height: 1.8; }
 .public-store .store-footer { padding-top: 54px; background: #101f39; color: #edf2ff; }
 .public-store .store-footer .store-brand { color: white; }
 .public-store .store-footer .store-brand-icon { background: #233757; }
@@ -157,9 +158,10 @@
 .public-store .detail-lead { color: var(--store-muted); font-size: 16px; }
 .public-store .detail-price strong { color: var(--store-ink); }
 .public-store .detail-copy .button { min-height: 54px; font-size: 15px; }
+.public-store .detail-copy .button-pink { color: white; background: #ae2562; }
 .public-store .secure-note, .public-store .detail-promises { color: var(--store-muted); font-size: 13px; line-height: 1.7; }
 .public-store .detail-description { color: var(--store-muted); }
-.public-store .back-link { min-height: 44px; font-size: 14px; }
+.public-store .back-link { min-height: 44px; font-size: 14px; color: var(--store-muted); }
 @media (min-width: 1440px) { .public-store .catalog-cover { height: 290px; } }
 @media (max-width: 1000px) {
   .public-store .public-container { width: calc(100% - 48px); }
