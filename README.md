@@ -1,12 +1,12 @@
 # Lojinha Digital
 
-Loja responsiva para comercializar e-books, cursos, apostilas, planners e kits digitais. A interface é construída com React, Vite, React Router e TypeScript; o catálogo e o painel usam Supabase (PostgreSQL, Auth e Storage). Os pagamentos e a entrega não são processados neste site: cada compra é encaminhada ao checkout individual da Hotmart.
+Loja responsiva para comercializar e-books, cursos, apostilas, planners e kits digitais. A interface é construída com React, Vite, React Router e TypeScript; o catálogo e o painel usam Supabase (PostgreSQL, Auth e Storage). Os pagamentos e a entrega não são processados neste site: cada compra é encaminhada à Hotmart ou ao WhatsApp, conforme a escolha da administradora por produto.
 
 ## Requisitos
 
 - Node.js 20 ou superior e npm.
 - Projeto Supabase para habilitar catálogo persistente e administração.
-- Conta Hotmart e link de checkout individual para cada produto que será vendido.
+- Link de checkout Hotmart ou número WhatsApp com código do país e DDD para cada produto vendido.
 
 ## Executar localmente
 
@@ -36,7 +36,7 @@ npm run build
    ```
 
    A chave pública pode estar no frontend porque o acesso é controlado pelas políticas RLS. **Nunca** coloque `service_role`, senhas ou outros segredos em variáveis `VITE_*`, no Git ou no navegador.
-3. Aplique `supabase/migrations/20261015000000_init.sql` pelo SQL Editor do Supabase ou pela Supabase CLI. A migração cria as categorias iniciais, tabelas, políticas RLS, função de autorização e bucket `product-covers`.
+3. Em um banco novo, aplique as migrações de `supabase/migrations/` em ordem de nome, começando por `20261015000000_init.sql`, pelo SQL Editor do Supabase ou pela Supabase CLI. A migração cria as categorias iniciais, tabelas, políticas RLS, função de autorização e bucket `product-covers`.
 4. Em **Authentication → Providers**, mantenha habilitado apenas o método de acesso que pretende usar (e-mail/senha está implementado). Em **Authentication → Settings**, desative novos cadastros públicos e habilite confirmação de e-mail conforme a política da loja.
 5. Crie a conta da proprietária em **Authentication → Users** (convide/crie o usuário pelo painel do Supabase, sem cadastro público). Copie o UUID desse usuário.
 6. Abra `supabase/setup_first_admin.sql`, substitua o texto `SUBSTITUA-PELO-UUID-DO-USUARIO-AUTH` pelo UUID real e execute no SQL Editor como proprietária do projeto. Confirme que uma linha foi inserida em `public.admins`. Essa operação privilegiada não existe no frontend; não crie uma página pública para adicionar administradores.
@@ -61,10 +61,10 @@ O usuário administrativo precisa existir no Supabase Auth e também ter um vín
 ## Configurar Hotmart
 
 1. Cadastre o produto e o checkout na Hotmart.
-2. Copie o link HTTPS daquele checkout e informe-o no campo **Link de checkout Hotmart** do produto.
+2. No painel, selecione **Hotmart** em **Forma de compra**. Copie o link HTTPS daquele checkout e informe-o no campo **Link de checkout Hotmart** do produto.
 3. Salve e teste o destino antes de publicar o produto.
 
-O botão só aparece como link ativo quando o endereço usa HTTPS e o host é `hotmart.com` ou um subdomínio, como `pay.hotmart.com`. Sem link válido, a página mostra a compra indisponível. O site não processa pagamento, não simula compra e não entrega PDFs ou outros arquivos diretamente.
+Para produtos com Hotmart selecionada, o botão só aparece como link ativo quando o endereço usa HTTPS e o host é `hotmart.com` ou um subdomínio, como `pay.hotmart.com`. Sem link válido, a página mostra a compra indisponível. O site não processa pagamento, não simula compra e não entrega PDFs ou outros arquivos diretamente.
 
 ## Deploy na Vercel
 
@@ -102,3 +102,13 @@ supabase/
   setup_first_admin.sql Procedimento manual e privilegiado para primeiro admin
   seed_demo.sql         Produto opcional de exemplo (rascunho)
 ```
+
+## Atualização: forma de compra por produto
+
+Para um banco existente, execute somente `supabase/migrations/20261028000000_product_purchase_method.sql` no SQL Editor antes de publicar esta versão. Não reexecute a migração de criação das tabelas. Em um banco novo, aplique primeiro a migração inicial e depois esta nova migração.
+
+A nova migração adiciona `purchase_method` (Hotmart por padrão, inclusive para produtos antigos) e `whatsapp_number` (opcional, apenas dígitos, 8 a 15 dígitos, sem zero inicial). Preserva os dados existentes, a restrição de URL Hotmart e as políticas RLS que permitem escrita apenas a administradores.
+
+No painel, em **Compra e preço**, escolha **Forma de compra** para cada produto. Hotmart usa o checkout HTTPS; WhatsApp aceita espaços, parênteses, traços e +, removidos antes de salvar. Inclua código do país, DDD e número. Exemplo: 5511999999999. Campo vazio mantém a compra indisponível. O cliente vê apenas o botão do canal escolhido.
+
+Ordem de implantação: aplicar a nova migração, validar o painel e os botões em Preview e só depois publicar o frontend em produção. Esta alteração não aplica SQL, não faz merge e não publica produção automaticamente.

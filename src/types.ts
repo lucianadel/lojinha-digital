@@ -1,3 +1,5 @@
+export type PurchaseMethod = "hotmart" | "whatsapp";
+
 export type ProductStatus = "draft" | "published";
 
 export interface Category {
@@ -17,6 +19,8 @@ export interface Product {
   price: number;
   cover_url: string | null;
   cover_alt: string;
+  purchase_method?: PurchaseMethod;
+  whatsapp_number?: string | null;
   hotmart_url: string | null;
   featured: boolean;
   status: ProductStatus;
@@ -33,6 +37,8 @@ export interface ProductInput {
   price: number;
   cover_url: string | null;
   cover_alt: string;
+  purchase_method?: PurchaseMethod;
+  whatsapp_number?: string | null;
   hotmart_url: string | null;
   featured: boolean;
   status: ProductStatus;
