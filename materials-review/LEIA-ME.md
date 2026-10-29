@@ -59,3 +59,11 @@ Reprodução básica: `npm ci`, `npm test -- --maxWorkers=2`, `npm run build`. A
 7. Após validar o piloto, habilitar outros materiais individualmente, preservando preços e rascunhos. Produção, cobranças reais, upload em lote e deploy exigem autorização posterior.
 
 Livros/e-books não são convertidos automaticamente para Mercado Pago. Categorias e produtos Kids não são recriados. Aprovação desta branch não implica ativação de vendas.
+
+## Preview Vercel — continuação
+
+Reconfirmado `origin/development` em `db6feea`. Esta branch preserva o commit anterior `302c924` e acrescenta bloqueio explícito para `VERCEL_ENV=preview`: pagamentos, downloads pagos e uploads privados são desativados mesmo que variáveis de produção sejam herdadas. O frontend não oferece checkout automático na prévia. As capas continuam públicas e os dados são lidos apenas pelas consultas públicas dos produtos publicados; rascunhos permanecem ocultos. Nenhuma migração remota é necessária para visualizar os produtos atuais, pois os kits legados são reconhecidos pelo catálogo de identidades.
+
+A geração da prévia usa a integração GitHub/Vercel do projeto existente, sem publicar em produção. A CLI local da Vercel não possui sessão autenticada; o estado e o endereço podem ser acompanhados pelos checks/deployments do commit no GitHub. Se a Vercel solicitar autenticação, entrar com a conta que tem acesso ao projeto ou solicitar acesso ao proprietário; a proteção não será removida automaticamente.
+
+Validação final desta continuação: **252 testes aprovados**, **55 verificações SQL** locais e build de Preview aprovado. O navegador consultou o catálogo público real (somente GET), conferindo **9 materiais publicados com suas 9 capas e 2 livros**, nos tamanhos 390 px e 1440 px. Os demais kits não são publicados para preencher a prévia. A migração continua somente proposta; os dados atuais podem ser visualizados sem executá-la. Capturas e relatório adicionais: `preview-live-390.png`, `preview-live-1440.png`, `preview-live-check.json`.

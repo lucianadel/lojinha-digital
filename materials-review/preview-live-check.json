@@ -1,0 +1,45 @@
+{
+  "data": "existing published catalog; anonymous read-only requests",
+  "checks": [
+    {
+      "width": 390,
+      "publishedDigitalProducts": 9,
+      "coverImages": 9,
+      "firstCoverLoaded": true,
+      "categories": [
+        "Todas as categorias",
+        "Alfabetização",
+        "Datas Comemorativas",
+        "Desenhos para Colorir",
+        "Jogos e Recortes",
+        "Matemática",
+        "Raciocínio e Coordenação"
+      ],
+      "searchMatches": 3,
+      "books": 2,
+      "paymentsBlocked": true,
+      "noOverflow": true
+    },
+    {
+      "width": 1440,
+      "publishedDigitalProducts": 9,
+      "coverImages": 9,
+      "firstCoverLoaded": true,
+      "categories": [
+        "Todas as categorias",
+        "Alfabetização",
+        "Datas Comemorativas",
+        "Desenhos para Colorir",
+        "Jogos e Recortes",
+        "Matemática",
+        "Raciocínio e Coordenação"
+      ],
+      "searchMatches": 3,
+      "books": 2,
+      "paymentsBlocked": true,
+      "noOverflow": true
+    }
+  ],
+  "mutations": [],
+  "errors": []
+}

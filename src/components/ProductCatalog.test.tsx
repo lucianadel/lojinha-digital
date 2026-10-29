@@ -22,6 +22,7 @@ describe("catálogo público", () => {
     render(<MemoryRouter><ProductCatalog sector="digital_material" /></MemoryRouter>);
     await screen.findByRole("heading",{name:course.title});
     expect(screen.getAllByRole("article")).toHaveLength(1);
+    expect(screen.queryByRole("option",{name:"Livros"})).not.toBeInTheDocument();
     expect(screen.queryByRole("heading",{name:"Histórias para você"})).not.toBeInTheDocument();
     fireEvent.change(screen.getByRole("searchbox"),{target:{value:"ideias"}});
     fireEvent.change(screen.getByRole("combobox"),{target:{value:"cursos"}});

@@ -4,8 +4,8 @@
   "development_reconciled": "db6feea",
   "vitest": {
     "success": true,
-    "numTotalTests": 249,
-    "numPassedTests": 249,
+    "numTotalTests": 252,
+    "numPassedTests": 252,
     "numFailedTests": 0
   },
   "build": {
@@ -31,5 +31,11 @@
     "authenticated IDs for 53 kits from prior public snapshot",
     "migration approval and test-environment configuration",
     "sandbox checkout with real provider webhook and recovery email"
-  ]
+  ],
+  "vercel_preview": {
+    "charges": false,
+    "paid_downloads": false,
+    "private_uploads": false,
+    "enforced_even_if_flags_inherited": true
+  }
 }

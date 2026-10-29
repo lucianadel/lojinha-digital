@@ -2,6 +2,8 @@ import {createClient} from '@supabase/supabase-js';
 export class PublicError extends Error {constructor(status,code,message){super(message);this.status=status;this.code=code;}}
 export function configuration(env=process.env){
  const config={enabled:env.PAYMENTS_ENABLED==='true',uploads:env.PRIVATE_PDF_UPLOADS_ENABLED==='true',mode:env.MP_ENVIRONMENT||'test',origin:env.SITE_URL||'',url:env.SUPABASE_URL||'',key:env.SUPABASE_SECRET_KEY||env.SUPABASE_SERVICE_ROLE_KEY||'',anon:env.SUPABASE_ANON_KEY||'',mpToken:env.MP_ACCESS_TOKEN||'',webhookSecret:env.MP_WEBHOOK_SECRET||'',sellerId:env.MP_SELLER_ID||'',applicationId:env.MP_APPLICATION_ID||'',proofKey:env.PURCHASE_PROOF_SECRET||'',mailKey:env.RESEND_API_KEY||'',mailFrom:env.PURCHASE_EMAIL_FROM||'',liveAllowed:env.ALLOW_LIVE_PAYMENTS==='true',pilotSlug:env.MP_PILOT_SLUG||'kids-animais-para-colorir'};
+ // Visual previews never charge or release paid assets, even with inherited variables.
+ if(env.VERCEL_ENV==='preview'){config.enabled=false;config.uploads=false;config.liveAllowed=false;}
  return config;
 }
 export function requireBackend(c){if(!c.url.startsWith('https://')||!c.key||!c.anon||c.proofKey.length<32||!/^https:\/\/[^/]+$/.test(c.origin))throw new PublicError(503,'configuration_pending','A integração está em preparação. Nenhuma cobrança foi iniciada.');}

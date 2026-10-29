@@ -1,4 +1,4 @@
-import { productSector } from "../lib/productSector";
+import { productSector, sectorCategories } from "../lib/productSector";
 import type { ProductSector } from "../types";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
@@ -29,7 +29,7 @@ export function ProductCatalog({ headingLevel: Heading = "h2", sector }: { headi
       const [items, groups] = await Promise.all([getPublishedProducts(), getCategories()]);
       if (id !== requestId.current) return;
       setProducts(items.filter((item) => item.status === "published" && (!sector || productSector(item) === sector)));
-      setCategories(groups);
+      setCategories(sectorCategories(groups, items, sector));
     } catch {
       if (id === requestId.current) setError("Não foi possível carregar os produtos. Verifique sua conexão e tente novamente.");
     } finally { if (id === requestId.current) setLoading(false); }
