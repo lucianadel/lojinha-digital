@@ -17,6 +17,16 @@ describe("catálogo público", () => {
   beforeEach(() => { vi.clearAllMocks(); mocks.isDemoMode = false; mocks.products.mockResolvedValue([book, course]); mocks.categories.mockResolvedValue(groups); });
   afterEach(() => { cleanup(); vi.useRealTimers(); });
 
+  it("separates sector from payment and category, preserving legacy books", async () => {
+    mocks.products.mockResolvedValue([book,{...course, product_sector:"digital_material",purchase_method:"whatsapp"}]);
+    render(<MemoryRouter><ProductCatalog sector="digital_material" /></MemoryRouter>);
+    await screen.findByRole("heading",{name:course.title});
+    expect(screen.getAllByRole("article")).toHaveLength(1);
+    expect(screen.queryByRole("heading",{name:"Histórias para você"})).not.toBeInTheDocument();
+    fireEvent.change(screen.getByRole("searchbox"),{target:{value:"ideias"}});
+    fireEvent.change(screen.getByRole("combobox"),{target:{value:"cursos"}});
+    expect(screen.getAllByRole("article")).toHaveLength(1);
+  });
   it("exibe todos os publicados, mesmo sem destaque, com preço, capa real e botão claro", async () => {
     open();
     expect(await screen.findByRole("heading", { name: "Histórias para você" })).toBeInTheDocument();

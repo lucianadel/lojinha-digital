@@ -1,6 +1,10 @@
 import { cleanup, fireEvent, render, screen, waitFor } from "@testing-library/react";
 import { MemoryRouter, Route, Routes } from "react-router-dom";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { paymentApi, uploadPrivateFile } from "../services/digitalPayments";
+import { inspectPdf } from "../lib/privatePdfs";
+vi.mock("../services/digitalPayments",()=>({paymentApi:vi.fn(),uploadPrivateFile:vi.fn()}));
+vi.mock("../lib/privatePdfs",()=>({inspectPdf:vi.fn()}));
 import { AdminProductForm } from "./AdminProductForm";
 import { getAdminProducts, getCategories, saveProduct } from "../services/products";
 
@@ -192,3 +196,50 @@ describe("purchase method editor", () => {
     expect(screen.getByLabelText(/Número do WhatsApp/)).toHaveValue("5521992530081");
   });
 });
+
+ describe("new digital material and private file",()=>{
+  afterEach(cleanup);
+  beforeEach(()=>{
+    vi.clearAllMocks();
+    vi.mocked(getCategories).mockResolvedValue([{id:"category-1",name:"Planners",slug:"planners"}]);
+    vi.mocked(saveProduct).mockImplementation(async input=>({...input,id:"new-planner",created_at:"2026-10-29"}));
+    vi.mocked(paymentApi).mockResolvedValue({paymentsEnabled:true});
+    vi.mocked(inspectPdf).mockImplementation(async file=>({file,sha256:"a".repeat(64),bytes:file.size}));
+    vi.mocked(uploadPrivateFile).mockResolvedValue({skipped:false});
+  });
+  async function fill(){
+    await openForm(true);
+    fireEvent.change(screen.getByRole("textbox",{name:"Título do produto"}),{target:{value:"Planner futuro"}});
+    fireEvent.change(screen.getByRole("textbox",{name:"Descrição curta"}),{target:{value:"Planeje sua semana"}});
+    fireEvent.change(screen.getByRole("textbox",{name:"Descrição completa"}),{target:{value:"PDF para imprimir"}});
+    fireEvent.change(screen.getByRole("textbox",{name:"Preço (R$)"}),{target:{value:"29,36"}});
+    fireEvent.change(screen.getByRole("combobox",{name:"Setor"}),{target:{value:"digital_material"}});
+    fireEvent.change(screen.getByRole("combobox",{name:"Forma de compra"}),{target:{value:"mercado_pago"}});
+    const file=new File(["%PDF-fixture"],"planner.pdf",{type:"application/pdf"});
+    fireEvent.change(screen.getByLabelText("Arquivo PDF (até 25 MB)"),{target:{files:[file]}});
+    return file;
+  }
+  it("creates a draft then uploads only to its returned ID",async()=>{
+    const file=await fill();
+    fireEvent.click(screen.getByRole("button",{name:"Salvar produto"}));
+    await screen.findByText("Produtos");
+    expect(saveProduct).toHaveBeenCalledWith(expect.objectContaining({product_sector:"digital_material",status:"draft",purchase_method:"mercado_pago",price:29.36}),undefined);
+    expect(uploadPrivateFile).toHaveBeenCalledWith("new-planner",file,"a".repeat(64),1,1,false);
+    expect(saveProduct).toHaveBeenCalledTimes(1);
+  });
+  it("does not publish when private upload fails",async()=>{
+    await fill();vi.mocked(uploadPrivateFile).mockRejectedValue(new Error("Envio bloqueado"));
+    fireEvent.change(screen.getByRole("combobox",{name:"Status"}),{target:{value:"published"}});
+    fireEvent.click(screen.getByRole("button",{name:"Salvar produto"}));
+    await waitFor(()=>expect(uploadPrivateFile).toHaveBeenCalled());
+    expect(saveProduct).toHaveBeenCalledTimes(1);
+    expect(vi.mocked(saveProduct).mock.calls[0][0].status).toBe("draft");
+  });
+  it("blocks publishing while checkout is unconfigured",async()=>{
+    await fill();vi.mocked(paymentApi).mockResolvedValue({paymentsEnabled:false});
+    fireEvent.change(screen.getByRole("combobox",{name:"Status"}),{target:{value:"published"}});
+    fireEvent.click(screen.getByRole("button",{name:"Salvar produto"}));
+    await screen.findByText(/Checkout ainda não configurado/);
+    expect(saveProduct).not.toHaveBeenCalled();expect(uploadPrivateFile).not.toHaveBeenCalled();
+  });
+ });

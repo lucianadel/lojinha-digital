@@ -29,7 +29,7 @@ export function paymentApplication({repo,mp,mail,config:c,admin,now=Date.now}){
  }
  async function dispatch(input){
   const {action,method,body={},headers={}}=input;
-  if(action==='health')return {status:200,body:{paymentsEnabled:c.enabled&&!!c.mpToken&&!!c.key,uploadsEnabled:c.uploads&&!!c.key,mode:c.mode,pilot:c.pilotSlug}};
+  if(action==='health'){let ready=false;try{requirePayments(c);ready=true;}catch{}return {status:200,body:{paymentsEnabled:ready,uploadsEnabled:c.uploads&&!!c.key,mode:c.mode,pilot:c.pilotSlug}};}
   requireBackend(c);
   if(method==='POST'&&action!=='webhook'&&headers.origin!==c.origin)throw new PublicError(403,'origin_required','Abra esta operação diretamente pela Lojinha Digital.');
   const expected={checkout:'POST',status:'GET',download:'POST',webhook:'POST',recover:'POST',redeem:'POST',admin:'GET','asset-check':'POST','asset-finalize':'POST'};
@@ -59,7 +59,11 @@ export function paymentApplication({repo,mp,mail,config:c,admin,now=Date.now}){
    if(!scope||!/^[A-Za-z0-9_-]{43}$/.test(scope))return {status:428,cookies:[cookie('ld_browser',opaqueToken())],body:{retry:true}};
    await rate('checkout-ip',input.ip||'unknown',30,3600);await rate('checkout-session',scope,10,900);
    const adminTest=body.adminTest===true;if(adminTest){if(c.mode!=='test')throw new PublicError(403,'test_only','Este teste só pode usar ambiente de teste.');await admin(headers.authorization);}
-   const product=await repo.product(body.productId);if(!product||product.slug!==c.pilotSlug||cents(product.price)!==990||(!adminTest&&(product.purchase_method!=='mercado_pago'||product.status!=='published')))throw new PublicError(409,'pilot_unavailable','Este material ainda não está disponível para pagamento automático.');
+   const product=await repo.product(body.productId);
+   const digital=product?.product_sector==='digital_material';
+   const publicEligible=digital&&product.digital_checkout_enabled===true&&product.purchase_method==='mercado_pago'&&product.status==='published';
+   const testEligible=adminTest&&(digital||product?.slug===c.pilotSlug);
+   if(!product||cents(product.price)<=0||!(publicEligible||testEligible))throw new PublicError(409,'material_unavailable','Este material ainda não está disponível para pagamento automático.');
    await mp.checkAccount();const id=randomUUID();
    let order=await repo.create({p_id:id,p_product_id:product.id,p_scope_hash:hash(scope),p_idempotency:body.idempotencyKey,p_access_hash:tokenHash(proof(id,scope)),p_email:buyer,p_mode:c.mode,p_seller:c.sellerId,p_app:c.applicationId,p_admin_test:adminTest});
    if(order.mode!==c.mode||order.seller_id!==c.sellerId||order.application_id!==c.applicationId)throw new PublicError(409,'mode_mismatch','Este pedido pertence a outro ambiente de pagamento.');

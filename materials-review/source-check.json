@@ -1,0 +1,23 @@
+{
+  "scope": "public-only-not-authoritative",
+  "logical_kits": 63,
+  "physical_pdfs": 65,
+  "validated_sources": 63,
+  "mapped_products": 10,
+  "requires_admin_ids": 53,
+  "version_choices": 2,
+  "remote_uploads": 0,
+  "note": "Hashes reconferidos no acervo local. IDs oriundos de snapshot público anterior; não confirmam cadastros administrativos atuais. Exportação autenticada necessária antes de associar os 53 restantes.",
+  "versions": [
+    {
+      "catalog_slug": "kids-bingo-de-figuras",
+      "requires_explicit_choice": true,
+      "alternatives": 1
+    },
+    {
+      "catalog_slug": "kids-jogo-da-memoria",
+      "requires_explicit_choice": true,
+      "alternatives": 1
+    }
+  ]
+}

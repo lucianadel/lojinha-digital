@@ -1,4 +1,5 @@
 import "./digital-payments.css";
+import { DigitalMaterials } from "./pages/DigitalMaterials";
 import { Navigate, Route, Routes } from "react-router-dom";
 import { AuthProvider } from "./auth/AuthContext";
 import { AdminLayout } from "./components/AdminLayout";
@@ -28,6 +29,7 @@ export default function App() {
   return <AuthProvider><Routes>
     <Route element={<StoreLayout />}>
       <Route index element={<Home />} />
+      <Route path="materiais-digitais" element={<DigitalMaterials />} />
       <Route path="loja" element={<Store />} />
       <Route path="compra/resultado" element={<Suspense fallback={<LoadingState/>}><DigitalReceipt/></Suspense>} />
       <Route path="compra/recuperar" element={<Suspense fallback={<LoadingState/>}><DigitalRecovery/></Suspense>} />

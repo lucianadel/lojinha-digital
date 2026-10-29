@@ -1,5 +1,7 @@
 export type PurchaseMethod = "hotmart" | "whatsapp" | "mercado_pago";
 
+export type ProductSector = "digital_material" | "book";
+
 export type ProductStatus = "draft" | "published";
 
 export interface Category {
@@ -19,6 +21,8 @@ export interface Product {
   price: number;
   cover_url: string | null;
   cover_alt: string;
+  product_sector?: ProductSector;
+  digital_checkout_enabled?: boolean;
   purchase_method?: PurchaseMethod;
   whatsapp_number?: string | null;
   hotmart_url: string | null;
@@ -37,6 +41,8 @@ export interface ProductInput {
   price: number;
   cover_url: string | null;
   cover_alt: string;
+  product_sector?: ProductSector;
+  digital_checkout_enabled?: boolean;
   purchase_method?: PurchaseMethod;
   whatsapp_number?: string | null;
   hotmart_url: string | null;

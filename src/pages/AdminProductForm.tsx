@@ -1,3 +1,6 @@
+import { productSector } from "../lib/productSector";
+import { inspectPdf } from "../lib/privatePdfs";
+import { paymentApi, uploadPrivateFile } from "../services/digitalPayments";
 import { ArrowLeft, ImagePlus, Save, UploadCloud } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { FormEvent } from "react";
@@ -11,7 +14,7 @@ import type { Category, Product, ProductInput, ProductStatus } from "../types";
 
 const emptyForm: ProductInput = {
   title: "", slug: "", short_description: "", description: "", category_id: "",
-  purchase_method: "hotmart", whatsapp_number: null,
+  product_sector: "book", digital_checkout_enabled: false, purchase_method: "hotmart", whatsapp_number: null,
   price: 0, cover_url: null, cover_alt: "", hotmart_url: null, featured: false, status: "draft",
 };
 
@@ -20,6 +23,9 @@ export function AdminProductForm() {
   const navigate = useNavigate();
   const editing = Boolean(id);
   const [product, setProduct] = useState<ProductInput>(emptyForm);
+  const [pdf, setPdf] = useState<File | null>(null);
+  const [pdfPages, setPdfPages] = useState(1);
+  const [replacePdf, setReplacePdf] = useState(false);
   const [priceText, setPriceText] = useState("");
   const [categories, setCategories] = useState<Category[]>([]);
   const [file, setFile] = useState<File | null>(null);
@@ -48,7 +54,7 @@ export function AdminProductForm() {
           const existing = items.find((item) => item.id === id);
           if (!existing) { setError("Este produto não foi encontrado."); return; }
           const { category: _category, ...values } = existing;
-          setProduct({ ...emptyForm, ...values, purchase_method: values.purchase_method ?? "hotmart", hotmart_url: values.hotmart_url ?? "" });
+          setProduct({ ...emptyForm, ...values, product_sector: productSector(existing), purchase_method: values.purchase_method ?? "hotmart", hotmart_url: values.hotmart_url ?? "" });
           setPriceText(String(values.price).replace(".", ","));
         } else if (groups.length) {
           setProduct((current) => ({ ...current, category_id: groups[0].id }));
@@ -75,14 +81,29 @@ export function AdminProductForm() {
     if (!product.cover_alt.trim() && (file || product.cover_url)) { setError("Informe um texto alternativo para a capa."); return; }
     setSaving(true);
     try {
+      if (product.purchase_method === "mercado_pago" && product.status === "published") {
+        const health = await paymentApi<{paymentsEnabled:boolean}>("health");
+        if (!health.paymentsEnabled) throw new Error("Checkout ainda não configurado. Salve como rascunho até configurar e autorizar o ambiente de testes.");
+      }
       const coverUrl = file ? await uploadCover(file) : product.cover_url;
       const input: ProductInput = { ...product, whatsapp_number: normalizeWhatsAppNumber(product.whatsapp_number), price, cover_url: coverUrl, hotmart_url: product.hotmart_url?.trim() || null, title: product.title.trim(), slug: slugify(product.slug || product.title), cover_alt: product.cover_alt.trim() };
-      const saved = await saveProduct(input, id);
+      // Save a new association as a draft first; publication is a separate guarded write.
+      const saved = await saveProduct(pdf ? {...input, status: "draft"} : input, id);
+      if (pdf) {
+        try {
+          const inspected = await inspectPdf(pdf);
+          await uploadPrivateFile(saved.id, pdf, inspected.sha256, pdfPages, 1, replacePdf);
+          if (input.status === "published") await saveProduct(input, saved.id);
+        } catch (failure) {
+          navigate(`/admin/produtos/${saved.id}`, {replace:true});
+          throw new Error(`Rascunho salvo. PDF não associado ou publicação bloqueada: ${failure instanceof Error ? failure.message : "confira a configuração"}`);
+        }
+      }
       setSuccess("Produto salvo com sucesso.");
-      navigate("/admin/produtos", { replace: true, state: { notice: saved.status === "published" ? "Produto publicado com sucesso." : "Rascunho salvo com sucesso." } });
+      navigate("/admin/produtos", { replace: true, state: { notice: input.status === "published" ? "Produto publicado com sucesso." : "Rascunho salvo com sucesso." } });
     } catch (e) {
       const details = e as { code?: string; message?: string } | null;
-      setError((details?.code === "PGRST204" || details?.code === "42703") && /purchase_method|whatsapp_number/.test(details.message ?? "")
+      setError((details?.code === "PGRST204" || details?.code === "42703") && /purchase_method|whatsapp_number|product_sector|digital_checkout_enabled/.test(details.message ?? "")
         ? "A configuração das formas de compra ainda não foi aplicada ao banco. Solicite à responsável pelo Supabase a aplicação da migração aprovada antes de salvar."
         : e instanceof Error ? e.message : "Não foi possível salvar o produto.");
     }
@@ -108,6 +129,8 @@ export function AdminProductForm() {
           <label>Texto alternativo da capa<input maxLength={180} value={product.cover_alt} onChange={(e) => update("cover_alt", e.target.value)} placeholder="Descreva a imagem para pessoas que usam leitor de tela." /></label>
         </div>
         <div className="form-section"><h2>Compra e preço</h2><p>Escolha como este produto será comprado.</p>
+          <label>Setor<select value={product.product_sector} onChange={e=>update("product_sector",e.target.value as "book"|"digital_material")}><option value="book">Livros e E-books</option><option value="digital_material">Materiais Digitais</option></select></label>
+          {product.product_sector === "digital_material" && <div className="form-section"><h3>PDF privado</h3><label>Arquivo PDF (até 25 MB)<input type="file" accept="application/pdf,.pdf" onChange={e=>setPdf(e.target.files?.[0]??null)}/></label><label>Número de páginas<input type="number" min="1" required value={pdfPages} onChange={e=>setPdfPages(Number(e.target.value))}/></label><label className="checkbox-field"><input type="checkbox" checked={replacePdf} onChange={e=>setReplacePdf(e.target.checked)}/>Confirmar substituição do PDF ativo; pedidos anteriores preservam sua versão.</label><label className="checkbox-field"><input type="checkbox" checked={product.digital_checkout_enabled??false} onChange={e=>update("digital_checkout_enabled",e.target.checked)}/>Habilitar checkout deste material após verificar o PDF</label><p>O envio depende da autorização do ambiente. Em caso de falha, o produto permanece em rascunho. Nenhum PDF é público.</p></div>}
           <label>Forma de compra<select value={product.purchase_method} onChange={(e) => {
             const method = e.target.value as "hotmart" | "whatsapp" | "mercado_pago";
             setProduct((current) => ({
@@ -117,7 +140,7 @@ export function AdminProductForm() {
                 ? DEFAULT_SALES_WHATSAPP_NUMBER : current.whatsapp_number,
             }));
           }}><option value="hotmart">Hotmart</option><option value="whatsapp">WhatsApp</option><option value="mercado_pago">Mercado Pago — PDF automático</option></select></label>
-          {product.purchase_method === "mercado_pago" ? <p>Associe e verifique o PDF privado em Materiais e pagamentos antes de ativar a venda. A primeira etapa permite somente o Kit Animais para Colorir, 72 atividades, R$ 9,90, em ambiente de teste. A forma de compra atual dos outros produtos permanece inalterada. Antes de publicar, revise eventuais instruções antigas de entrega pelo WhatsApp na descrição; nenhum texto será alterado automaticamente.</p> : product.purchase_method === "whatsapp" ? <label>Número do WhatsApp<input type="tel" required value={product.whatsapp_number ?? ""} onChange={(e) => update("whatsapp_number", e.target.value)} placeholder="Código do país, DDD e número" /><small>O número inicial da loja pode ser alterado para este produto. Inclua código do país e DDD.</small></label> : <label>Link de checkout Hotmart<input type="url" value={product.hotmart_url ?? ""} onChange={(e) => update("hotmart_url", e.target.value)} placeholder="https://pay.hotmart.com/..." /><small>Sem link válido, o botão de compra ficará indisponível na loja.</small></label>}
+          {product.purchase_method === "mercado_pago" ? <p>Salve como rascunho, associe o PDF privado e habilite o checkout individualmente antes de publicar. O servidor verifica o arquivo e a habilitação. Pagamentos permanecem bloqueados até configurar o ambiente.</p> : product.purchase_method === "whatsapp" ? <label>Número do WhatsApp<input type="tel" required value={product.whatsapp_number ?? ""} onChange={(e) => update("whatsapp_number", e.target.value)} placeholder="Código do país, DDD e número" /><small>O número inicial da loja pode ser alterado para este produto. Inclua código do país e DDD.</small></label> : <label>Link de checkout Hotmart<input type="url" value={product.hotmart_url ?? ""} onChange={(e) => update("hotmart_url", e.target.value)} placeholder="https://pay.hotmart.com/..." /><small>Sem link válido, o botão de compra ficará indisponível na loja.</small></label>}
           <label>Preço (R$)<input type="text" inputMode="decimal" required value={priceText} onChange={(e) => setPriceText(e.target.value)} /></label>
         </div>
       </div>

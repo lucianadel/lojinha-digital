@@ -1,0 +1,28 @@
+{
+  "environment": "local mocked Supabase; no real charges or uploads",
+  "checks": [
+    {
+      "width": 390,
+      "digitalProducts": 63,
+      "hiddenDrafts": true,
+      "sixCategories": true,
+      "searchAndCategory": true,
+      "hotmartPreserved": true,
+      "whatsappServices": true,
+      "noOverflow": true,
+      "mobileMenu": "passed"
+    },
+    {
+      "width": 1440,
+      "digitalProducts": 63,
+      "hiddenDrafts": true,
+      "sixCategories": true,
+      "searchAndCategory": true,
+      "hotmartPreserved": true,
+      "whatsappServices": true,
+      "noOverflow": true,
+      "mobileMenu": "desktop"
+    }
+  ],
+  "errors": []
+}

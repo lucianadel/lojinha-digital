@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { BookOpen, Sparkles } from "lucide-react";
 import { ProductCatalog } from "../components/ProductCatalog";
 import { PersonalizedServices } from "../components/PersonalizedServices";
@@ -13,7 +14,8 @@ export function Home() {
       </div>
       <span className="welcome-note"><Sparkles size={20} aria-hidden="true" /> Para aprender,<br />imaginar e criar.</span>
     </section>
-    <ProductCatalog />
+    <section className="public-container materials-banner"><span className="store-kicker">COMPRE · BAIXE · IMPRIMA</span><h2>Materiais Digitais</h2><p>Conheça a coleção Lojinha Digital Kids e encontre atividades, jogos e materiais para imprimir.</p><Link className="store-button store-button-primary" to="/materiais-digitais">Explorar Materiais Digitais</Link></section>
+    <ProductCatalog sector="book" />
     <PersonalizedServices compact />
   </>;
 }

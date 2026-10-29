@@ -1,3 +1,7 @@
+# Materiais Digitais — continuação em branch isolada
+
+Relatório atual e roteiro de ativação: [materials-review/LEIA-ME.md](materials-review/LEIA-ME.md). Esta revisão amplia o fluxo do piloto para materiais futuros; os documentos de payment-review registram a etapa anterior. Nenhuma ativação ou migração remota foi executada.
+
 # Lojinha Digital
 
 Loja responsiva para comercializar e-books, cursos, apostilas, planners e kits digitais. A interface é construída com React, Vite, React Router e TypeScript; o catálogo e o painel usam Supabase (PostgreSQL, Auth e Storage). Os pagamentos e a entrega não são processados neste site: cada compra é encaminhada ao checkout individual da Hotmart.

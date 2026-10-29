@@ -4,12 +4,12 @@ import { normalizeWhatsAppNumber } from "./whatsapp";
 
 export { DEFAULT_SALES_WHATSAPP_NUMBER, isValidWhatsAppNumber, normalizeWhatsAppNumber } from "./whatsapp";
 
-export function getPurchase(product: Pick<ProductInput, "title" | "price" | "purchase_method" | "hotmart_url" | "whatsapp_number"> & { slug?: string }) {
+export function getPurchase(product: Pick<ProductInput, "title" | "price" | "purchase_method" | "hotmart_url" | "whatsapp_number"> & { slug?: string; digital_checkout_enabled?: boolean }) {
   const method = product.purchase_method ?? "hotmart";
   const label = method === "mercado_pago" ? "Comprar e baixar PDF" : method === "whatsapp" ? "Comprar pelo WhatsApp" : "Comprar agora";
   let href: string | null = null;
   const number = normalizeWhatsAppNumber(product.whatsapp_number);
-  if (method === "mercado_pago" && product.slug && Number.isFinite(product.price) && product.price > 0) {
+  if (method === "mercado_pago" && product.digital_checkout_enabled === true && product.slug && Number.isFinite(product.price) && product.price > 0) {
     href = `/compra/${encodeURIComponent(product.slug)}`;
   } else if (method === "whatsapp" && number && Number.isFinite(product.price) && product.price >= 0) {
     const priceText = formatPrice(product.price).replace(/\u00a0/g, " ");

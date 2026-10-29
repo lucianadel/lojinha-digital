@@ -1,6 +1,8 @@
 -- PROPOSTA VERSIONADA. Não aplicada. Revisar tabelas existentes antes de aprovar.
 -- Exige autorização explícita nesta sessão SQL; nenhum código executa esta migração.
 begin;
+-- Somente após aprovação, habilitar nesta mesma execução:
+-- set local lojinha.approve_digital_payments = 'yes';
 do $$ begin
  if current_setting('lojinha.approve_digital_payments',true) is distinct from 'yes' then
   raise exception 'Revisão e aprovação da migração de pagamentos são obrigatórias';
@@ -8,17 +10,272 @@ do $$ begin
  if to_regclass('public.purchases') is not null or to_regclass('public.orders') is not null then
   raise exception 'Já existe estrutura de compras/pedidos: revisar e reutilizar antes de migrar';
  end if;
+ if to_regclass('public.products') is null or to_regclass('public.categories') is null or to_regclass('public.admins') is null then
+  raise exception 'Tabelas base ausentes: executar preflight e revisar';
+ end if;
+ if to_regprocedure('public.is_admin()') is null then raise exception 'Função administrativa existente não encontrada';end if;
+ if exists(select 1 from pg_class where oid in ('public.products'::regclass,'public.categories'::regclass,'public.admins'::regclass,'storage.objects'::regclass) and not relrowsecurity) then
+  raise exception 'RLS base inesperada: revisar sem modificar políticas existentes';
+ end if;
+ if exists(select 1 from pg_class c join pg_namespace n on n.oid=c.relnamespace where n.nspname='public' and c.relname in ('digital_assets','digital_orders','digital_events','digital_recovery','digital_downloads','digital_rate_limits')) then
+  raise exception 'Estrutura digital já existe: não reaplicar; revisar migrações';
+ end if;
+ if not exists(select 1 from storage.buckets where id='product-covers' and public) then
+  raise exception 'Bucket product-covers ausente ou diferente do estado confirmado';
+ end if;
 end $$;
 
 -- Não altera registros nem converte formas de compra existentes.
-do $$ declare constraint_name text; matches integer; begin
+-- Políticas permissivas são combinadas por OR. Uma regra global antiga poderia
+-- liberar também o bucket novo. Aceitar somente o escopo de capas conhecido;
+-- qualquer política adicional/desconhecida exige revisão, nunca remoção automática.
+do $$ declare policy_row record; expression text; begin
+ for policy_row in select * from pg_policies where schemaname='storage' and tablename='objects' loop
+  if policy_row.permissive<>'PERMISSIVE' then raise exception 'Política Storage inesperada: revisar isolamento privado';end if;
+  if (policy_row.cmd in ('SELECT','UPDATE','DELETE','ALL') and policy_row.qual is null) or (policy_row.cmd in ('INSERT','UPDATE','ALL') and policy_row.with_check is null) then raise exception 'Política Storage sem filtro explícito: revisar isolamento privado';end if;
+  foreach expression in array array[policy_row.qual,policy_row.with_check] loop
+   if expression is null then continue;end if;
+   expression=regexp_replace(expression,'[[:space:]]','','g');
+   if expression not in (
+    '(bucket_id=''product-covers''::text)',
+    '((bucket_id=''product-covers''::text)AND(SELECTis_admin()ASis_admin))',
+    '((bucket_id=''product-covers''::text)AND(SELECTpublic.is_admin()ASis_admin))'
+   ) then raise exception 'Política Storage fora do escopo de capas conhecido: revisar antes de criar bucket privado';end if;
+  end loop;
+ end loop;
+end $$;
+
+-- Snapshot temporário apenas para verificar preservação; eliminado no fim da transação.
+create temporary table kids_before_products on commit drop as select id,to_jsonb(p) as value from public.products p;
+create temporary table kids_before_categories on commit drop as select id,to_jsonb(c) as value from public.categories c;
+create temporary table kids_before_covers on commit drop as select id,to_jsonb(o) as value from storage.objects o where bucket_id='product-covers';
+create temporary table kids_before_cover_bucket on commit drop as select id,to_jsonb(b) as value from storage.buckets b where id='product-covers';
+create temporary table kids_before_policies on commit drop as select schemaname,tablename,policyname,to_jsonb(p) as value from pg_policies p;
+
+do $$ declare constraint_name text; matches integer; definition text; column_number smallint; begin
+ select attnum into column_number from pg_attribute where attrelid='public.products'::regclass and attname='purchase_method' and not attisdropped and atttypid='text'::regtype;
+ if column_number is null then raise exception 'purchase_method deve ser text; revisar o tipo no preflight';end if;
  select count(*),min(conname) into matches,constraint_name from pg_constraint
- where conrelid='public.products'::regclass and contype='c' and pg_get_constraintdef(oid) like '%purchase_method%';
+ where conrelid='public.products'::regclass and contype='c' and column_number=any(conkey);
  if matches<>1 then raise exception 'Constraint purchase_method inesperada: revisão manual necessária';end if;
- if (select pg_get_constraintdef(oid) from pg_constraint where conrelid='public.products'::regclass and conname=constraint_name) not like '%hotmart%' then raise exception 'Constraint não reconhecida';end if;
+ select regexp_replace(pg_get_expr(conbin,conrelid),'[[:space:]]','','g') into definition from pg_constraint
+ where conrelid='public.products'::regclass and conname=constraint_name and conkey=array[column_number] and convalidated;
+ if definition is null or definition not in (
+  '(purchase_method=ANY(ARRAY[''hotmart''::text,''whatsapp''::text]))',
+  '(purchase_method=ANY(ARRAY[''whatsapp''::text,''hotmart''::text]))'
+ ) then raise exception 'CHECK diferente da regra exclusiva hotmart/whatsapp; não remover automaticamente. Revisar definição no preflight';end if;
  execute format('alter table public.products drop constraint %I',constraint_name);
  alter table public.products add constraint products_purchase_method_digital_check check (purchase_method in ('hotmart','whatsapp','mercado_pago'));
 end $$;
+
+-- Setor independente de categoria e pagamento. Nenhum preço/status/meio de compra é alterado.
+alter table public.products add column product_sector text not null default 'book' check(product_sector in ('book','digital_material'));
+alter table public.products add column digital_checkout_enabled boolean not null default false;
+-- Identidades exatas do catálogo e aliases legados; não usa categoria ou pagamento.
+with kids_identity(key) as (values
+ ('kidsadicaoarmada'),
+ ('kidsadicaocomfiguras'),
+ ('kidsalfabetoeletras'),
+ ('kidsalfabetoilustradoefichas'),
+ ('kidsalimentosparacolorir'),
+ ('kidsanimaisparacolorir'),
+ ('kidsatencaoepercepcao'),
+ ('kidsbingodefiguras'),
+ ('kidsbingodeletras'),
+ ('kidsbingodenumeros'),
+ ('kidsbingodesilabas'),
+ ('kidsbrinquedosemusicaparacolorir'),
+ ('kidscacaletras'),
+ ('kidscacapalavrasilustrados'),
+ ('kidscarnaval'),
+ ('kidscasaparacolorir'),
+ ('kidscontascomreservae3algarismos'),
+ ('kidsconteeescreva'),
+ ('kidscoordenacaomotora'),
+ ('kidscopieodesenhoquadriculado'),
+ ('kidscorpohumanoparacolorir'),
+ ('kidscruzadinhasilustradas'),
+ ('kidsdiadascriancas'),
+ ('kidsdiadasmaes'),
+ ('kidsdivisao'),
+ ('kidsescolaparacolorir'),
+ ('kidsescrevaonomeeordemalfabetica'),
+ ('kidsfamiliassilabicas'),
+ ('kidsfestajunina'),
+ ('kidsfolclore'),
+ ('kidsfracoes'),
+ ('kidshoracertarelogio'),
+ ('kidsjogodamemoria'),
+ ('kidslabirintosniveldificil'),
+ ('kidslabirintosnivelfacil'),
+ ('kidslabirintosnivelmedio'),
+ ('kidsletracursiva'),
+ ('kidsletrasevogais'),
+ ('kidsligueafiguraaonome'),
+ ('kidsligueospontos'),
+ ('kidsmeioambiente'),
+ ('kidsnatal'),
+ ('kidsnaturezaparacolorir'),
+ ('kidsnumerosde0a20'),
+ ('kidsnumerosporextenso'),
+ ('kidspascoa'),
+ ('kidspintepelocodigo'),
+ ('kidsprimavera'),
+ ('kidsprobleminhasdematematica'),
+ ('kidsroupaseacessoriosparacolorir'),
+ ('kidssequencialogica'),
+ ('kidssequenciasequadroate100'),
+ ('kidssilabas1completeeformepalavras'),
+ ('kidssilabas2separeeconte'),
+ ('kidssistemadenumeracao'),
+ ('kidssubtracaoarmada'),
+ ('kidssubtracaocomfiguras'),
+ ('kidssudokuinfantil'),
+ ('kidstabuadaemultiplicacao'),
+ ('kidstransportesparacolorir'),
+ ('kidstreinodeescrita258palavras'),
+ ('kidsvizinhosmaioremenor'),
+ ('kidsvoltaasaulas'),
+ ('kitadicaoarmada'),
+ ('kitadicaoarmada1050atividades'),
+ ('kitadicaocomfiguras'),
+ ('kitadicaocomfiguras500atividades'),
+ ('kitalfabetoeletras'),
+ ('kitalfabetoeletras426atividades'),
+ ('kitalfabetoilustradoefichas'),
+ ('kitalfabetoilustradoefichas100atividades'),
+ ('kitalimentosparacolorir'),
+ ('kitalimentosparacolorir51atividades'),
+ ('kitanimaisparacolorir'),
+ ('kitanimaisparacolorir72atividades'),
+ ('kitatencaoepercepcao'),
+ ('kitatencaoepercepcao800atividades'),
+ ('kitbingodefiguras'),
+ ('kitbingodefiguras300atividades'),
+ ('kitbingodeletras'),
+ ('kitbingodeletras300atividades'),
+ ('kitbingodenumeros'),
+ ('kitbingodenumeros300atividades'),
+ ('kitbingodesilabas'),
+ ('kitbingodesilabas300atividades'),
+ ('kitbrinquedosemusicaparacolorir'),
+ ('kitbrinquedosemusicaparacolorir20atividades'),
+ ('kitcacaletras'),
+ ('kitcacaletras416atividades'),
+ ('kitcacapalavrasilustrados'),
+ ('kitcacapalavrasilustrados1080atividades'),
+ ('kitcarnaval'),
+ ('kitcarnaval196atividades'),
+ ('kitcasaparacolorir'),
+ ('kitcasaparacolorir30atividades'),
+ ('kitcoloriralimentos'),
+ ('kitcoloriranimais'),
+ ('kitcolorirbrinquedosemusica'),
+ ('kitcolorircasa'),
+ ('kitcolorircorpohumano'),
+ ('kitcolorirescola'),
+ ('kitcolorirnatureza'),
+ ('kitcolorirroupaseacessorios'),
+ ('kitcolorirtransportes'),
+ ('kitcontascomreservae3algarismos'),
+ ('kitcontascomreservae3algarismos1200atividades'),
+ ('kitconteeescreva'),
+ ('kitconteeescreva900atividades'),
+ ('kitcoordenacaomotora'),
+ ('kitcoordenacaomotora600atividades'),
+ ('kitcopieodesenhoquadriculado'),
+ ('kitcopieodesenhoquadriculado900atividades'),
+ ('kitcorpohumanoparacolorir'),
+ ('kitcorpohumanoparacolorir8atividades'),
+ ('kitcruzadinhasilustradas'),
+ ('kitcruzadinhasilustradas1000atividades'),
+ ('kitdiadascriancas'),
+ ('kitdiadascriancas196atividades'),
+ ('kitdiadasmaes'),
+ ('kitdiadasmaes196atividades'),
+ ('kitdivisao'),
+ ('kitdivisao800atividades'),
+ ('kitescolaparacolorir'),
+ ('kitescolaparacolorir16atividades'),
+ ('kitescrevaonomeeordemalfabetica'),
+ ('kitescrevaonomeeordemalfabetica1000atividades'),
+ ('kitfamiliassilabicas'),
+ ('kitfamiliassilabicas460atividades'),
+ ('kitfestajunina'),
+ ('kitfestajunina196atividades'),
+ ('kitfolclore'),
+ ('kitfolclore196atividades'),
+ ('kitfracoes'),
+ ('kitfracoes400atividades'),
+ ('kithoracertarelogio'),
+ ('kithoracertarelogio500atividades'),
+ ('kitjogodamemoria'),
+ ('kitjogodamemoria186atividades'),
+ ('kitlabirintosniveldificil'),
+ ('kitlabirintosniveldificil900atividades'),
+ ('kitlabirintosnivelfacil'),
+ ('kitlabirintosnivelfacil900atividades'),
+ ('kitlabirintosnivelmedio'),
+ ('kitlabirintosnivelmedio900atividades'),
+ ('kitletracursiva'),
+ ('kitletracursiva684atividades'),
+ ('kitletrasevogais'),
+ ('kitletrasevogais900atividades'),
+ ('kitligueafiguraaonome'),
+ ('kitligueafiguraaonome600atividades'),
+ ('kitligueospontos'),
+ ('kitligueospontos774atividades'),
+ ('kitmeioambiente'),
+ ('kitmeioambiente196atividades'),
+ ('kitnatal'),
+ ('kitnatal198atividades'),
+ ('kitnaturezaparacolorir'),
+ ('kitnaturezaparacolorir31atividades'),
+ ('kitnumerosde0a20'),
+ ('kitnumerosde0a20461atividades'),
+ ('kitnumerosporextenso'),
+ ('kitnumerosporextenso400atividades'),
+ ('kitparacolorircorpohumano'),
+ ('kitpascoa'),
+ ('kitpascoa196atividades'),
+ ('kitpintepelocodigo'),
+ ('kitpintepelocodigo516atividades'),
+ ('kitprimavera'),
+ ('kitprimavera196atividades'),
+ ('kitprobleminhasdematematica'),
+ ('kitprobleminhasdematematica700atividades'),
+ ('kitroupaseacessoriosparacolorir'),
+ ('kitroupaseacessoriosparacolorir14atividades'),
+ ('kitsequencialogica'),
+ ('kitsequencialogica700atividades'),
+ ('kitsequenciasequadroate100'),
+ ('kitsequenciasequadroate100800atividades'),
+ ('kitsilabas1completeeformepalavras'),
+ ('kitsilabas1completeeformepalavras700atividades'),
+ ('kitsilabas2separeeconte'),
+ ('kitsilabas2separeeconte650atividades'),
+ ('kitsistemadenumeracao'),
+ ('kitsistemadenumeracao1000atividades'),
+ ('kitsubtracaoarmada'),
+ ('kitsubtracaoarmada1050atividades'),
+ ('kitsubtracaocomfiguras'),
+ ('kitsubtracaocomfiguras500atividades'),
+ ('kitsudokuinfantil'),
+ ('kitsudokuinfantil800atividades'),
+ ('kittabuadaemultiplicacao'),
+ ('kittabuadaemultiplicacao960atividades'),
+ ('kittransportesparacolorir'),
+ ('kittransportesparacolorir16atividades'),
+ ('kittreinodeescrita258palavras'),
+ ('kittreinodeescrita258palavras258atividades'),
+ ('kitvizinhosmaioremenor'),
+ ('kitvizinhosmaioremenor800atividades'),
+ ('kitvoltaasaulas'),
+ ('kitvoltaasaulas198atividades'))
+update public.products p set product_sector='digital_material'
+where exists(select 1 from kids_identity k where
+ lower(regexp_replace(normalize(p.slug,NFD),'[^a-zA-Z0-9]','','g'))=k.key or
+ lower(regexp_replace(normalize(p.title,NFD),'[^a-zA-Z0-9]','','g'))=k.key);
 
 create table public.digital_assets (
  id uuid primary key default gen_random_uuid(), product_id uuid not null references public.products(id),
@@ -58,6 +315,19 @@ create policy "admins read digital orders" on public.digital_orders for select t
 create policy "admins read digital events" on public.digital_events for select to authenticated using ((select public.is_admin()));
 create policy "admins read digital downloads" on public.digital_downloads for select to authenticated using ((select public.is_admin()));
 
+-- Enforced for direct REST writes too. Readiness per product; global credentials remain server-only.
+create function public.digital_guard_publication() returns trigger language plpgsql security definer set search_path=public as $$
+begin
+ if new.purchase_method='mercado_pago' and new.status='published' then
+  if new.product_sector<>'digital_material' or not new.digital_checkout_enabled or new.price<=0
+   or not exists(select 1 from public.digital_assets where product_id=new.id and active and verified)
+  then raise exception 'Publicação exige setor digital, preço positivo, checkout habilitado e PDF privado verificado';end if;
+ end if;
+ return new;
+end $$;
+revoke all on function public.digital_guard_publication() from public,anon,authenticated;
+create trigger digital_publication_guard before insert or update on public.products for each row execute function public.digital_guard_publication();
+
 create function public.digital_create_order(p_id uuid,p_product_id uuid,p_scope_hash text,p_idempotency uuid,p_access_hash text,p_email text,p_mode text,p_seller text,p_app text,p_admin_test boolean default false)
 returns public.digital_orders language plpgsql security invoker set search_path=public as $$
 declare existing public.digital_orders; item public.products; asset public.digital_assets; begin
@@ -68,7 +338,7 @@ declare existing public.digital_orders; item public.products; asset public.digit
   return existing;
  end if;
  select * into item from public.products where id=p_product_id for share;
- if not found or item.price<=0 or not ((item.status='published' and item.purchase_method='mercado_pago') or (p_mode='test' and p_admin_test and item.status in ('draft','published') and item.purchase_method in ('whatsapp','mercado_pago'))) then raise exception 'Produto não disponível';end if;
+ if not found or item.price<=0 or item.product_sector<>'digital_material' or not ((item.digital_checkout_enabled and item.status='published' and item.purchase_method='mercado_pago') or (p_mode='test' and p_admin_test and item.status in ('draft','published') and item.purchase_method in ('whatsapp','mercado_pago'))) then raise exception 'Produto não disponível';end if;
  select * into asset from public.digital_assets where product_id=p_product_id and active and verified for share;
  if not found then raise exception 'Arquivo privado não verificado';end if;
  insert into public.digital_orders(id,product_id,asset_id,product_title,cover_url,amount_cents,buyer_email,mode,seller_id,application_id,scope_hash,idempotency_key,access_hash)
@@ -116,7 +386,18 @@ do $$ begin
  if exists(select 1 from storage.buckets where id='kids-pdfs-private' and public) then raise exception 'Bucket existente está público: revisão obrigatória';end if;
 end $$;
 insert into storage.buckets(id,name,public,file_size_limit,allowed_mime_types) values('kids-pdfs-private','kids-pdfs-private',false,26214400,array['application/pdf']) on conflict(id) do nothing;
+do $$ begin
+ if not exists(select 1 from storage.buckets where id='kids-pdfs-private' and not public and file_size_limit=26214400 and allowed_mime_types=array['application/pdf']::text[]) then raise exception 'Bucket privado existente tem configuração diferente: revisar, sem sobrescrever';end if;
+end $$;
 create policy "admins read private kids files" on storage.objects for select to authenticated using (bucket_id='kids-pdfs-private' and (select public.is_admin()));
 create policy "admins insert private kids files" on storage.objects for insert to authenticated with check (bucket_id='kids-pdfs-private' and (select public.is_admin()));
 -- Sem UPDATE/DELETE de PDFs: substituição cria versão imutável; pedidos antigos retêm o arquivo comprado.
+-- Qualquer divergência abaixo cancela a transação inteira, inclusive o ALTER CHECK.
+do $$ begin
+ if exists(select 1 from kids_before_products b full join public.products p on p.id=b.id where (b.value-'updated_at') is distinct from (to_jsonb(p)-'product_sector'-'digital_checkout_enabled'-'updated_at')) then raise exception 'Produtos alterados: abortando';end if;
+ if exists(select 1 from kids_before_categories b full join public.categories c on c.id=b.id where b.value is distinct from to_jsonb(c)) then raise exception 'Categorias alteradas: abortando';end if;
+ if exists(select 1 from kids_before_covers b full join (select * from storage.objects where bucket_id='product-covers') o on o.id=b.id where b.value is distinct from to_jsonb(o)) then raise exception 'Metadados de capas alterados: abortando';end if;
+ if exists(select 1 from kids_before_cover_bucket b left join storage.buckets s on s.id=b.id where b.value is distinct from to_jsonb(s)) then raise exception 'Bucket de capas alterado: abortando';end if;
+ if exists(select 1 from kids_before_policies b left join pg_policies p on p.schemaname=b.schemaname and p.tablename=b.tablename and p.policyname=b.policyname where b.value is distinct from to_jsonb(p)) then raise exception 'Política existente alterada: abortando';end if;
+end $$;
 commit;

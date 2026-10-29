@@ -1,3 +1,5 @@
+import { productSector } from "../lib/productSector";
+import type { ProductSector } from "../types";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
@@ -9,7 +11,7 @@ import type { Category, Product } from "../types";
 
 const normalize = (text: string) => text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("pt-BR");
 
-export function ProductCatalog({ headingLevel: Heading = "h2" }: { headingLevel?: "h1" | "h2" }) {
+export function ProductCatalog({ headingLevel: Heading = "h2", sector }: { headingLevel?: "h1" | "h2"; sector?: ProductSector }) {
   const [params, setParams] = useSearchParams();
   const query = params.get("q") ?? "";
   const category = params.get("categoria") ?? "";
@@ -26,12 +28,12 @@ export function ProductCatalog({ headingLevel: Heading = "h2" }: { headingLevel?
     try {
       const [items, groups] = await Promise.all([getPublishedProducts(), getCategories()]);
       if (id !== requestId.current) return;
-      setProducts(items.filter((item) => item.status === "published"));
+      setProducts(items.filter((item) => item.status === "published" && (!sector || productSector(item) === sector)));
       setCategories(groups);
     } catch {
       if (id === requestId.current) setError("Não foi possível carregar os produtos. Verifique sua conexão e tente novamente.");
     } finally { if (id === requestId.current) setLoading(false); }
-  }, []);
+  }, [sector]);
 
   useEffect(() => {
     void load();
@@ -65,7 +67,7 @@ export function ProductCatalog({ headingLevel: Heading = "h2" }: { headingLevel?
   }), [products, categories, query, category]);
 
   return <section className="public-container product-catalog" id="produtos" aria-labelledby="catalog-title">
-    <div className="catalog-heading"><div><span className="store-kicker">ENCONTRE SEU PRÓXIMO FAVORITO</span><Heading id="catalog-title">Explore nossos produtos<span className="heading-dot">.</span></Heading></div>
+    <div className="catalog-heading"><div><span className="store-kicker">ENCONTRE SEU PRÓXIMO FAVORITO</span><Heading id="catalog-title">{sector === "digital_material" ? "Explore os materiais" : sector === "book" ? "Livros e E-books" : "Explore nossos produtos"}<span className="heading-dot">.</span></Heading></div>
       {!loading && !error && !isDemoMode && <span className="catalog-total">{products.length} {products.length === 1 ? "produto disponível" : "produtos disponíveis"}</span>}
     </div>
     {!isDemoMode && <div className="catalog-controls" role="search" aria-label="Buscar no catálogo">

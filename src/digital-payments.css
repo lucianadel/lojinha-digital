@@ -7,3 +7,7 @@
 .public-store .digital-page a { display: inline-block; margin-top: 20px; color: #b7d3ff; }
 .public-store .digital-actions { display: flex; flex-wrap: wrap; gap: 15px; margin-block: 20px; }
 .public-store .digital-receipt-cover { display: block; width: 180px; height: 240px; object-fit: contain; }
+
+.materials-banner{margin-block:2rem;padding:clamp(1.25rem,4vw,3rem);border-radius:24px;background:linear-gradient(125deg,#fff0bd,#fce0ef 55%,#ddf6ef);color:#30243c;overflow-wrap:anywhere}.materials-banner h1{font-size:clamp(1.8rem,4vw,3.2rem);max-width:850px}.materials-banner p{max-width:780px;line-height:1.7}.materials-banner ol{display:flex;gap:2rem;flex-wrap:wrap;padding-left:1.5rem}.materials-banner li{flex:1;min-width:150px}@media(max-width:600px){.materials-banner ol{display:block}.materials-banner li{margin-block:.8rem}}
+
+.public-store .materials-banner .store-kicker{color:#685080}

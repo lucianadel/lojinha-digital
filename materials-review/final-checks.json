@@ -1,0 +1,35 @@
+{
+  "branch": "feat/materiais-digitais-entrega-automatica",
+  "continued_from": "47a228c",
+  "development_reconciled": "db6feea",
+  "vitest": {
+    "success": true,
+    "numTotalTests": 249,
+    "numPassedTests": 249,
+    "numFailedTests": 0
+  },
+  "build": {
+    "success": true,
+    "catalog_kits": 63,
+    "categories": 6,
+    "paid_documents_public": 0,
+    "warning": "main bundle exceeds 500 kB"
+  },
+  "sql_checks": 55,
+  "browser_widths": [
+    390,
+    1440
+  ],
+  "browser_errors": 0,
+  "source_kits_verified": 63,
+  "physical_pdfs": 65,
+  "real_charges": 0,
+  "remote_migrations": 0,
+  "paid_pdf_uploads": 0,
+  "production_deploys": 0,
+  "pending": [
+    "authenticated IDs for 53 kits from prior public snapshot",
+    "migration approval and test-environment configuration",
+    "sandbox checkout with real provider webhook and recovery email"
+  ]
+}

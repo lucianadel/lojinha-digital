@@ -23,5 +23,5 @@ export function kidsDraftInput(kit: ImportKit, categoryId: string, coverUrl: str
   if (!categoryId || !coverUrl.startsWith("https://")) throw new Error("Categoria ou capa inválida.");
   const expected = kit.activities <= 80 ? 9.9 : kit.activities <= 200 ? 14.9 : 19.9;
   if (kit.price !== expected) throw new Error("Preço fora do catálogo aprovado.");
-  return {title:kit.title,slug:kit.slug,short_description:kit.short_description,description:kit.description,category_id:categoryId,price:kit.price,cover_url:coverUrl,cover_alt:kit.cover_alt,purchase_method:"whatsapp",whatsapp_number:"5521992530081",hotmart_url:null,status:"draft",featured:false};
+  return {title:kit.title,slug:kit.slug,short_description:kit.short_description,description:kit.description,category_id:categoryId,price:kit.price,cover_url:coverUrl,cover_alt:kit.cover_alt,product_sector:"digital_material",purchase_method:"whatsapp",whatsapp_number:"5521992530081",hotmart_url:null,status:"draft",featured:false};
 }
